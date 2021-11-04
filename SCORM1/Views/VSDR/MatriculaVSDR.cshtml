@@ -1,0 +1,108 @@
+﻿@using SCORM1.Models.VSDR;
+@using SCORM1.Models.ViewModel;
+@using SCORM1.Models
+@using PagedList.Mvc;
+@model SCORM1.Models.ViewModel.CreateVsdrSession
+@Html.Partial("_LoginSuperAdmin")
+<div id="encabezadocursos">
+    <img src="~/Content/Images/debate/banner-salon-de-debate.jpg" style="height:200px;width:100%" />
+</div>
+<div id="hiperlink">
+    <img src="~/Content/Images/icon-home.png" alt="" style="margin-left:5%;width:25px" />
+    <a href="@Url.Action("Index", "Home")" style="font-weight: bolder">INICIO /</a>
+    <a href="@Url.Action("VsdrUserList", "VSDR")" style="font-weight: bolder">COMUNIDAD SOCIAL DE CONOCIMIENTO /</a>
+    <a href="#" style="font-weight: bolder; color:#FC3650"> VSDR </a>
+</div>
+<div class="container">
+    <br />
+    <p style="text-align:center; font-size: 70px;"><b>MATRICULAS </b>DEBATE </p>
+    <br />
+</div>
+
+@using (Html.BeginForm("SearchUserManager", "VSDR", FormMethod.Post, new { @class = "row", role = "search" }))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.User, new { htmlAttributes = new { @class = "", @style = "width:190px", placeholder = "Nombre del Usuario" } })
+            </div>
+            <div class="col-md-2">
+                @Html.HiddenFor(Model => Model.Id_VSDR)
+                <button type="submit" class="btn-buscar">Buscar</button>
+            </div>
+        </div>
+
+    </div>
+}
+<br />
+<br />
+
+@using (Html.BeginForm("VSDR2", "VSDR", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(Model => Model.Id_VSDR);
+    <div class="container" style="padding:0px">
+        <div class="table-responsive col-md-12 col-sm-12">
+            <table class="table">
+                <thead class="tb-thead-vsdr">
+                    <tr>
+                        <th><center>Nombre Completo</center></th>
+                        <th><center>Usuario</center></th>
+                        <th><center>Documento</center></th>
+                        <th><center>Rol</center></th>
+                        <th><center>Estado Matrícula</center></th>
+                        <th><center>Matricular</center></th>
+                        <th><center>Desmatricular</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; Model.UserOfCompany.Count() > i; i++)
+                    {
+                        <tr>
+                            <td>
+                                <center>@Model.UserOfCompany[i].FirstName @Model.UserOfCompany[i].LastName</center>
+                            </td>
+                            <td>
+                                <center> @Model.UserOfCompany[i].UserName</center>
+                            </td>
+                            <td>
+                                <center>@Model.UserOfCompany[i].Document</center>
+                            </td>
+                            <td>
+                                <center>@Model.UserOfCompany[i].Role</center>
+                            </td>
+                            @{int contador = 0; }
+                            @for (int x = 0; Model.listEnrollment.Count() > x; x++)
+                            {
+                                if (Model.UserOfCompany[i].Id == Model.listEnrollment[x].user_id)
+                                {
+                                    <td>
+                                        <center>Activo</center>
+                                    </td>
+                                    contador = 1;
+                                    break;
+                                }
+
+                            }
+                            @if (contador == 0)
+                            {
+                                <td>
+                                    <center>Inactivo</center>
+                                </td>
+
+                            }
+                            <td>@Html.ActionLink(" ", "VSDR2", "VSDR", new { id = @Model.UserOfCompany[i].Id, id_vsdr = @Model.Id_VSDR, page = @Model.UserOfCompany.PageNumber }, new { @class = "btn-ok-matricula", style = " " })</td>
+                            <td>@Html.ActionLink(" ", "DeleteVSDR", "VSDR", new { id = @Model.UserOfCompany[i].Id, id_vsdr = @Model.Id_VSDR }, new { @class = "btn-eliminar-matricula", style = " " })</td>
+                            @{ Model.User = Model.UserOfCompany[i].Id; }
+                            @Html.HiddenFor(Model => Model.User)
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model.UserOfCompany, page => Url.Action("MatriculaVSDR", new { page, id_vsdr = Model.Id_VSDR }))
+
+        </div>
+    </div>
+
+}
+

@@ -1,0 +1,9 @@
+﻿@using SCORM1.Models.Lms;
+@using SCORM1.Models.ViewModel;
+@using SCORM1.Enum;
+@model UserViewEvaluaciones
+@Html.Partial("_LoginPartial")
+@foreach (var topic1 in Model.ListBankQuestion)
+{
+    <p>@topic1.BaQu_Name</p>
+}

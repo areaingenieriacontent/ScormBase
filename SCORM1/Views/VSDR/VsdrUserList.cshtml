@@ -1,0 +1,58 @@
+﻿@using SCORM1.Models.VSDR;
+@using SCORM1.Models.ViewModel;
+@model VsdrUserVM
+@Html.Partial("_LoginPartial")
+@{ ViewBag.Title = "Lista de VSDR"; }
+
+<div id="encabezadocursos">
+    <img src="~/Content/Images/debate/banner-salon-de-debate.jpg" style="height:200px;width:100%" />
+</div>
+<div id="hiperlink">
+    <img src="~/Content/Images/icon-home.png" alt="" style="margin-left:5%;width:25px" />
+    <a href="@Url.Action("Index", "Home")" style="font-weight: bolder">INICIO/</a>
+    <a href="@Url.Action("ComunidadSocial", "Home")" style="font-weight: bolder">COMUNIDAD SOCIAL DE CONOCIMIENTOS/</a>
+    <a href="@Url.Action("VsdrUserList", "VSDR")" style="font-weight: bolder; color:#FC3650">SALÓN DE DEBATE</a>
+</div>
+<br />
+<br />
+<div class="container">
+    <p style="text-align:center; font-size: 70px;"><b>SALÓN DE DEBATE INTERACTIVO</b><br />DEL CONOCIMIENTO</p>
+    <br />
+    <br />
+    <div class="container">
+        <div class="row justify-content-around align-items-center">
+            <div>@Html.ActionLink("MANUAL DE USO - ESTUDIANTE", "", "", new { @class = "button-action btn-responsive" })</div>
+            @*<div>@Html.ActionLink("MANUAL DE USO - DOCENTE", "", "", new { @class = "button-action btn-responsive" })</div>*@
+        </div>
+    </div>
+    <br />
+    <br />
+    <p style="text-align:center; font-weight: bolder; color:#FC3650">DEBATES DISPONIBLES </p>
+    <br />
+    <br />
+    <br />
+    @if (Model.listOfVsdr.Count > 0)
+    {
+        for (int i = 0; i < Model.listOfVsdr.Count; i++)
+        {
+<div>
+    <div class="contenedor">
+        <div class="img-prueba">
+        </div>
+        <img style="width:100%" src="~/Content/Images/salon-de-debate/portada-debate.png" alt="Ingresar" />
+        <div class="texto-central">
+            <h2 style="font-size: 40px; font-weight: bolder">@Html.DisplayFor(modelItem => Model.listOfVsdr[i].name)</h2>
+            <p><b>Comienza:</b> @Html.DisplayFor(modelItem => Model.listOfVsdr[i].start_date)</p>
+            <p><b>Fin:</b> @Html.DisplayFor(modelItem => Model.listOfVsdr[i].end_date)</p>
+        </div>
+        <div class="aling-btn-ingresar-vsdr">
+            <a class="btn-ingresar-vsdr" href="../VSDR/VsdrContent/@Model.listOfVsdr[i].id">INGRESAR</a>
+        </div>
+        @Html.HiddenFor(modelItem => Model.listOfVsdr[i].id)
+    </div>
+</div>
+                    <br />}
+                                }
+</div>
+
+

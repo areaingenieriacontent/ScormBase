@@ -1,0 +1,192 @@
+﻿@using SCORM1.Models.VSDR;
+@using SCORM1.Models.ViewModel;
+@model VsdrUserVM
+@Html.Partial("_LoginPartial")
+@{
+    ViewBag.Title = "VsdrContent";
+}
+
+<div id="encabezadocursos">
+    <img src="~/Content/Images/debate/banner-salon-de-debate.jpg" style="height:200px;width:100%" />
+</div>
+<div id="hiperlink">
+    <img src="~/Content/Images/icon-home.png" alt="" style="margin-left:5%;width:25px" />
+    <a href="@Url.Action("Index", "Home")" style="font-weight: bolder">INICIO /</a>
+    <a href="@Url.Action("ComunidadSocial", "Home")" style="font-weight: bolder">COMUNIDAD SOCIAL DE CONOCIMIENTOS /</a>
+    <a href="@Url.Action("VsdrUserList", "VSDR")">SALÓN DE DEBATE /</a>
+    <a href="#" style="font-weight: bolder; color:#FC3650">@Model.actualVsdr.name</a>
+</div>
+<br />
+<br />
+<div class="panel panel-primary">
+    <p style="text-align:center; font-size: 70px;">@Model.actualVsdr.name</p>
+    <br />
+    <div class="container" style="border:solid 1px #000000">
+        <br />
+        <p><strong>Contenido: </strong></p>
+        <p>@Html.Raw(Model.actualVsdr.case_content)<p>
+            <br />
+    </div>
+    <br />
+    <div class="container" style="padding:0px">
+        <img src="~/Content/Images/salon-de-debate/banner-aportes-docente.png" width="100%" />
+    </div>
+    <br />
+    <br />
+    <div class="container" style="padding:0px">
+        <embed src="@Model.actualVsdr.resource_url" style="width:100%;height:500px">
+        @Html.AntiForgeryToken()
+        <form class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </form>
+    </div>
+    <br />
+    <div class="container" style="padding:0px">
+        <img src="~/Content/Images/salon-de-debate/banner-aportes-estudiante.png" width="100%" />
+    </div>
+    <br />
+    @if (Model.listOfIssuedFiles.Count() != 0)
+    {
+        <div class="container">
+            <div class="row justify-content-between">
+                @for (int i = 0; Model.listOfIssuedFiles.Count() > i; i++)
+                {
+                    <div class="col-md-6" style="border:solid 1px;max-width:49%;margin-top:10px">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <a href="~/VSDRUploads/@Model.listOfIssuedFiles[i].file_name" target="_blank" download="Recurso" style="background-color:transparent;color:#f57c00;">
+                                    <img src="~/Content/Images/salon-de-debate/icon-aporte.png" style="transform: translate(10px, 10px)" />
+                                </a>
+                            </div>
+                            <div class="col-md-9">
+                                <p><b>@Model.listOfIssuedFiles[i].register_name</b></p>
+                                <p>@Model.listOfIssuedFiles[i].file_description</p>
+                                <p style="font-weight:bolder;color:#FC3650">@Model.listOfIssuedFiles[i].registered_date</p>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <br />
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+
+    }
+    <br />
+    <div class="container" style="border:1px solid">
+        <br />
+        <p style="text-align:center; font-size: 20px;">COMENTARIOS <b>DOCENTE</b></p>
+        @if (Model.VsdrEnrollment == null || Model.VsdrEnrollment.qualification == 0)
+        {
+            <p><b>Sin evaluar</b></p>
+
+        }
+        else
+        {
+
+            for (int x = 0; x < Model.listOfComments.Count; x++)
+            {
+
+                <div class="row" style="padding:10px">
+                    <img src="~/Content/Images/evaluaciones/icon-evaluaciones.png" style="width:25px" /> <p style="margin-left: 10px ">@Model.listOfComments[x].content</p>
+                </div>
+            }
+            <br />
+            <p><b>Nota: </b>@Model.VsdrEnrollment.qualification</p>
+            <br />
+        }
+    </div>
+    <br />
+    <div class="container">
+        <div class="row justify-content-end">
+            <div>
+                <button id="BTN_ADD" type="button" class="btn-fondo-rojo btn-responsive" data-toggle="modal" data-target="#AddVSDRFile" style="margin-right:10px">AÑADIR ARCHIVO</button>
+                @if (Model.meetingAvailable)
+                {
+                    @Html.ActionLink("IR A LA SALA", "RedirectToUrl", "VSDR", new { id = @Model.actualVsdr.id }, new { @class = "btn-fondo-rojo btn-responsive" })
+                }
+                else
+                {
+                    @Html.ActionLink("IR A LA SALA", "RedirectToUrl", "VSDR", new { id = @Model.actualVsdr.id }, new { @class = "btn-fondo-negro btn-responsive" })
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</div>
+
+<div class="panel panel-primary" style="border-color:brown; border-width:3px">
+    <br />
+    <br />
+    <div class="col-md-12">
+    </div>
+
+    <div id="AddVSDRFile" class="modal fade" role="dialog">
+        <div class="modal-dialog1">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("UploadVSDRFile", "VSDR", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                    {
+
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <br />
+                            <div class="col-md-6">
+                                @Html.HiddenFor(model => model.actualVsdr.id)
+                                @Html.HiddenFor(model => model.actualVsdr.name)
+                                @Html.HiddenFor(model => model.actualVsdr.open)
+                                @Html.HiddenFor(model => model.actualVsdr.start_date)
+                                @Html.HiddenFor(model => model.actualVsdr.resource_url)
+                                @Html.HiddenFor(model => model.actualVsdr.session_url)
+                                @Html.HiddenFor(model => model.actualVsdr.end_date)
+                                @Html.HiddenFor(model => model.actualVsdr.case_content)
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.vsdrFileToAdd.register_name, htmlAttributes: new { @class = "control-label col-md-3" })
+                                @Html.EditorFor(model => model.vsdrFileToAdd.register_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.vsdrFileToAdd.register_name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                            </div>
+
+                            <div class="col-md-12">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(model => model.vsdrFileToAdd.file_description, 10, 15, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.vsdrFileToAdd.file_description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.vsdrFileToAdd.file_name, htmlAttributes: new { @class = "control-label col-sm-2" })
+                                <div class="col-sm-10">
+                                    <input type="file" id="CoverpageModule" name="upload" />
+                                </div>
+                            </div>
+
+                            <br />
+                        </div>
+                        <div class="row">
+                            <p><b>Recuerde el archivo debe ser de extensión   .PDF - .DOC - .PPTX - .XLS - . XLSX - .DOCX</b></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-modal" name="singin">Crear</button>
+                        </div>
+
+                    }
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />

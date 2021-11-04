@@ -1,0 +1,43 @@
+﻿@using SCORM1.Models.ViewModel
+@model  UserProfileViewModel
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div id="encabezadocursos">
+    <img src="~/Content/Images/evaluaciones/banner-evaluaciones.jpg" style="height:200px;width:100%" />
+</div>
+<div class="container">
+    <br />
+    <h1 class="title" style="text-align:center"> TÉRMINOS Y CONDICIONES</h1>
+    <br />
+    <div class="row justify-content-center">
+        <embed src="../TermsandConditions/@Model.FileTerms" width="800" height="375">
+    </div>
+    @using (Html.BeginForm("Validateterms", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @*<div class="col-md-12">
+                <h1 class="title">GUÍA DE NAVEGACIÓN </h1>
+                <video controls="controls" width="600" height="500" style="margin-top: -70px;" onclick="this.paused?this.play():this.pause();" poster="~/Content/Images/cap1.png">
+                    <source src="https://www.aprendeyavanza2.com.co/Gastronomia/Recursos/video.mp4" type="video/mp4" />
+                </video>
+                <br /><br />
+
+            </div>*@
+
+        <div class="row justify-content-center">            
+            @Html.CheckBoxFor(m => m.termsandconditions, htmlAttributes: new { @checked = "checked", @style = "color:black;opacity:1;pointer-events: all;margin: 6px;position:relative " })            
+            @Html.LabelFor(m => m.termsandconditions, htmlAttributes: new { @class = "", @style = "color:black " })
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="row justify-content-center">
+                <br /><br />
+                <center><button class="button-action" name="singin" type="submit">Continuar</button></center>
+            </div>
+        </div>
+    }
+</div>
+

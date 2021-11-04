@@ -1,0 +1,419 @@
+﻿@using SCORM1.Models.Lms;
+@using SCORM1.Models.ViewModel;
+@using SCORM1.Enum;
+@model UserProfileViewModel
+<link href="https://fonts.googleapis.com/css?family=Catamaran:200,300,400,700,800&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@{
+    ViewBag.Title = "Profile";
+}
+@Html.Partial("_LoginPartial")
+@Styles.Render("~/Content/style1.css")
+@Styles.Render("~/Content/StyleHome.css")
+
+
+
+<body class="path-frontpage eu-cookie-compliance-status-null eu-cookie-compliance-popup-open" style="position: relative; overflow-y: auto;">
+    <div class="page-wrapper">
+        <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTWSFNR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas="">
+            <div id="block-homepage-cover-local" class="block block-block-content block-block-content01f17a1b-15d1-4a30-b5f0-df2818d6a3fd">
+                <div style="position:relative">
+                    <div class="slideshow-container">
+                        <!-- Full-width images with number and caption text -->
+                        <div class="mySlides fade">
+                            <img src="~/Content/Images/slider-zona-de-informacion/1-slide-1-guia-de-navegacion.jpg" style="width:100%">
+                            <div class="container" style="position:relative">
+                                <div class="row justify-content-end">
+                                    <a id="btn-landing" href="https://aprendeyavanza2.com.co/contentGroup/bureau/Documentos/Guia%20navegacion%20bv.pdf" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <img src="~/Content/Images/slider-zona-de-informacion/2-slide-2-politica-de-puntos.jpg" style="width:100%">
+                            <div class="container" style="position:relative">
+                                <div class="row justify-content-end">
+                                    <a id="btn-landing" href="https://aprendeyavanza2.com.co/contentgroup/bureau/politica_puntos.pdf" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <img src="~/Content/Images/slider-zona-de-informacion/3-slide-3-oferta-de-cursos.jpg" style="width:100%">
+                            <div class="container" style="position:relative">
+                                <div class="row justify-content-end">
+                                    <a id="btn-landing" href="https://www.bvtrainingcommunity.com/tienda/" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Next and previous buttons -->
+                        <a class="prev" onclick="plusSlides(-1)" style="z-index:10"><img src="~/Content/Images/slider-zona-de-informacion/before-slide-icon.png" /></a>
+                        <a class="next" onclick="plusSlides(1)" style="z-index:10"><img src="~/Content/Images/slider-zona-de-informacion/after-slide-icon.png" /></a>
+                    </div>
+                </div>
+                <div style="text-align:center;visibility:hidden">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+                <script type="text/javascript">
+                    var slideIndex = 0;
+                    showSlides();
+
+                    // Next/previous controls
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    // Thumbnail image controls
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides() {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("dot");                       
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        slideIndex++;
+                        if (slideIndex > slides.length) { slideIndex = 1 }  
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                        setTimeout(showSlides, 5000)
+                    }
+                </script>
+            </div>
+        </div>
+
+        <br />
+        <div>
+            <div class="page-intro">
+                <div id="block-ourmarketssync" class="block block-block-content block-block-content15642d29-61f3-4219-bc83-2976579cec1e">
+                    <div class="page-hat simple row" style="margin-top:5vw">
+                        <div class="page-hat--content">
+                            <div class="page-hat--title js-letters-effect clearfix text-formatted field field--name-field-text-animation field--type-text-long field--label-hidden field__items" style="opacity: 1;margin-top: 20%;color:#333333">
+                                <p>
+                                    <div class="word-container"><span>Z</span><span>O</span><span>N</span><span>A</span></div> <div class="word-container"><span>D</span><span>E</span></div> <div class="word-container"><strong><span>A</span><span>P</span><span>R</span><span>E</span><span>N</span><span>D</span><span>I</span><span>Z</span><span>A</span><span>J</span><span>E</span></strong></div>
+                                    <div class="word-container"><strong><span>I</span><span>N</span><span>T</span><span>E</span><span>R</span><span>A</span><span>C</span><span>T</span><span>I</span><span>V</span><span>O</span></strong></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="container">
+                    <div class="paragraph paragraph--type--button paragraph--view-mode--default" style="margin-top:12%">
+                        <div class="container">
+                            <div class="marger text-center-from-mobile">
+                                <a id="btn-landing" href="@Url.Action("ListModuleVirtual", "User")" class="button-action" style="position:relative">INGRESA A TUS CURSOS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="section-gallery">
+                    <div class="section-gallery--container">
+                        <h2 class="section-gallery--title field__item">
+                            <p style="color:black">COMUNIDAD SOCIAL&nbsp;<strong>DE CONOCIMIENTOS</strong></p>
+                        </h2>
+                        <div class="section-gallery--slider">
+                            <ul class="section-gallery--list field field--name-field-gallery-items field--type-entity-reference-revisions field--label-hidden field__items">
+                                <li class="section-gallery--item field__item">
+                                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                                        <div class="teaser-img">
+                                            <a href="../logscomunidad/clickobl" class="field-group-link" target="_blank">
+                                                <div class="teaser-img--picture field__item">
+                                                    <div class="teaser-img--picture">
+                                                        <picture>
+                                                            <source srcset="~/Content/Images/lecciones-aprendidas.jpg" media="all and (min-width: 1280px)" type="image/jgp">
+                                                            <source srcset="~/Content/Images/lecciones-aprendidas.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/lecciones-aprendidas.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/lecciones-aprendidas.jpg" type="image/jpg">
+                                                            <img src="~/Content/Images/lecciones-aprendidas.jpg" alt=" " typeof="foaf:Image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="teaser-img--content">
+                                                    <h2 class="tag-std field__item c-1-c-3">
+                                                        APRENDIZAJE BASADO<br />
+                                                        EN EXPERIENCIAS
+                                                    </h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="section-gallery--item field__item">
+                                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                                        <div class="teaser-img">
+                                            <a href="../logscomunidad/ClickVideoteca" class="field-group-link" target="_blank">
+                                                <div class="teaser-img--picture field__item">
+                                                    <div class="teaser-img--picture">
+                                                        <picture>
+                                                            <source srcset="~/Content/Images/comunidad/zona-videoteca.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/zona-videoteca.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/zona-videoteca.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/zona-videoteca.jpg" type="image/jpg">
+                                                            <img src="~/Content/Images/comunidad/zona-videoteca.jpg" alt="" typeof="foaf:Image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="teaser-img--content">
+                                                    <h2 class="tag-std field__item c-1-c-3">
+                                                        ZONA DE
+                                                        VIDEOTECA
+                                                    </h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="section-gallery--item field__item">
+                                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                                        <div class="teaser-img">
+                                            <a href="../logscomunidad/clickperiodico" target="_blank" class="field-group-link">
+                                                <div class="teaser-img--picture field__item">
+                                                    <div class="teaser-img--picture">
+                                                        <picture>
+                                                            <source srcset="~/Content/Images/comunidad/periodico-virtual.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/periodico-virtual.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/periodico-virtual.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/periodico-virtual.jpg" type="image/jpg">
+                                                            <img src="~/Content/Images/comunidad/periodico-virtual.jpg" alt=" " typeof="foaf:Image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="teaser-img--content">
+                                                    <h2 class="tag-std field__item c-1-c-3">
+                                                        REVISTA
+                                                        VIRTUAL
+                                                    </h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="section-gallery--item field__item">
+                                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                                        <div class="teaser-img">
+                                            <a href="../logscomunidad/clickjuego" target="_blank" class="field-group-link">
+                                                <div class="teaser-img--picture field__item">
+                                                    <div class="teaser-img--picture">
+                                                        <picture>
+                                                            <source srcset="~/Content/Images/comunidad/juegos-serios.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/juegos-serios.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/juegos-serios.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/juegos-serios.jpg" type="image/jpg">
+                                                            <img src="~/Content/Images/comunidad/juegos-serios.jpg" alt="" typeof="foaf:Image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="teaser-img--content">
+                                                    <h2 class="tag-std field__item c-1-c-3">
+                                                        JUEGOS SERIOS<br />
+                                                        DE APRENDIZAJE
+                                                    </h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="section-gallery--list field field--name-field-gallery-items field--type-entity-reference-revisions field--label-hidden field__items">                                
+                                <li class="section-gallery--item field__item">
+                                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                                        <div class="teaser-img">
+                                            <a href="@Url.Action("VsdrUserList", "VSDR")" class="field-group-link">
+                                                <div class="teaser-img--picture field__item">
+                                                    <div class="teaser-img--picture">
+                                                        <picture>
+                                                            <source srcset="~/Content/Images/comunidad/salon-debate.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/salon-debate.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/salon-debate.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/salon-debate.jpg" type="image/jpg">
+                                                            <img src="~/Content/Images/comunidad/salon-debate.jpg" alt="" typeof="foaf:Image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="teaser-img--content">
+                                                    <div class="teaser-img--action">
+                                                        <span class="link-std">
+                                                            PROXIMAMENTE
+                                                        </span>
+                                                    </div>
+                                                    <h2 class="tag-std field__item c-3-c-6">
+                                                        SALÓN DE DEBATE<br />
+                                                        INTERACTIVO DEL<br />
+                                                        CONOCIMIENTO<br />
+                                                    </h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="section-gallery--item field__item">
+                                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                                        <div class="teaser-img">
+                                            <a href="../logscomunidad/ClickBiblioteca" class="field-group-link" target="_blank">
+                                                <div class="teaser-img--picture field__item">
+                                                    <div class="teaser-img--picture">
+                                                        <picture>
+                                                            <source srcset="~/Content/Images/comunidad/medicion.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/medicion.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/medicion.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                            <source srcset="~/Content/Images/comunidad/medicion.jpg" type="image/jpg">
+                                                            <img src="~/Content/Images/comunidad/medicion.jpg" alt="" typeof="foaf:Image">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <div class="teaser-img--content">
+                                                    <h2 class="tag-std field__item c-3-c-6">
+                                                        BIBLIOTECA
+                                                    </h2>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+
+            <br />
+            <br />
+
+            <div id="block-slider-home" class="block block-block-content block-block-content21c852d5-6755-4fd2-b36b-480e462c4b14">
+                <div class="field field--name-field-image-slider field--type-entity-reference-revisions field--label-hidden field__items">
+                    <div class="field__item">
+                        <div class="paragraph paragraph--type--image-slider paragraph--view-mode--alternate">
+                            <div class="layer-markets alternate">
+                                <div class="container">
+                                    <div class="layer-markets--container">
+                                        <h2 class="layer-markets--title field__item">
+                                            TABLERO DE CONTROL
+                                        </h2>
+                                        <div class="slider-markets">
+                                            <div class="responsive-slider--wrapper" style="overflow: hidden; width: 100%;">
+                                                <ul class="slider-markets--list field field--name-field-image-slider-items field--type-entity-reference-revisions field--label-hidden field__items" style="overflow: hidden; position: relative; width: 700%; display: -ms-flexbox; display: flex;">
+                                                    <li class="field__item" style="width: 4%;">
+                                                        <div class="paragraph paragraph--type--image-slider-items paragraph--view-mode--default">
+                                                            <a href="@Url.Action("VistaAvances", "User")" class="field-group-link teaser-market">
+                                                                <div class="teaser-market--picture">
+                                                                    <picture>
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mis-calificaciones.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mis-calificaciones.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mis-calificaciones.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mis-calificaciones.jpg" type="image/jpg">
+                                                                        <img src="~/Content/Images/tablerodecontrol/mis-calificaciones.jpg" alt="" typeof="foaf:Image">
+                                                                    </picture>
+                                                                </div>
+                                                                <div class="teaser-market--content">
+                                                                    <p class="teaser-market--title field__item" style="color:black">
+                                                                        MIS CALIFICACIONES
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="field__item" style="width: 6%;">
+                                                        <div class="paragraph paragraph--type--image-slider-items paragraph--view-mode--default">
+                                                            <a href="@Url.Action("Create","Contacto")" style="background-color:#fff" target="_blank" class="field-group-link teaser-market">
+                                                                <div class="teaser-market--picture">
+                                                                    <picture>
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mesa-de-servicio.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mesa-de-servicio.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mesa-de-servicio.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/mesa-de-servicio.jpg" type="image/jpg">
+                                                                        <img src="~/Content/Images/tablerodecontrol/mesa-de-servicio.jpg" alt="" typeof="foaf:Image">
+                                                                    </picture>
+                                                                </div>
+                                                                <div class="teaser-market--content">
+                                                                    <p class="teaser-market--title field__item " style="color:black">
+                                                                        MESA DE SERVICIO
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="field__item" style="width: 4%;">
+                                                        <div class="paragraph paragraph--type--image-slider-items paragraph--view-mode--default">
+                                                            <a href="@Url.Action("Exchange", "User")" class="field-group-link teaser-market">
+                                                                <div class="teaser-market--picture">
+                                                                    <picture>
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/sistema-de-puntos.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/sistema-de-puntos.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/sistema-de-puntos.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                                                        <source srcset="~/Content/Images/tablerodecontrol/sistema-de-puntos.jpg" type="image/jpg">
+                                                                        <img src="~/Content/Images/tablerodecontrol/sistema-de-puntos.jpg" alt="" typeof="foaf:Image">
+                                                                    </picture>
+                                                                </div>
+                                                                <div class="teaser-market--content">
+                                                                    <p class="teaser-market--title field__item" style="color:black">
+                                                                        SISTEMA DE PUNTOS
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+<script>
+  function eliminarCookies() {
+      document.cookie.split(";").forEach(function (c) {
+          document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+          window.location.assign("https://aprendeyavanza2.com.co/DCOBureau/Account/Login?id="@ViewData["Usuario"]);
+
+    });
+  }
+    $('#clear').click(function () {
+        eliminarCookies();
+
+    });
+
+     function ClickObl() {
+        alert("click1");
+         @Html.ActionLink("ClickObl", "LogsComunidad")
+
+    }
+</script>
+
+<br />
+<br />
+<br />
+<br />
+<div>
+</div>
+

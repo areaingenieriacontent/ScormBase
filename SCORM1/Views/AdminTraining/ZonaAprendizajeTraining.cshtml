@@ -1,0 +1,137 @@
+﻿@using SCORM1.Models.ViewModel;
+@model UserProfileViewModel
+@Html.Partial("_LoginFormador")
+@{
+    ViewBag.Title = "ZonaAprendizajeTraining";
+
+
+}
+
+<div id="encabezadocursos">
+    <img src="~/Content/Images/sistema de puntos/banner-sistema-de-puntos.jpg" style="height:200px;width:100%" />
+</div>
+<div id="hiperlink">
+    <img src="~/Content/Images/icon-home.png" alt="" style="margin-left:5%;width:25px" />
+    <a href="@Url.Action("Index", "AdminTraining")" style="font-weight: bolder;">INICIO /</a>
+    <a href="#" style="font-weight: bolder;color:#FC3650">ZONA DE APRENDIZAJE</a>
+</div>
+<div id="block-ourmarketssync" class="block block-block-content block-block-content15642d29-61f3-4219-bc83-2976579cec1e">
+    <div class="page-hat simple row" style="margin-top:5vw">
+        <div class="page-hat--content">
+            <div class="page-hat--title js-letters-effect clearfix text-formatted field field--name-field-text-animation field--type-text-long field--label-hidden field__items" style="opacity: 1;margin-top: 20%;color:#333333">
+                <p>
+                    <div class="word-container"><span>Z</span><span>O</span><span>N</span><span>A</span></div> <div class="word-container"><span>D</span><span>E</span></div> <div class="word-container"><strong><span>A</span><span>P</span><span>R</span><span>E</span><span>N</span><span>D</span><span>I</span><span>Z</span><span>A</span><span>J</span><span>E</span></strong></div>
+                    <div class="word-container"><strong><span>I</span><span>N</span><span>T</span><span>E</span><span>R</span><span>A</span><span>C</span><span>T</span><span>I</span><span>V</span><span>O</span></strong></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="section-gallery" style="margin-top:12%">
+    <div class="section-gallery--container">
+        <div class="section-gallery--slider">
+            <ul class="section-gallery--list field field--name-field-gallery-items field--type-entity-reference-revisions field--label-hidden field__items">
+                <li class="section-gallery--item field__item">
+                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                        <div class="teaser-img">
+                            <a href="@Url.Action("ListModuleVirtual"/*Vista*/, "User"/*Carpeta de la vista*/)" class="field-group-link" target="_blank">
+                                <div class="teaser-img--picture field__item">
+                                    <div class="teaser-img--picture">
+                                        <picture>
+                                            <source srcset="~/Content/Images/comunidad/img2.jpg" media="all and (min-width: 1280px)" type="image/jgp">
+                                            <source srcset="~/Content/Images/comunidad/img2.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img2.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img2.jpg" type="image/jpg">
+                                            <img src="~/Content/Images/comunidad/img2.jpg" alt=" " typeof="foaf:Image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="teaser-img--content">
+                                    <h2 class="tag-std field__item c-1-c-3">
+                                        CONTENIDO MALLA <br />
+                                        POR SEMESTRE
+                                    </h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="section-gallery--item field__item">
+                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                        <div class="teaser-img">
+                            <a href="https://www.aprendeyavanza2.com.co/UnAula/User/ViewArticle/7" class="field-group-link">
+                                <div class="teaser-img--picture field__item">
+                                    <div class="teaser-img--picture">
+                                        <picture>
+                                            <source srcset="~/Content/Images/comunidad/img4.jpg" media="all and (min-width: 1280px)" type="image/jgp">
+                                            <source srcset="~/Content/Images/comunidad/img4.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img4.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img4.jpg" type="image/jpg">
+                                            <img src="~/Content/Images/comunidad/img4.jpg" alt="" typeof="foaf:Image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="teaser-img--content">
+                                    <h2 class="tag-std field__item c-1-c-3">
+                                        BASE DE DATOS
+                                    </h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="section-gallery--item field__item">
+                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                        <div class="teaser-img">
+                            <a href="@Url.Action("ListModuleEvaluative", "User")" class="field-group-link" target="_blank">
+                                <div class="teaser-img--picture field__item">
+                                    <div class="teaser-img--picture">
+                                        <picture>
+                                            <source srcset="~/Content/Images/comunidad/img1.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img1.jpg" media="all and (min-width: 960px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img1.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img1.jpg" type="image/jpg">
+                                            <img src="~/Content/Images/comunidad/img1.jpg" alt="" typeof="foaf:Image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="teaser-img--content">
+                                    <h2 class="tag-std field__item c-1-c-3">
+                                        LEARNING BY DOING
+                                    </h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="section-gallery--item field__item">
+                    <div class="paragraph paragraph--type--gallery-items paragraph--view-mode--default">
+                        <div class="teaser-img">
+                            <a href="https://www.aprendeyavanza2.com.co/UnAula/Recursos/pdf_(1).pdf" target="_blank" class="field-group-link">
+                                <div class="teaser-img--picture field__item">
+                                    <div class="teaser-img--picture">
+                                        <picture>
+                                            <source srcset="~/Content/Images/comunidad/img3.jpg" media="all and (min-width: 1280px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img3.jpgg" media="all and (min-width: 960px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img3.jpg" media="all and (min-width: 640px)" type="image/jpg">
+                                            <source srcset="~/Content/Images/comunidad/img3.jpg" type="image/jpg">
+                                            <img src="~/Content/Images/comunidad/img3.jpg" alt=" " typeof="foaf:Image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="teaser-img--content">
+                                    <h2 class="tag-std field__item c-1-c-3">
+                                        SISTEMA
+                                        DE EVALUACION
+                                    </h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
