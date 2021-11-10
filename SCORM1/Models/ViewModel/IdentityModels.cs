@@ -24,6 +24,7 @@ using SCORM1.Models.ratings;
 using SCORM1.Models.RigidCourse;
 using SCORM1.Models.VSDR;
 using SCORM1.Models.Survey;
+using SCORM1.Models.ClientProfile;
 
 namespace SCORM1.Models
 {
@@ -69,6 +70,7 @@ namespace SCORM1.Models
         public Terms_and_Conditions TermsJuego { get; set; }
         public String Foto_perfil { get; set; }
         public Int32? ComunidadActiva { get; set; }
+        public bool hasClientProfile { get; set; }
 
         [ForeignKey("CompanyId")]
         public virtual Company Company { get; set; }
@@ -125,7 +127,7 @@ namespace SCORM1.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("Plat_Silver", throwIfV1Schema: false)
+            : base("Plataforma_Silver", throwIfV1Schema: false)
         {
         }
 
@@ -271,6 +273,12 @@ namespace SCORM1.Models
         public virtual DbSet<MultipleOptionsSurveyUser> MultipleOptionsSurveyUsers { get; set; }
         public virtual DbSet<TrueFalseSurveyQuestion> TrueFalseSurveyQuestions { get; set; }
         public virtual DbSet<TrueFalseSurveyUser> TrueFalseSurveyUsers { get; set; }
+
+        //Perfilamiento de Clientes
+
+        public virtual DbSet<Dia> Dias { get; set; }
+        public virtual DbSet<Clasificacion> Clasificaciones { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
 
         public static ApplicationDbContext Create()
         {

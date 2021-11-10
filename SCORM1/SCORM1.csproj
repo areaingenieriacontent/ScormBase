@@ -283,6 +283,7 @@
     <Compile Include="Controllers\AdminPointManagerCategoryController.cs" />
     <Compile Include="Controllers\AdminTrainingController.cs" />
     <Compile Include="Controllers\BossController.cs" />
+    <Compile Include="Controllers\ClientProfileController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\ContentAdminController.cs" />
     <Compile Include="Controllers\FileController.cs" />
@@ -311,12 +312,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107211430522_abc.cs" />
-    <Compile Include="Migrations\202107211430522_abc.Designer.cs">
-      <DependentUpon>202107211430522_abc.cs</DependentUpon>
+    <Compile Include="Migrations\202111092120036_uno.cs" />
+    <Compile Include="Migrations\202111092120036_uno.Designer.cs">
+      <DependentUpon>202111092120036_uno.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
+    <Compile Include="Models\ClientProfile\Clasificacion.cs" />
+    <Compile Include="Models\ClientProfile\Cliente.cs" />
+    <Compile Include="Models\ClientProfile\Dia.cs" />
     <Compile Include="Models\Lms\Advance.cs" />
     <Compile Include="Models\Lms\AdvanceLoseUser.cs" />
     <Compile Include="Models\Lms\AnserPairingStudent.cs" />
@@ -441,6 +445,7 @@
     <Compile Include="Models\ViewModel\AdminPointViewModel.cs" />
     <Compile Include="Models\ViewModel\AdminTrainingControllerViewmodel.cs" />
     <Compile Include="Models\ViewModel\AdminViewModel.cs" />
+    <Compile Include="Models\ViewModel\ClienteViewModel.cs" />
     <Compile Include="Models\ViewModel\ContactoModel.cs" />
     <Compile Include="Models\ViewModel\CorreoModel.cs" />
     <Compile Include="Models\ViewModel\CursoRigidoViewModel.cs" />
@@ -2357,6 +2362,11 @@
     <Content Include="Views\AdminTraining\ComunidadSocialTraining.cshtml" />
     <Content Include="Views\AdminTraining\ZonaAprendizajeTraining.cshtml" />
     <Content Include="Views\AdminTraining\TableroControlTraining.cshtml" />
+    <Content Include="Views\ClientProfile\Index.cshtml" />
+    <Content Include="Views\ClientProfile\ViewClientAdmin.cshtml" />
+    <Content Include="Views\ClientProfile\ViewClient.cshtml" />
+    <Content Include="Views\ClientProfile\IndexAdmin.cshtml" />
+    <Content Include="Views\ClientProfile\MassiveRegister1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2385,8 +2395,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107211430522_abc.resx">
-      <DependentUpon>202107211430522_abc.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111092120036_uno.resx">
+      <DependentUpon>202111092120036_uno.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
