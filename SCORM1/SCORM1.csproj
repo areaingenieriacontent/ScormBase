@@ -312,9 +312,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111092120036_uno.cs" />
-    <Compile Include="Migrations\202111092120036_uno.Designer.cs">
-      <DependentUpon>202111092120036_uno.cs</DependentUpon>
+    <Compile Include="Migrations\202111181459053_uno.cs" />
+    <Compile Include="Migrations\202111181459053_uno.Designer.cs">
+      <DependentUpon>202111181459053_uno.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
@@ -2395,8 +2395,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111092120036_uno.resx">
-      <DependentUpon>202111092120036_uno.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111181459053_uno.resx">
+      <DependentUpon>202111181459053_uno.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

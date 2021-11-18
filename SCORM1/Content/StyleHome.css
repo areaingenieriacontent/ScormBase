@@ -997,16 +997,16 @@ html {
     background-size: 24px 24px
 }
 
-
+/*Background-image es una variable de imagen del logo*/
 
 .site-logo--inner {
-    background-image: url("Images/slider-login/logo-bv-fondo-oscuro.png");
+    background-image: url("Images/slider-login/logo.png");
     background-repeat: no-repeat;
     content: "";
     display: inline-block;
-    width: 700px;
+    width: 580px;
     height: 180px;
-    background-size:700px 180px
+    background-size: 700px 180px
 }
 
 
@@ -8033,7 +8033,7 @@ form input:not([type=checkbox]):not([type=radio]):focus, form select:focus, form
 }
 
 .layer-markets {
-    background: linear-gradient(#333,#333);
+    /*background: linear-gradient(#333,#333);*/
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 100% 50%;
