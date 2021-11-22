@@ -615,6 +615,7 @@ namespace SCORM1.Controllers
         {
             var ComunidadActiva = ApplicationDbContext.Users.Find(GetActualUserId().Id).ComunidadActiva;
             model.ComunidadActiva = ComunidadActiva;
+            var hasCliente = ApplicationDbContext.Users.Find(GetActualUserId().Id).hasClientProfile;
             var GetModuleCompany = GetActualUserId().CompanyId;
             try
             {
@@ -628,7 +629,8 @@ namespace SCORM1.Controllers
                     ListArticles = ListArticlesToSend,
                     Logo = GetUrlLogo(),
                     Form = new FormViewModel(),
-                    ComunidadActiva = ComunidadActiva
+                    ComunidadActiva = ComunidadActiva,
+                    hasClientProfile = hasCliente
                 };
                 model.Form.ListModule = GetModule();
             }

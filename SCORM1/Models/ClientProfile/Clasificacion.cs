@@ -13,5 +13,7 @@ namespace SCORM1.Models.ClientProfile
         public int id { get; set; }
         [Display(Name = "Clasificación")]
         public string name { get; set; }
+        [Display(Name = "Descripción")]
+        public string Descripcion { get; set; }
     }
 }
