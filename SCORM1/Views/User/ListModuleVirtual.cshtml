@@ -49,13 +49,13 @@
 
                                         <a id="btn-curso" href='@Url.Action("Grades", "User", new { id = @modules.Module.Modu_Id })' class="button-action" style="z-index:3">INGRESAR</a>
                                     }
-                                    <div id="picturecursos" class="teaser-img--picture" style="background: white">
+                                    <div id="picturecursos" class="teaser-img--picture" style="background: white;">
                                         <picture>
-                                            <source srcset="~/Content/Images/cursos/ejemplo-curso-1.jpg" media="all and (min-width: 1280px)" type="image/jgp">
-                                            <source srcset="~/Content/Images/cursos/ejemplo-curso-1.jpg" media="all and (min-width: 960px)" type="image/jpg">
-                                            <source srcset="~/Content/Images/cursos/ejemplo-curso-1.jpg" media="all and (min-width: 640px)" type="image/jpg">
-                                            <source srcset="~/Content/Images/cursos/ejemplo-curso-1.jpg" type="image/jpg">
-                                            <img src="~/Content/Images/cursos/ejemplo-curso-1.jpg" alt=" " typeof="foaf:Image">
+                                            <source srcset="~/Resources/@modules.Module.Modu_ImageName" media="all and (min-width: 1280px)" type="image/jgp">
+                                            <source srcset="~/Resources/@modules.Module.Modu_ImageName" media="all and (min-width: 960px)" type="image/jpg">
+                                            <source srcset="~/Resources/@modules.Module.Modu_ImageName" media="all and (min-width: 640px)" type="image/jpg">
+                                            <source srcset="~/Resources/@modules.Module.Modu_ImageName" type="image/jpg">
+                                            <img src="~/Resources/@modules.Module.Modu_ImageName" alt=" " typeof="foaf:Image">
                                         </picture>
                                     </div>
                                     @*<img src="~/Content/Images/cursos/ejemplo-curso-1.jpg" alt="..." style="">*@
