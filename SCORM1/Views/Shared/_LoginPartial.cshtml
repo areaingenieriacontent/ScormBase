@@ -3,49 +3,52 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
-        @Html.AntiForgeryToken()<!-- Inicio Del Contenedor General Del Banner   -->
+        @Html.AntiForgeryToken()
+        <!-- Inicio Del Contenedor General Del Banner   -->
 
 
         <!-- Inicio Del Contenedor General Del Banner   -->
 
         <nav class="navbar navbar-expand-lg" style=" background-color:#dcdcdc;padding:initial">
+            <span class="navbar-text">
+                <a>@Html.ActionLink("Hola " + Session["FirstName"] + " " + Session["LastName"] + "!", "ProfileUser", "User", routeValues: null, htmlAttributes: new { title = "Manage", @style = "color:#000000; padding: 14px 16px; z-index:1000" })</a>
+            </span>
             <span class="menu-scroll" onclick="openNav()">&#9776;</span>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="button" href="javascript:document.getElementById('logoutForm').submit()" style=" color: #FFFFFF;background-color:#be1622; border-color:#be1622 ;display: block;text-align: center;padding: 14px 16px;z-index:1000;font-family: 'BureauVeritas-ThinUltraCondensed'">CERRAR SESIÓN</a>
+                    <a class="button" href="javascript:document.getElementById('logoutForm').submit()" style="color:#FFFFFF;background-color:#be1622; border-color:#be1622 ;display: block;text-align: center;padding: 14px 16px;z-index:1000;font-family: 'BureauVeritas-ThinUltraCondensed'">CERRAR SESIÓN</a>
                 </li>
             </ul>
             <header class="site-header" style="visibility: visible;">
                 <div class="site-heading" style="margin-top: 50px;">
-                    <div class="site-logo">
+                    <div class="site-logo ">
                         <div id="block-sitebranding" class="site-logo--inner block block-system block-system-branding-block">
                             <h1>C</h1>
                         </div>
                     </div>
                     <nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="main-menu block block-menu navigation menu--main">
-                        <ul class="menu menu-level-0" style="text-align:center; margin-left:12vw">
-                            <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
-                                <a href="@Url.Action("Index", "Home")" data-drupal-link-system-path="node/236" style="color:#000000">INICIO</a>
-                                <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;" >
-                                <a href="@Url.Action("ListModuleVirtual", "User")" data-drupal-link-system-path="node/236" style="color:#000000">ZONA DE APRENDIZAJE</a>
-                                <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
-                                </div>
-                            </li>
-
-                            <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
-                                <a href="@Url.Action("ComunidadSocial", "Home")" data-drupal-link-system-path="node/236" style="color:#000000">COMUNIDAD SOCIAL DE CONOCIMIENTO</a>
-                                <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
-                                </div>
-                            </li>
-                            <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
-                                <a href="@Url.Action("TableroControl", "Home")" style="color:#000000">TABLERO DE CONTROL</a>
-                                <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
-                                </div>
-                            </li>
-                        </ul>
+                          <ul class="menu menu-level-0" style="text-align:center; margin-left:18vw">
+                              <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
+                                  <a href="@Url.Action("Index", "Home")" data-drupal-link-system-path="node/236" style="color:#000000; padding-left: 25px; padding-right:25px;">INICIO</a>
+                                  <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
+                                  </div>
+                              </li>
+                              @*<li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
+                                  <a href="@Url.Action("ListModuleVirtual", "User")" data-drupal-link-system-path="node/236" style="color:#000000">ZONA DE APRENDIZAJE</a>
+                                  <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
+                                  </div>
+                              </li>*@
+                              <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
+                                  <a href="@Url.Action("ComunidadSocial", "Home")" data-drupal-link-system-path="node/236" style="color:#000000; padding-left: 25px; padding-right:25px;">SERVICIOS</a>
+                                  <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
+                                  </div>
+                              </li>
+                              <li class="menu-item menu-item--collapsed" style="background-color: #dcdcdc94;">
+                                  <a href="@Url.Action("TableroControl", "Home")" style="color:#000000; padding-left: 25px; padding-right:25px;">TABLERO DE CONTROL</a>
+                                  <div class="menu_link_content menu-link-contentmain view-mode-mega-menu menu-dropdown">
+                                  </div>
+                              </li>
+                          </ul>
                     </nav>
                 </div>
             </header>
