@@ -96,42 +96,41 @@
                 }
             </div>
             break;
-        case ROLES.AdministradoGeneral:
-            @Styles.Render("~/Content/demo1.css")
-            @Html.Partial("_LoginSuperAdmin")
-            <div class="center-block">
-                @if (Model.TermsandConditions.terms == Terms_and_Conditions.No_apceptado)
-                {
-                    { Html.RenderAction("Admin", "AdminGeneral"); }
-                }
-                else
-                {
-                    { Html.RenderAction("Admin", "AdminGeneral"); }
-                }
+            case ROLES.AdministradoGeneral:
+                @Styles.Render("~/Content/demo1.css")
+                @Html.Partial("_LoginSuperAdmin")
+                <div class="center-block">
+                    @if (Model.TermsandConditions.terms == Terms_and_Conditions.No_apceptado)
+                    {
+                        { Html.RenderAction("Admin", "AdminGeneral"); }
+                    }
+                    else
+                    {
+                        { Html.RenderAction("Admin", "AdminGeneral"); }
+                    }
 
             </div>
             break;
-        case ROLES.AdministradordePuntos:
-            <div class="center-block">
-                @if (Model.TermsandConditions.terms == Terms_and_Conditions.No_apceptado)
-                {
-                    { Html.RenderAction("TermsandConditions", "AdminPoint"); }
-                }
-                else
-                {
-                    { Html.RenderAction("ProfileAd", "AdminPoint"); }
-                }
+            case ROLES.AdministradordePuntos:
+                <div class="center-block">
+                    @if (Model.TermsandConditions.terms == Terms_and_Conditions.No_apceptado)
+                    {
+                        { Html.RenderAction("TermsandConditions", "AdminPoint"); }
+                    }
+                    else
+                    {
+                        { Html.RenderAction("ProfileAd", "AdminPoint"); }
+                    }
 
             </div>
             break;
-        case ROLES.SuperAdministradoGeneral:
-            @Html.Partial("_LoginSuperAdmin")
-            <section class="row">
-                <br /><br />
-                @{ Html.RenderAction("CreationOfCompanies", "SuperAdminGeneral"); }
-            </section>
+            case ROLES.SuperAdministradoGeneral:
+                <section class="row">
+                    <br /><br />
+                    @{ Html.RenderAction("CreationOfCompanies", "SuperAdminGeneral"); }
+                </section>
 
-            break;
+                break;
     }
 }
 else

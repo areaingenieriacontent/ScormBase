@@ -32,6 +32,8 @@ namespace SCORM1.Models.SCORM1
         public string CompanyNit { get; set; }
         [Display(Name = "Juego")]
         public GAME CompanyGame { get; set; }
+        [Display(Name = "Perfilamiento Clientes")]
+        public bool? hasClientProfile { get; set; }
 
         public virtual ICollection<ApplicationUser> ApplicationUser { get; set; }
         public virtual ICollection<Area> Area { get; set; }

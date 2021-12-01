@@ -1,69 +1,180 @@
 ﻿@using SCORM1.Models.ViewModel;
 @using SCORM1.Enum;
 @model ClienteViewModel
+@Html.Partial("_LoginPartial")
 @{
     ViewBag.Title = "Sistema de clientes";
 }
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<style>
+    .titulostabla {
+        color:#ffffff;
+        text-align: center;
+        font-weight: bolder;
+        background-color: #be1622;
+    }
 
-<!--Para regresar al home-->
-<div class="row fecha">
-    <div class="btn-group btn-breadcrumb">
-        <a href="@Url.Action("Index", "Home")" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+    .tablaclientes {
+        padding-top: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 30px;
+    }
+
+    .btn-asignarperfil {
+        display: flex;
+        justify-content: space-around;
+        color: #be1622;
+        
+    }
+
+    .btn-buscarcliente{
+        display:flex;
+        padding-top:20px;
+
+    }
+
+
+</style>
+<div class="panel-primary" style="background-image: url(../Content/Images/slider-login/slide-2.jpg);height: 800px; background-repeat: no-repeat">
+    <div class="page-hat simple">
+        <div class="page-hat--content">
+            <div class="page-hat--title js-letters-effect clearfix text-formatted field field--type-text-long field--label-hidden field__items" style=" opacity: 1; margin-top: 80vh;position:relative;z-index:1; font-size:80px">
+                <h2>
+                    PERFILAMIENTO DE <br />
+                    <b>CLIENTES</b>
+                </h2>
+            </div>
+        </div>
     </div>
 </div>
+<!--Para regresar al home-->
+@*<div class="row fecha">
+        <div class="btn-group btn-breadcrumb">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+    </div>*@
 <br />
 
 <!-- To-Do Ajustar para buscar clientes-->
 <div class="panel-primary">
-    @*
-        @using (Html.BeginForm("SearchClient", "ClientProfile", FormMethod.Post, new { @class = "row", role = "search" }))
-        {
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.cliente.lastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre" } })
-            </div>
-            <div class="col-md-1">
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </div>
-        }*@
 
-    <div class="form-group">
-        <div class="caja_botones" style="clear:both;">
-            <button id="BTN_ADD" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Añadir Cliente</button>
-        </div>
-    </div>
+    @using (Html.BeginForm("SearchClient", "ClientProfile", FormMethod.Post, new { @class = "row", role = "search" }))
+    {
+         <div class="row btn-buscarcliente">
+             <div class="col-md-3"></div>
+             <div class="col-md-8">
+                 @Html.EditorFor(model => model.first, new { htmlAttributes = new { @class = "form-control", placeholder = "Ingrese Nombre o Apellido" } })
+             </div>
+             <div class="col-md-1">
+                 <button type="submit" class="btn btn-default">Buscar</button>
+             </div>
+         </div>
+    }
+    <!--Boton para añadir un nuevo cliente-->
+    @*<div class="form-group" style="padding-top:30px; padding-left:50px;">
+            <div class="caja_botones" style="clear:both;">
+                <button id="BTN_ADD" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Añadir Cliente</button>
+            </div>
+        </div>*@
 
     @if (Model.listOfClients != null)
     {
         <br />
-        <div class="table-responsive">
+        <div class="table-responsive tablaclientes">
             <table class="table table-hover table-striped">
                 <thead>
-                    <tr class="success">
-                        <th>Nombre y apellido</th>
-                        <th>Identificacón</th>
-                        <th>Razón Social</th>
-                        <th>Días</th>
-                        <th>Tipo Perfil</th>
-                        <th>Editar</th>
+                    <tr>
+                        <th class="titulostabla">Nombre y apellido</th>
+                        <th class="titulostabla">Razón Social</th>
+                        <th class="titulostabla">Día de Visita</th>
+                        <th class="titulostabla">Perfil</th>
+                        <th class="titulostabla">Actualizar Perfil</th>
                         <!--<th>Eliminar</th>-->
                     </tr>
                 </thead>
+
                 <tbody>
                     @foreach (var client in Model.listOfClients)
                     {
-                        <tr>
+                        <tr style="text-align: center;">
                             <td>@client.firstName @client.lastName</td>
-                            <td>@client.identification</td>
                             <td>@client.enterpriseName</td>
                             <td>@client.Dia.name</td>
-                            <td>@client.Clasificacion.name</td>
-                            <td><a href='@Url.Action("EditClient", "ClientProfile", new { id = client.id})'>Editar</a></td>
+                            @if (client.idClasificacion != null)
+                            {
+
+                                <td><abbr title="@client.Clasificacion.Descripcion" style="text-decoration:none !important">@client.Clasificacion.name</abbr></td>
+
+                            }
+                            else
+                            {
+                                <td class="btn-asignarperfil"><a href='@Url.Action("EditClient", "ClientProfile", new { id = client.id})'>Asignar Perfil</a></td>
+                            }
+                            @if (client.idClasificacion != null)
+                            {
+                                <td class="btn-asignarperfil"><a href="@Url.Action("EditClient", "ClientProfile", new { id = client.id})"><i class="fas fa-edit fa-2x"></i></a></td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
                             @*<td><a href='@Url.Action("DeleteClient", "ClientProfile", new { id = client.id})'>Eliminar</a></td>*@
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
+    }
+    else if (Model.SearchlistOfClients != null)
+    {
+        <br />
+        <div class="table-responsive tablaclientes">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th class="titulostabla">Nombre y apellido</th>
+                        <th class="titulostabla">Razón Social</th>
+                        <th class="titulostabla">Día de Visita</th>
+                        <th class="titulostabla">Perfil</th>
+                        <th class="titulostabla">Actualizar Perfil</th>
+                        <!--<th>Eliminar</th>-->
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var client in Model.SearchlistOfClients)
+                    {
+                        <tr style="text-align: center;">
+                            <td>@client.firstName @client.lastName</td>
+                            <td>@client.enterpriseName</td>
+                            <td>@client.Dia.name</td>
+                            @if (client.idClasificacion != null)
+                            {
+
+                                <td><abbr title="@client.Clasificacion.Descripcion" style="text-decoration:none !important">@client.Clasificacion.name</abbr></td>
+
+                            }
+                            else
+                            {
+                                <td class="btn-asignarperfil"><a href='@Url.Action("EditClient", "ClientProfile", new { id = client.id})'>Asignar Perfil</a></td>
+                            }
+                            @if (client.idClasificacion != null)
+                            {
+                                <td class="btn-asignarperfil"><a href="@Url.Action("EditClient", "ClientProfile", new { id = client.id})"><i class="fas fa-edit fa-2x"></i></a></td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                            @*<td><a href='@Url.Action("DeleteClient", "ClientProfile", new { id = client.id})'>Eliminar</a></td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
     }
     else
     {
@@ -74,144 +185,4 @@
 
         </div>
     }
-
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog1">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>Nuevo Cliente</strong></h2>
-                </div>
-                <div class="modal-body">
-
-                    @using (Html.BeginForm("CreateClient", "ClientProfile", FormMethod.Post, new { @class = "row", role = "form", enctype = "multipart/form-data" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="row">
-                            <br />
-                            <div>
-                                <div class="col-md-6">
-                                    @Html.LabelFor(model => model.cliente.firstName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                    @Html.EditorFor(model => model.cliente.firstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombres" } })
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.lastName, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    @Html.EditorFor(model => model.cliente.lastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Apellidos", @style = "width:100%" } })
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.identification, htmlAttributes: new { @class = "control-label col-md-3" })
-                                    @Html.EditorFor(model => model.cliente.identification, new { htmlAttributes = new { @class = "form-control", @placeholder = "Documento", @style = "width:100%" } })
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.enterpriseName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                    @Html.EditorFor(model => model.cliente.enterpriseName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Razón Social", @style = "width:100%" } })
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.idDia, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    @Html.DropDownListFor(model => model.cliente.idDia, new SelectList(Model.listOfDays, "id", "name"), "Seleccione un día", htmlAttributes: new { @class = "form-control" })
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.idClasificacion, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    @Html.DropDownListFor(model => model.cliente.idClasificacion, new SelectList(Model.listOfCalification, "id", "name"), "Clasificación", htmlAttributes: new { @class = "form-control" })
-                                </div>
-                            </div>
-
-                            <br />
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-8">
-                                    <br /><br />
-                                    <center><button class="btn btn-primary" name="singin" type="submit">Crear Cliente</button></center>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="myEdit" class="modal fade" role="dialog">
-        <div class="modal-dialog1">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>Nuevo Cliente</strong></h2>
-                </div>
-                <div class="modal-body">
-
-                    @using (Html.BeginForm("Edit", "ClientProfile", FormMethod.Post, new { @class = "row", role = "form", enctype = "multipart/form-data" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="row">
-                            <br />
-                            <div>
-                                <div class="col-md-6">
-                                    @Html.LabelFor(model => model.cliente.firstName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                    @Html.EditorFor(model => model.cliente.firstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombres" } })
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.lastName, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    @Html.EditorFor(model => model.cliente.lastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Apellidos", @style = "width:70%" } })
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.identification, htmlAttributes: new { @class = "control-label col-md-3" })
-                                    @Html.EditorFor(model => model.cliente.identification, new { htmlAttributes = new { @class = "form-control", @placeholder = "Documento", @style = "width:70%" } })
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.enterpriseName, htmlAttributes: new { @class = "control-label col-md-3" })
-                                    @Html.EditorFor(model => model.cliente.enterpriseName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Razón Social", @style = "width:70%" } })
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.idDia, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    @Html.DropDownListFor(model => model.cliente.idDia, new SelectList(Model.listOfDays, "id", "name"), "Seleccione un día")
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.LabelFor(model => model.cliente.idClasificacion, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    @Html.DropDownListFor(model => model.cliente.idClasificacion, new SelectList(Model.listOfCalification, "id", "name"), "Clasificación")
-                                </div>
-                            </div>
-
-                            <br />
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-8">
-                                    <br /><br />
-                                    <center><button class="btn btn-primary" name="singin" type="submit">Crear Cliente</button></center>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 </div>
