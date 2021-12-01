@@ -37,6 +37,7 @@ namespace SCORM1.Controllers
         }
 
         // envia la lista de compañias 
+       [Authorize]
         public ActionResult CreationOfCompanies()
         {
             List<Company> Companies = ApplicationDbContext.Companies.ToList();
@@ -78,7 +79,8 @@ namespace SCORM1.Controllers
                     CompanyNit = model.CompanyNit,
                     CompanySector = model.CompanySector,
                     CompanyType = model.CompanyType,
-                    CompanyGame = model.CompanyGame
+                    CompanyGame = model.CompanyGame,
+                    hasClientProfile = model.isClientProfile                    
                 };
                 ApplicationDbContext.Companies.Add(NewComapany);
                 ApplicationDbContext.SaveChanges();
@@ -91,6 +93,7 @@ namespace SCORM1.Controllers
 
         //aqui se actualizan las compañias 
         //Get
+        [Authorize]
         [HttpGet]
         public ActionResult UpdateCompanyCurrent(int id)
         {
@@ -101,13 +104,14 @@ namespace SCORM1.Controllers
                 ActualRole = GetActualUserId().Role,
                 ListCompanies = Companies,
                 Logo = GetUrlLogo(),
-                CompanyToUpdate = CompanyToUpdate,            
+                CompanyToUpdate = CompanyToUpdate,
+                isClientProfile = CompanyToUpdate.hasClientProfile
             };
             TempData["UpdateCompany"] = "Se va a actualizar";
             model.Sesion = GetActualUserId().SesionUser;
             return View("CreationOfCompanies",model);
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult UpdateCompanyCurrent(SuperAdminGeneralControllerViewModel model)
         {
@@ -119,11 +123,14 @@ namespace SCORM1.Controllers
                 companyToUpdate.CompanySector = model.CompanyToUpdate.CompanySector;
                 companyToUpdate.CompanyType = model.CompanyToUpdate.CompanyType;
                 companyToUpdate.CompanyGame = model.CompanyToUpdate.CompanyGame;
+                companyToUpdate.hasClientProfile = model.CompanyToUpdate.hasClientProfile;
                 ApplicationDbContext.SaveChanges();
 
                 TempData["Menssage"] = "Se Actualizo la compañia con éxito";
+                model.Sesion = GetActualUserId().SesionUser;
                 return RedirectToAction("CreationOfCompanies");
             }
+            model.Sesion = GetActualUserId().SesionUser;
             return RedirectToAction("CreationOfCompanies");
         }
 
@@ -168,7 +175,8 @@ namespace SCORM1.Controllers
                     TermsandConditions = Terms_and_Conditions.No_apceptado,
                     Videos = VIDEOS.No_apceptado,
                     SesionUser =SESION.No,
-                    TermsJuego=Terms_and_Conditions.No_apceptado
+                    TermsJuego=Terms_and_Conditions.No_apceptado,
+                    hasClientProfile = getcompany.hasClientProfile                    
 
                 };
                 string next = VerifyUserFields(UserToCreate);
@@ -256,7 +264,7 @@ namespace SCORM1.Controllers
                 Country = user.Country,
                 UserOfCompany = ListOfUserAdmin,
                 Logo = GetUrlLogo(),
-                enable = user.Enable,
+                enable = user.Enable
                 
             };
             TempData["UpdateUserCurrent"] = "Actualizar";

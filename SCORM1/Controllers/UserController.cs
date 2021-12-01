@@ -630,7 +630,7 @@ namespace SCORM1.Controllers
                     Logo = GetUrlLogo(),
                     Form = new FormViewModel(),
                     ComunidadActiva = ComunidadActiva,
-                    hasClientProfile = hasCliente
+                    hasClientProfile = GetActualUserId().Company.hasClientProfile
                 };
                 model.Form.ListModule = GetModule();
             }

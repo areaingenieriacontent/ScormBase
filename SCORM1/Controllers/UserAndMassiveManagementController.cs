@@ -311,7 +311,8 @@ namespace SCORM1.Controllers
                     TermsandConditions = Terms_and_Conditions.No_apceptado,
                     Videos = VIDEOS.No_apceptado,
                     SesionUser = SESION.No,
-                    TermsJuego = Terms_and_Conditions.No_apceptado
+                    TermsJuego = Terms_and_Conditions.No_apceptado,
+                    hasClientProfile = true
                 };
                 string next = VerifyUserFields(UserToCreate);
 
@@ -700,7 +701,8 @@ namespace SCORM1.Controllers
                 CityOfTheCompany = GetCityOfTheCompany(),
                 LocationOfTheCompany = GetLocationOfTheCompany(),
                 PositionTheCompany = GetPosition(),
-                Logo = GetUrlLogo()
+                Logo = GetUrlLogo(),
+                hasClientProfile = user.hasClientProfile   
             };
             TempData["UpdateUserCurrent"] = "Actualizar";
             UserToModified.Sesion = GetActualUserId().SesionUser;
@@ -758,6 +760,7 @@ namespace SCORM1.Controllers
             user.PositionId = UserToModified.PositionId;
             user.LocationId = UserToModified.LocationId;
             user.Enable = UserToModified.enable;
+            user.hasClientProfile = UserToModified.hasClientProfile;
             UserManager.RemovePassword(user.Id);
             UserManager.AddPassword(user.Id, UserToModified.UserName);
             UserManager.Update(user);
@@ -917,6 +920,7 @@ namespace SCORM1.Controllers
                 {
                     var Country = GetActualUserId().Country;
                     var CompanyId = GetActualUserId().CompanyId;
+                    var getcompany = ApplicationDbContext.Companies.Find(CompanyId);
                     foreach (DataTable table in result.Tables)
                     {
                         for (int i = 0; i < table.Rows.Count; i++)
@@ -939,7 +943,8 @@ namespace SCORM1.Controllers
                                 TermsandConditions = Terms_and_Conditions.No_apceptado,
                                 Videos = VIDEOS.No_apceptado,
                                 SesionUser = SESION.No,
-                                TermsJuego = Terms_and_Conditions.No_apceptado
+                                TermsJuego = Terms_and_Conditions.No_apceptado,
+                                hasClientProfile = getcompany.hasClientProfile
                             };
                             IdentityResult results = await UserManager.CreateAsync(user, user.UserName);
                             AddErrors(results);

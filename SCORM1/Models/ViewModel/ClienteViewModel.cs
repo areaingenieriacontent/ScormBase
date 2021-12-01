@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
 using SCORM1.Models.ClientProfile;
 
 namespace SCORM1.Models.ViewModel
@@ -14,5 +15,6 @@ namespace SCORM1.Models.ViewModel
         public List<Cliente> listOfClients { get; set; }
         public List<Dia> listOfDays { get; set; }
         public List<Clasificacion> listOfCalification { get; set; }
+        public IPagedList<Cliente> SearchlistOfClients { get; set; }
     }
 }

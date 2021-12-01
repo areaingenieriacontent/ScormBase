@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Excel;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using PagedList;
+using PagedList.Mvc;
 using SCORM1.Models;
 using SCORM1.Models.ClientProfile;
 using SCORM1.Models.ViewModel;
@@ -16,12 +20,12 @@ namespace SCORM1.Controllers
     public class ClientProfileController : Controller
     {
         protected ApplicationDbContext db { get; set; }
-        //protected UserManager<ApplicationUser> UserManager { get; set; }
+        protected UserManager<ApplicationUser> UserManager { get; set; }
 
         public ClientProfileController()
         {
             db = new ApplicationDbContext();
-            //this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));
+            this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));
         }
 
         // GET: PerfilamientoCliente
@@ -59,14 +63,25 @@ namespace SCORM1.Controllers
         //To-Do
         [Authorize]
         [HttpPost]
-        public ActionResult SearchClient(string name)
+        public ActionResult SearchClient(ClienteViewModel model, int? page)
         {
-            ClienteViewModel cl = new ClienteViewModel
+            if (string.IsNullOrEmpty(model.first) || string.IsNullOrWhiteSpace(model.first)) {
+                return View("Index");
+            }
+            else
             {
-                cliente = new Cliente(),
-                listOfClients = db.Clientes.Where(x => x.firstName == name).ToList()
-            };
-            return View("Index", cl);
+                var userId = User.Identity.GetUserId();
+                var companyId = db.Users.Find(userId).Company.CompanyId;
+                IPagedList<Cliente> ListOfclients = db.Clientes.OrderBy(x => x.id).Where(x => x.User.CompanyId == companyId && (x.firstName.Contains(model.first) || x.lastName.Contains(model.first))).ToList().ToPagedList(page ?? 1, 6);
+                model = new ClienteViewModel
+                {
+                    SearchlistOfClients = ListOfclients,
+                    listOfCalification = db.Clasificaciones.ToList(),
+                    listOfDays = db.Dias.ToList()
+                };
+                model.Sesion = GetActualUserId().SesionUser;
+                return View("Index", model);
+            }
         }
 
         [HttpPost]
@@ -116,6 +131,7 @@ namespace SCORM1.Controllers
                 listOfClients = db.Clientes.Where(x => x.userId == userId).ToList(),
                 listOfCalification = db.Clasificaciones.ToList(),
                 listOfDays = db.Dias.ToList()
+                
             };
             cvm.Sesion = db.Users.Find(userId).SesionUser;
             return View(cvm);
@@ -182,7 +198,7 @@ namespace SCORM1.Controllers
                 //clientToUpdate.lastName = cl.cliente.lastName;
                 //clientToUpdate.identification = cl.cliente.identification;
                 //clientToUpdate.enterpriseName = cl.cliente.enterpriseName;
-                clientToUpdate.idDia = cl.cliente.idDia;
+                //clientToUpdate.idDia = cl.cliente.idDia;
                 clientToUpdate.idClasificacion = cl.cliente.idClasificacion;
                 db.SaveChanges();
             }
@@ -196,7 +212,7 @@ namespace SCORM1.Controllers
                 listOfDays = db.Dias.ToList()
             };
             cvm.Sesion = db.Users.Find(userId).SesionUser;
-            return View("Index", cvm);
+            return RedirectToAction("Index");
         }
 
         [Authorize]
@@ -242,7 +258,7 @@ namespace SCORM1.Controllers
             cvm.Sesion = db.Users.Find(userId).SesionUser;
             return View("IndexAdmin", cvm);
         }
-
+        
         [HttpGet]
         [AllowAnonymous]
         public ActionResult MassiveRegister1()
@@ -334,9 +350,23 @@ namespace SCORM1.Controllers
             }
             return View(cvm);
         }
+        public ApplicationUser GetActualUserId()
+        {
+            var userId = User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
+            return user;
+        }
         private string VerifyFields(DataSet result)
         {
             return "success";
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

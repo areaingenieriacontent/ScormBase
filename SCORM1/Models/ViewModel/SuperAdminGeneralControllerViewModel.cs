@@ -36,6 +36,8 @@ namespace SCORM1.Models.ViewModel
 
         [Display(Name = "Juego")]
         public GAME CompanyGame { get; set; }
+        [Display(Name = "Perfilamiento de Clientes")]
+        public bool? isClientProfile { get; set; }
     }
 
     public class SuperAdminGeneralManagementUsersAdminOfTheCompanies : BaseViewModel

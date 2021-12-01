@@ -80,6 +80,8 @@ namespace SCORM1.Models.ViewModel
         //Create the Positions
         [Display(Name = "Cargo")]
         public string PositionName { get; set; }
+        [Display(Name = "Perfilamiento de Clientes")]
+        public bool? hasClientProfile { get; set; }
     }
 
     public class
