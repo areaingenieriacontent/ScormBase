@@ -23,6 +23,7 @@
     }
 
     </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function (){
             $('[data-toogle="tooltip"]').tooltip();
@@ -33,7 +34,7 @@
             var perfilDropdown = $("#perfilDropdown");
 
             perfilDropdown.change(function () {
-                $("#nameTextbox").val(perfilDropdown.find(':select').data('name'));
+                $("#nameTextbox").val(perfilDropdown.find(':select').data('Clasificacion'));
 
             });
 
@@ -93,30 +94,37 @@
                                     <p> @Html.DisplayFor(model => model.cliente.Dia.name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Día de Visita", @style = "width:100%" } })</p>
                                     @if (Model.cliente.Clasificacion != null)
                                     {
-                                        
-                                        @*<select id="perfilDropdown" name="@Html.NameFor(x => x.cliente.Clasificacion.id)">
-                                            <option value="Seleccione Perfil"></option>
+
+                                        <select id="perfilDropdown" name="@Html.NameFor(x => x.cliente.idClasificacion)">
+                                            <option value="">Seleccione Perfil</option>
                                             @foreach (var perfil in Model.listOfCalification)
                                             {
                                                 <option data-toggle="tooltip" data-placement="rigth" title="@perfil.Descripcion" value="@perfil.id" data-name="@perfil.name"
-                                                        @if (Model.cliente.Clasificacion.id == perfil.id)  { <text> selected="selected" </text> }>
+                                                        @if (Model.cliente.Clasificacion.id == perfil.id) { <text> selected="selected" </text> }>
 
                                                     @perfil.name
                                                 </option>
 
                                             }
                                             @Html.ValidationMessageFor(model => model.cliente.id)
-                                        </select>*@
-
-
-
-                                        @Html.DropDownListFor(model => model.cliente.idClasificacion, new SelectList(Model.listOfCalification, "id", "name"), "Clasificación", htmlAttributes: new { @class = "form-control", @style = "width:100%", title= "Descripción:" + Model.cliente.Clasificacion.Descripcion })
+                                        </select>
                                     }
                                     else
                                     {
+                                        <select id="perfilDropdown" name="@Html.NameFor(x => x.cliente.idClasificacion)">
+                                            <option value="">Seleccione Perfil</option>
+                                            @foreach (var perfil in Model.listOfCalification)
+                                            {
+                                                <option data-toggle="tooltip" data-placement="rigth" title="@perfil.Descripcion" value="@perfil.id" data-name="@perfil.name"
+                                                         selected="selected">
 
-                                        <p> @Html.DropDownListFor(model => model.cliente.idClasificacion, new SelectList(Model.listOfCalification, "id", "name"), "Clasificación", htmlAttributes: new { @class = "form-control", @style = "width:100%", })</p>
-                                    }
+                                                    @perfil.name
+                                                </option>
+
+                                            }
+                                            @Html.ValidationMessageFor(model => model.cliente.id)
+                                        </select>
+                                     }
                                 </div>
                             </div>
                         </div>
