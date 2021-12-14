@@ -312,38 +312,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111181459053_uno.cs" />
-    <Compile Include="Migrations\202111181459053_uno.Designer.cs">
-      <DependentUpon>202111181459053_uno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111190944144_uno1.cs" />
-    <Compile Include="Migrations\202111190944144_uno1.Designer.cs">
-      <DependentUpon>202111190944144_uno1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191138032_uno2.cs" />
-    <Compile Include="Migrations\202111191138032_uno2.Designer.cs">
-      <DependentUpon>202111191138032_uno2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191140004_uno3.cs" />
-    <Compile Include="Migrations\202111191140004_uno3.Designer.cs">
-      <DependentUpon>202111191140004_uno3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191147353_uno4.cs" />
-    <Compile Include="Migrations\202111191147353_uno4.Designer.cs">
-      <DependentUpon>202111191147353_uno4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191258137_uno5.cs" />
-    <Compile Include="Migrations\202111191258137_uno5.Designer.cs">
-      <DependentUpon>202111191258137_uno5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111260159311_uno6.cs" />
-    <Compile Include="Migrations\202111260159311_uno6.Designer.cs">
-      <DependentUpon>202111260159311_uno6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111262215208_uno7.cs" />
-    <Compile Include="Migrations\202111262215208_uno7.Designer.cs">
-      <DependentUpon>202111262215208_uno7.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\ClientProfile\Clasificacion.cs" />
@@ -2421,32 +2389,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111181459053_uno.resx">
-      <DependentUpon>202111181459053_uno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111190944144_uno1.resx">
-      <DependentUpon>202111190944144_uno1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191138032_uno2.resx">
-      <DependentUpon>202111191138032_uno2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191140004_uno3.resx">
-      <DependentUpon>202111191140004_uno3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191147353_uno4.resx">
-      <DependentUpon>202111191147353_uno4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191258137_uno5.resx">
-      <DependentUpon>202111191258137_uno5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111260159311_uno6.resx">
-      <DependentUpon>202111260159311_uno6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111262215208_uno7.resx">
-      <DependentUpon>202111262215208_uno7.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
