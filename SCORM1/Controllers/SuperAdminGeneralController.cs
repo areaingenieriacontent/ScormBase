@@ -80,6 +80,14 @@ namespace SCORM1.Controllers
                     CompanySector = model.CompanySector,
                     CompanyType = model.CompanyType,
                     CompanyGame = model.CompanyGame,
+                    ServVideoteca = model.ServiVideoteca,
+                    ServJuegos = model.ServiJuegos,
+                    ServRevista = model.ServiRevista,
+                    ServBiblioteca = model.ServiBiblioteca,
+                    ServABE = model.ServiABE,
+                    ServVSDR = model.ServiVSDR,
+                    ServEdutuber = model.ServiEdutuber,
+                    ServCafeteria = model.ServiCafeteria,
                     hasClientProfile = model.isClientProfile                    
                 };
                 ApplicationDbContext.Companies.Add(NewComapany);
@@ -105,6 +113,14 @@ namespace SCORM1.Controllers
                 ListCompanies = Companies,
                 Logo = GetUrlLogo(),
                 CompanyToUpdate = CompanyToUpdate,
+                ServiVideoteca = CompanyToUpdate.ServVideoteca,
+                ServiJuegos = CompanyToUpdate.ServJuegos,
+                ServiRevista = CompanyToUpdate.ServRevista,
+                ServiBiblioteca = CompanyToUpdate.ServBiblioteca,
+                ServiABE = CompanyToUpdate.ServABE,
+                ServiVSDR = CompanyToUpdate.ServVSDR,
+                ServiCafeteria = CompanyToUpdate.ServCafeteria,
+                ServiEdutuber = CompanyToUpdate.ServEdutuber,
                 isClientProfile = CompanyToUpdate.hasClientProfile
             };
             TempData["UpdateCompany"] = "Se va a actualizar";
@@ -123,6 +139,14 @@ namespace SCORM1.Controllers
                 companyToUpdate.CompanySector = model.CompanyToUpdate.CompanySector;
                 companyToUpdate.CompanyType = model.CompanyToUpdate.CompanyType;
                 companyToUpdate.CompanyGame = model.CompanyToUpdate.CompanyGame;
+                companyToUpdate.ServVideoteca = model.CompanyToUpdate.ServVideoteca;
+                companyToUpdate.ServJuegos = model.CompanyToUpdate.ServJuegos;
+                companyToUpdate.ServRevista = model.CompanyToUpdate.ServRevista;
+                companyToUpdate.ServBiblioteca = model.CompanyToUpdate.ServBiblioteca;
+                companyToUpdate.ServABE = model.CompanyToUpdate.ServABE;
+                companyToUpdate.ServVSDR = model.CompanyToUpdate.ServVSDR;
+                companyToUpdate.ServCafeteria = model.CompanyToUpdate.ServCafeteria;
+                companyToUpdate.ServEdutuber = model.CompanyToUpdate.ServEdutuber;
                 companyToUpdate.hasClientProfile = model.CompanyToUpdate.hasClientProfile;
                 ApplicationDbContext.SaveChanges();
 
@@ -156,7 +180,7 @@ namespace SCORM1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateUser(SuperAdminGeneralManagementUsersAdminOfTheCompanies UserObtainedOfTheView)
         {
-            var getcompany = ApplicationDbContext.Companies.Find(UserObtainedOfTheView.companyId);
+            //var getcompany = ApplicationDbContext.Companies.Find(UserObtainedOfTheView.companyId);
             if (ModelState.IsValid)
             {
                 ApplicationUser UserToCreate = new ApplicationUser
@@ -171,12 +195,12 @@ namespace SCORM1.Controllers
                     Role = ROLES.AdministradoGeneral,
                     CompanyId = UserObtainedOfTheView.companyId,
                     Enable = UserObtainedOfTheView.enable,
-                    Company = getcompany,
                     TermsandConditions = Terms_and_Conditions.No_apceptado,
-                    Videos = VIDEOS.No_apceptado,
                     SesionUser =SESION.No,
-                    TermsJuego=Terms_and_Conditions.No_apceptado,
-                    hasClientProfile = getcompany.hasClientProfile                    
+                    //Videos = VIDEOS.No_apceptado,
+                    //TermsJuego=Terms_and_Conditions.No_apceptado,
+                    //Company = getcompany,
+                    //hasClientProfile = getcompany.hasClientProfile                    
 
                 };
                 string next = VerifyUserFields(UserToCreate);
@@ -186,7 +210,8 @@ namespace SCORM1.Controllers
                     IdentityResult result = await UserManager.CreateAsync(UserToCreate, UserObtainedOfTheView.UserName);
                     if (result.Succeeded)
                     {
-                        SendEmail(UserToCreate.FirstName + " " + UserToCreate.LastName, UserToCreate.Email, UserToCreate.UserName, UserToCreate.Company.CompanyName);
+                        Company compa = ApplicationDbContext.Companies.Find(UserObtainedOfTheView.companyId);
+                        SendEmail(UserToCreate.FirstName + " " + UserToCreate.LastName, UserToCreate.Email, UserToCreate.UserName, compa.CompanyName);
                         return RedirectToAction("ShowTheUserAdministratorsOfTheCompany", new { idCompany = UserObtainedOfTheView.companyId });
                     }
                     TempData["Warning"] = result.Errors.First();

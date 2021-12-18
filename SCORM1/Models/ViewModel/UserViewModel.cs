@@ -100,6 +100,22 @@ namespace SCORM1.Models.ViewModel
         public string Password { get; set; }
         public Int32? ComunidadActiva { get; set; }
         public bool? hasClientProfile { get; set; }
+        [Display(Name = "Videoteca")]
+        public bool? ServVideoteca { get; set; }
+        [Display(Name = "Juegos Serios")]
+        public bool? ServJuegos { get; set; }
+        [Display(Name = "Revista Virtual")]
+        public bool? ServRevista { get; set; }
+        [Display(Name = "Biblioteca")]
+        public bool? ServBiblioteca { get; set; }
+        [Display(Name = "Aprendizaje Basado en Experiencias")]
+        public bool? ServABE { get; set; }
+        [Display(Name = "Salon de Debate Interactivo")]
+        public bool? ServVSDR { get; set; }
+        [Display(Name = "EDUTUBER")]
+        public bool? ServEdutuber { get; set; }
+        [Display(Name = "Cafeteria Virtual")]
+        public bool? ServCafeteria { get; set; }
 
 
     }
@@ -673,8 +689,9 @@ namespace SCORM1.Models.ViewModel
         public float Score { get; set; }
         public DateTime FechaActual { get; set; }
         public string Usuario_Id { get; set; }
-
-
-
+    }
+    public class PersonalizacionViewModel : BaseViewModel
+    {
+        
     }
 }

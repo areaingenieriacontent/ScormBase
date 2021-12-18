@@ -344,6 +344,18 @@
     <Compile Include="Migrations\202111262215208_uno7.Designer.cs">
       <DependentUpon>202111262215208_uno7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112092232184_uno8.cs" />
+    <Compile Include="Migrations\202112092232184_uno8.Designer.cs">
+      <DependentUpon>202112092232184_uno8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112150528326_uno9.cs" />
+    <Compile Include="Migrations\202112150528326_uno9.Designer.cs">
+      <DependentUpon>202112150528326_uno9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112170626173_uno10.cs" />
+    <Compile Include="Migrations\202112170626173_uno10.Designer.cs">
+      <DependentUpon>202112170626173_uno10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\ClientProfile\Clasificacion.cs" />
@@ -2446,6 +2458,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111262215208_uno7.resx">
       <DependentUpon>202111262215208_uno7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112092232184_uno8.resx">
+      <DependentUpon>202112092232184_uno8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112150528326_uno9.resx">
+      <DependentUpon>202112150528326_uno9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112170626173_uno10.resx">
+      <DependentUpon>202112170626173_uno10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

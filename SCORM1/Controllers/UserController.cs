@@ -630,7 +630,15 @@ namespace SCORM1.Controllers
                     Logo = GetUrlLogo(),
                     Form = new FormViewModel(),
                     ComunidadActiva = ComunidadActiva,
-                    hasClientProfile = GetActualUserId().Company.hasClientProfile
+                    hasClientProfile = GetActualUserId().Company.hasClientProfile,
+                    ServVideoteca = GetActualUserId().Company.ServVideoteca,
+                    ServJuegos = GetActualUserId().Company.ServJuegos,
+                    ServRevista = GetActualUserId().Company.ServRevista,
+                    ServBiblioteca = GetActualUserId().Company.ServBiblioteca,
+                    ServABE = GetActualUserId().Company.ServABE,
+                    ServVSDR = GetActualUserId().Company.ServVSDR,
+                    ServCafeteria = GetActualUserId().Company.ServCafeteria,
+                    ServEdutuber = GetActualUserId().Company.ServEdutuber
                 };
                 model.Form.ListModule = GetModule();
             }

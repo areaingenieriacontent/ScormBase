@@ -30,7 +30,7 @@ namespace SCORM1.Controllers
 
         // GET: PerfilamientoCliente
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var userId = User.Identity.GetUserId();
             ClienteViewModel cl = new ClienteViewModel

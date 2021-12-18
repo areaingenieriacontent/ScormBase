@@ -312,7 +312,16 @@ namespace SCORM1.Controllers
                     Videos = VIDEOS.No_apceptado,
                     SesionUser = SESION.No,
                     TermsJuego = Terms_and_Conditions.No_apceptado,
-                    hasClientProfile = true
+                    hasClientProfile = true,
+                    ComunidadActiva = 1,
+                    ServVideoteca = true,
+                    ServJuegos = true,
+                    ServRevista = true,
+                    ServBiblioteca = true,
+                    ServABE = true,
+                    ServVSDR = true,
+                    ServEdutuber = true,
+                    ServCafeteria = true
                 };
                 string next = VerifyUserFields(UserToCreate);
 
@@ -702,7 +711,15 @@ namespace SCORM1.Controllers
                 LocationOfTheCompany = GetLocationOfTheCompany(),
                 PositionTheCompany = GetPosition(),
                 Logo = GetUrlLogo(),
-                hasClientProfile = user.hasClientProfile   
+                hasClientProfile = user.hasClientProfile,
+                ServVideoteca = user.ServVideoteca,
+                ServJuegos = user.ServJuegos,
+                ServRevista = user.ServRevista,
+                ServBiblioteca = user.ServBiblioteca,
+                ServABE = user.ServABE,
+                ServVSDR = user.ServVSDR,
+                ServEdutuber = user.ServEdutuber,                
+                ServCafeteria = user.ServCafeteria
             };
             TempData["UpdateUserCurrent"] = "Actualizar";
             UserToModified.Sesion = GetActualUserId().SesionUser;
@@ -761,6 +778,14 @@ namespace SCORM1.Controllers
             user.LocationId = UserToModified.LocationId;
             user.Enable = UserToModified.enable;
             user.hasClientProfile = UserToModified.hasClientProfile;
+            user.ServVideoteca = UserToModified.ServVideoteca;
+            user.ServJuegos = UserToModified.ServJuegos;
+            user.ServRevista = UserToModified.ServRevista;
+            user.ServBiblioteca = UserToModified.ServBiblioteca;
+            user.ServABE = UserToModified.ServABE;
+            user.ServVSDR = UserToModified.ServVSDR;
+            user.ServEdutuber = UserToModified.ServEdutuber;
+            user.ServCafeteria = UserToModified.ServCafeteria;
             UserManager.RemovePassword(user.Id);
             UserManager.AddPassword(user.Id, UserToModified.UserName);
             UserManager.Update(user);
@@ -944,7 +969,15 @@ namespace SCORM1.Controllers
                                 Videos = VIDEOS.No_apceptado,
                                 SesionUser = SESION.No,
                                 TermsJuego = Terms_and_Conditions.No_apceptado,
-                                hasClientProfile = getcompany.hasClientProfile
+                                hasClientProfile = getcompany.hasClientProfile,
+                                ServVideoteca = getcompany.ServVideoteca,
+                                ServJuegos = getcompany.ServJuegos,
+                                ServRevista = getcompany.ServRevista,
+                                ServBiblioteca = getcompany.ServBiblioteca,
+                                ServABE = getcompany.ServABE,
+                                ServVSDR = getcompany.ServVSDR,
+                                ServCafeteria = getcompany.ServCafeteria,
+                                ServEdutuber = getcompany.ServEdutuber
                             };
                             IdentityResult results = await UserManager.CreateAsync(user, user.UserName);
                             AddErrors(results);
@@ -1635,28 +1668,40 @@ namespace SCORM1.Controllers
             try
             {
                 MailMessage solicitud = new MailMessage();
-                solicitud.Subject = "Bienvenida a la Comunidad Social de Conocimiento Bureau Veritas";
-                solicitud.Body =
-                    "<img src='http://aprendeyavanza2.com.co/bureauveritastrainingcommunity/content/images/image6.jpg' width='50%' />" + "<br/>" +
-                    "Nos alegra saludarte, " + NameUser +
-                   "<br/>" + "Te damos la bienvenida a nuestra comunidad social de conocimiento: " + "<strong>" + "Bureau Veritas Training Community." + "</strong>" + "<br/>" +
-                   "<br/>" + "Nuestra comunidad es un espacio donde vas a tener la oportunidad de " + "<strong>" + "aprender y consultar conocimiento" + "<br/>" +
-                   " a partir de múltiples recursos," + " </strong> " + "los cuales están diseñados para que desarrolles tus" + "<br/>" +
-                   " competencias profesionales y te destaques en el mercado laboral. Aquí podrás compartir y" + "<br/>" +
-                   " aprender de las experiencias de otros miembros de la comunidad, además obtendrás puntos por" + "<br/>" +
-                   " tus interacciones y redimirlos por premios." + " <br/>" +
-                   "<strong>" + "Ponemos a tu disposición:" + "</strong>" + "<br/><br/>" +
-                   "<img src='http://aprendeyavanza2.com.co/bureauveritastrainingcommunity/content/images/imagencorreo1.png' width='50%' />" + "<br/>" +
-                   "<br/></br>" + "Nuestra comunidad estará disponible para ti, las 24 horas del día y los 7 días de la semana." +
-                   "<br/></br>" + "¡Te esperamos!" +
-                   "<h1><strong>" + "Empieza ahora" + "</strong></h1>" +
-                   "<br/>" + "Ahora es tiempo de ingresar y comenzar con tu experiencia de aprendizaje" +
-                   "<br/><br/>" + "Estos son tus datos de acceso:" + "<br/><br/>" +
-                   "Usuario: " + Usuario +
-                   "<br/>" + "Contraseña: " + Usuario + "<br/>" +
-                   "<br/>" +
-                   "<a href='http://aprendeyavanza2.com.co/bureauveritastrainingcommunity'><button style='background: #CC023B; color: #fff; padding: 10px; font-size: 20px; border-radius: 13px;'>Ingresa Aqu&igrave;</button></a>";
+                solicitud.Subject = "Bienvenida a la Comunidad Social de Conocimiento FINXS";
+                //solicitud.Body =
+                //    "<img src='http://aprendeyavanza2.com.co/bureauveritastrainingcommunity/content/images/image6.jpg' width='50%' />" + "<br/>" +
+                //    "Nos alegra saludarte, " + NameUser +
+                //   "<br/>" + "Te damos la bienvenida a nuestra comunidad social de conocimiento: " + "<strong>" + "Bureau Veritas Training Community." + "</strong>" + "<br/>" +
+                //   "<br/>" + "Nuestra comunidad es un espacio donde vas a tener la oportunidad de " + "<strong>" + "aprender y consultar conocimiento" + "<br/>" +
+                //   " a partir de múltiples recursos," + " </strong> " + "los cuales están diseñados para que desarrolles tus" + "<br/>" +
+                //   " competencias profesionales y te destaques en el mercado laboral. Aquí podrás compartir y" + "<br/>" +
+                //   " aprender de las experiencias de otros miembros de la comunidad, además obtendrás puntos por" + "<br/>" +
+                //   " tus interacciones y redimirlos por premios." + " <br/>" +
+                //   "<strong>" + "Ponemos a tu disposición:" + "</strong>" + "<br/><br/>" +
+                //   "<img src='http://aprendeyavanza2.com.co/bureauveritastrainingcommunity/content/images/imagencorreo1.png' width='50%' />" + "<br/>" +
+                //   "<br/></br>" + "Nuestra comunidad estará disponible para ti, las 24 horas del día y los 7 días de la semana." +
+                //   "<br/></br>" + "¡Te esperamos!" +
+                //   "<h1><strong>" + "Empieza ahora" + "</strong></h1>" +
+                //   "<br/>" + "Ahora es tiempo de ingresar y comenzar con tu experiencia de aprendizaje" +
+                //   "<br/><br/>" + "Estos son tus datos de acceso:" + "<br/><br/>" +
+                //   "Usuario: " + Usuario +
+                //   "<br/>" + "Contraseña: " + Usuario + "<br/>" +
+                //   "<br/>" +
+                //   "<a href='http://aprendeyavanza2.com.co/bureauveritastrainingcommunity'><button style='background: #CC023B; color: #fff; padding: 10px; font-size: 20px; border-radius: 13px;'>Ingresa Aqu&igrave;</button></a>";
 
+                solicitud.Body = " Respetado Sr. (a): " + NameUser + "<br/>" +
+                "Cordial Saludo" + "<br/>" +
+
+                "<br/>" + " Es un gusto darle la bienvenida a la plataforma de capacitación de FINXS. Agradecemos ingresar y comenzar con su proceso de aprendizaje con los siguientes datos de acceso:" +
+                  "<br/>" +
+                   "<br/>" + "Usuario: " + Usuario +
+                   "<br/>" + "Contraseña: " + Usuario +
+                    "<br/>" +
+                    "<br/>" + "Link de ingreso a la plataforma:" + "https://aprendeyavanza2.com.co/PlataformaSilver/Home/Index" +
+                "<br/>" +
+                "<br/>" + "Finxs & Content Group" +
+                "<br/>";
                 solicitud.To.Add(Email);
                 solicitud.IsBodyHtml = true;
                 var smtp2 = new SmtpClient();

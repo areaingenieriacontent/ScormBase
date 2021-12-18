@@ -36,6 +36,22 @@ namespace SCORM1.Models.ViewModel
 
         [Display(Name = "Juego")]
         public GAME CompanyGame { get; set; }
+        [Display(Name = "Videoteca")]
+        public bool? ServiVideoteca { get; set; }
+        [Display(Name = "Juegos Serios")]
+        public bool? ServiJuegos { get; set; }
+        [Display(Name = "Revista Virtual")]
+        public bool? ServiRevista { get; set; }
+        [Display(Name = "Biblioteca")]
+        public bool? ServiBiblioteca { get; set; }
+        [Display(Name = "Aprendizaje Basado en Experiencias")]
+        public bool? ServiABE { get; set; }
+        [Display(Name = "Salon de Debate Interactivo")]
+        public bool? ServiVSDR { get; set; }
+        [Display(Name = "EDUTUBER")]
+        public bool? ServiEdutuber { get; set; }
+        [Display(Name = "Cafeteria Virtual")]
+        public bool? ServiCafeteria { get; set; }
         [Display(Name = "Perfilamiento de Clientes")]
         public bool? isClientProfile { get; set; }
     }
