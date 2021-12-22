@@ -1000,13 +1000,14 @@ html {
 /*Background-image es una variable de imagen del logo*/
 
 .site-logo--inner {
-    background-image: url("Images/slider-login/logo.png");
+    /*background-image: url("Images/slider-login/logo.png");*/
     background-repeat: no-repeat;
     content: "";
     display: inline-block;
     width: 580px;
     height: 200px;
-    background-size: 500px 180px
+    background-size: 500px 180px;
+    z-index:-1;
 }
 
 

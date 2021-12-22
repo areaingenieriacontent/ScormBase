@@ -63,12 +63,16 @@ namespace SCORM1.Controllers
                 _signInManager = value;
             }
         }
-
+        //Este metodo se utiliza para Obtener el logo de la compañia del usuario actual, para que se vea en todas las vistas.
         private string GetUrlLogo()
         {
 
             string Logo = "";
-            StylesLogos CompanyLogo = ApplicationDbContext.StylesLogos.Find(2);
+            //Se busca una lista de los stylos que tienen la compañia
+            StylesLogos CompanyLogo = ApplicationDbContext.StylesLogos.Where(x => x.companyId == null).FirstOrDefault();
+            //Si la Lista no es nula toma el nombre del logo de la compañia y la guarda en la variable Logo
+            // Si la lista es nulla se consulta una lista de todas las compañias y se escoge la primera que por defecto es la de pruebas y se guarda el nombre del logo en la variable
+            //logo.
             if (CompanyLogo != null)
             {
                 Logo = CompanyLogo.UrlLogo;
@@ -76,12 +80,12 @@ namespace SCORM1.Controllers
             else
             {
 
-                Logo = ApplicationDbContext.StylesLogos.Find(2).UrlLogo;
+                Logo = ApplicationDbContext.StylesLogos.Find(1).UrlLogo;
             }
             return Logo;
         }
 
-        //
+        // Metodo donde se muestra la Vista del formulario para el login
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)

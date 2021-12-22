@@ -252,6 +252,7 @@ namespace SCORM1.Controllers
             model.Title1 = companiesActuality.Title1;
             model.Title2 = companiesActuality.Title2;
             model.Title3 = companiesActuality.Title3;
+            model.navBarColor = companiesActuality.navBarColor;
             model.Sesion = GetActualUserId().SesionUser;
             model.Logo = GetUrlLogo();
             var table = ApplicationDbContext.TableChanges.Find(59);
@@ -311,7 +312,8 @@ namespace SCORM1.Controllers
                         Title1 = model.Title1,
                         Title2 = model.Title2,
                         Title3 = model.Title3,
-                        companyId = CompanyUser
+                        companyId = CompanyUser,
+                        navBarColor = model.navBarColor
                     };
                     ApplicationDbContext.StylesLogos.Add(style);
                     var table = ApplicationDbContext.TableChanges.Find(59);
@@ -360,6 +362,7 @@ namespace SCORM1.Controllers
                     styleToUpdate.Title1 = model.Title1;
                     styleToUpdate.Title2 = model.Title2;
                     styleToUpdate.Title3 = model.Title3;
+                    styleToUpdate.navBarColor = model.navBarColor;
                     var table = ApplicationDbContext.TableChanges.Find(59);
                     var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
                     var code = ApplicationDbContext.CodeLogs.Find(248);

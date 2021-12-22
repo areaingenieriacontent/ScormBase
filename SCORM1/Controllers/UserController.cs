@@ -3512,7 +3512,6 @@ namespace SCORM1.Controllers
             var user = UserManager.FindById(userId);
             return user;
         }
-
         /*
          *
          *

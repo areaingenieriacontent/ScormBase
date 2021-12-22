@@ -286,6 +286,7 @@
     <Compile Include="Controllers\ClientProfileController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\ContentAdminController.cs" />
+    <Compile Include="Controllers\EdutuberController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FlashTestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -356,11 +357,23 @@
     <Compile Include="Migrations\202112170626173_uno10.Designer.cs">
       <DependentUpon>202112170626173_uno10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112202306295_uno11.cs" />
+    <Compile Include="Migrations\202112202306295_uno11.Designer.cs">
+      <DependentUpon>202112202306295_uno11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112220230260_uno12.cs" />
+    <Compile Include="Migrations\202112220230260_uno12.Designer.cs">
+      <DependentUpon>202112220230260_uno12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\ClientProfile\Clasificacion.cs" />
     <Compile Include="Models\ClientProfile\Cliente.cs" />
     <Compile Include="Models\ClientProfile\Dia.cs" />
+    <Compile Include="Models\Edutuber\EdutuberEnrollment.cs" />
+    <Compile Include="Models\Edutuber\EdutuberSession.cs" />
+    <Compile Include="Models\Edutuber\EdutuberTeacherComment.cs" />
+    <Compile Include="Models\Edutuber\EdutuberUserFile.cs" />
     <Compile Include="Models\Lms\Advance.cs" />
     <Compile Include="Models\Lms\AdvanceLoseUser.cs" />
     <Compile Include="Models\Lms\AnserPairingStudent.cs" />
@@ -489,6 +502,7 @@
     <Compile Include="Models\ViewModel\ContactoModel.cs" />
     <Compile Include="Models\ViewModel\CorreoModel.cs" />
     <Compile Include="Models\ViewModel\CursoRigidoViewModel.cs" />
+    <Compile Include="Models\ViewModel\EdutuberUserVM.cs" />
     <Compile Include="Models\ViewModel\HomeViewModels.cs" />
     <Compile Include="Models\ViewModel\ICONPRIZE.cs" />
     <Compile Include="Models\ViewModel\IdentityModels.cs" />
@@ -2407,6 +2421,14 @@
     <Content Include="Views\ClientProfile\ViewClient.cshtml" />
     <Content Include="Views\ClientProfile\IndexAdmin.cshtml" />
     <Content Include="Views\ClientProfile\MassiveRegister1.cshtml" />
+    <Content Include="Views\VSDR\_Comentario.cshtml" />
+    <Content Include="Views\Edutuber\CreateEdutuber.cshtml" />
+    <Content Include="Views\Edutuber\EnrollmentMasiveEdutuber.cshtml" />
+    <Content Include="Views\Edutuber\MatriculaEdutuber.cshtml" />
+    <Content Include="Views\Edutuber\UpdateSession.cshtml" />
+    <Content Include="Views\Edutuber\EdutuberContent.cshtml" />
+    <Content Include="Views\Edutuber\EdutuberContentTeacher.cshtml" />
+    <Content Include="Views\Edutuber\EdutuberUserList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2467,6 +2489,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112170626173_uno10.resx">
       <DependentUpon>202112170626173_uno10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112202306295_uno11.resx">
+      <DependentUpon>202112202306295_uno11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112220230260_uno12.resx">
+      <DependentUpon>202112220230260_uno12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

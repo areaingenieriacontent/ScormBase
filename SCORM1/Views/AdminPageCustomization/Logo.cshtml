@@ -3,7 +3,7 @@
 @using SCORM1.Models.ViewModel
 
 @model AdminPageLogoViewModel
-
+@Html.Partial("_LoginPartial")
 
 <script src="~/Scripts/Tinymce1/tinymce.min.js"></script>
 <script src="~/Scripts/Uploadify/jquery.uploadify.min.js"></script>
@@ -20,7 +20,7 @@
         theme: "modern",
         height: 200,
         menubar: false,
-        extended_valid_elements: 'img[class:img-responsive|!src|border:0|alt|title|width:1920|height:1080|style]',
+          extended_valid_elements: 'img[class:site-logo--inner|!src]',
         invalid_elements: 'strong,b,em,i,p,h1,h2,h3,h4,h5',
         plugins: [
             "image"
@@ -31,7 +31,7 @@
 
     });
 </script>
-<br /><br /><br />
+<br />
 <div class="jumbotron">
 
     @using (Html.BeginForm("Logo", "AdminPageCustomization", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <hr />
-                 <h2> Imagenes de Fondo Inicial</h2>
+            <h2> Imagenes de Fondo Inicial</h2>
             <div class="form-group">
                 @Html.LabelFor(model => model.UrlImage1, htmlAttributes: new { @class = "control-label col-sm-2" })
                 <div class="col-sm-10">
@@ -119,6 +119,13 @@
                 <div class="col-sm-10">
                     @Html.EditorFor(model => model.Title3, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Title3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.navBarColor, htmlAttributes: new { @class = "control-label col-sm-2" })
+                <div class="col-sm-10">
+                    @Html.EditorFor(model => model.navBarColor, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.navBarColor, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">

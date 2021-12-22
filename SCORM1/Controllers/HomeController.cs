@@ -94,10 +94,8 @@ namespace SCORM1.Controllers
                     }
                     else
                     {
-                        //To-Do removed
-                        /*
                         model.Logo = ApplicationDbContext.StylesLogos.Find(1).UrlLogo;
-                        */
+                       
                     }
                     return View(model);
                 }
@@ -184,6 +182,7 @@ namespace SCORM1.Controllers
             model.UrlImage2 = CompanySearch.UrlImage2;
             model.UrlImage3 = CompanySearch.UrlImage3;
             model.UrlImage4 = CompanySearch.UrlImage4;
+            model.navBarColor = CompanySearch.navBarColor;
             model.UrlLogo = CompanySearch.UrlLogo;
             model.Login = new LoginViewModel();
             model.Sesion = SESION.Si;

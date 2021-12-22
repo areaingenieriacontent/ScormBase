@@ -2,8 +2,7 @@
 @using SCORM1.Models.ViewModel
 
 @model AdminPageCustomizationViewModel
-
-<br /><br /><br />
+@Html.Partial("_LoginPartial")
 <script src="~/Scripts/Tinymce1/tinymce.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,7 +15,7 @@
         theme: "modern",
         height: 200,
         menubar: false,
-        extended_valid_elements: 'img[class=adaptar|!src|border:0|alt|title|width:100%|height:300px|style]',
+        extended_valid_elements: 'img[!src|alt|title|width:100%|style]',
         invalid_elements: 'strong,b,em,i,p,h1,h2,h3,h4,h5',
         plugins: [
             "image"
@@ -38,7 +37,7 @@
         <form class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @for (int i = 0; i < 4; i++)
-                {
+            {
 
                 <h2> slide @i</h2>
                 @Html.HiddenFor(model => model.Banners[i].Bann_Id)

@@ -25,6 +25,7 @@ using SCORM1.Models.RigidCourse;
 using SCORM1.Models.VSDR;
 using SCORM1.Models.Survey;
 using SCORM1.Models.ClientProfile;
+using SCORM1.Models.Edutuber;
 
 namespace SCORM1.Models
 {
@@ -70,23 +71,23 @@ namespace SCORM1.Models
         public Terms_and_Conditions TermsJuego { get; set; }
         public String Foto_perfil { get; set; }
         public Int32? ComunidadActiva { get; set; }
-        public bool? hasClientProfile { get; set; }
+        public bool hasClientProfile { get; set; }
         [Display(Name = "Videoteca")]
-        public bool? ServVideoteca { get; set; }
+        public bool ServVideoteca { get; set; }
         [Display(Name = "Juegos Serios")]
-        public bool? ServJuegos { get; set; }
+        public bool ServJuegos { get; set; }
         [Display(Name = "Revista Virtual")]
-        public bool? ServRevista { get; set; }
+        public bool ServRevista { get; set; }
         [Display(Name = "Biblioteca")]
-        public bool? ServBiblioteca { get; set; }
+        public bool ServBiblioteca { get; set; }
         [Display(Name = "Aprendizaje Basado en Experiencias")]
-        public bool? ServABE { get; set; }
+        public bool ServABE { get; set; }
         [Display(Name = "Salon de Debate Interactivo")]
-        public bool? ServVSDR { get; set; }
+        public bool ServVSDR { get; set; }
         [Display(Name = "EDUTUBER")]
-        public bool? ServEdutuber { get; set; }
+        public bool ServEdutuber { get; set; }
         [Display(Name = "Cafeteria Virtual")]
-        public bool? ServCafeteria { get; set; }
+        public bool ServCafeteria { get; set; }
 
 
 
@@ -282,6 +283,12 @@ namespace SCORM1.Models
         public virtual DbSet<VsdrEnrollment> VsdrEnrollments { get; set; }
         public virtual DbSet<VsdrTeacherComment> VsdrTeacherComments { get; set; }
         public virtual DbSet<VsdrUserFile> VsdrUserFiles { get; set; }
+
+        //Virtual Syncronic Debate Room
+        public virtual DbSet<EdutuberSession> EdutuberSessions { get; set; }
+        public virtual DbSet<EdutuberEnrollment> EdutuberEnrollments { get; set; }
+        public virtual DbSet<EdutuberTeacherComment> EdutuberTeacherComments { get; set; }
+        public virtual DbSet<EdutuberUserFile> EdutuberUserFiles { get; set; }
 
         //Survey
         public virtual DbSet<SurveyModule> Surveys { get; set; }

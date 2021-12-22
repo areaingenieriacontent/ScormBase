@@ -81,23 +81,23 @@ namespace SCORM1.Models.ViewModel
         [Display(Name = "Cargo")]
         public string PositionName { get; set; }
         [Display(Name = "Perfilamiento de Clientes")]
-        public bool? hasClientProfile { get; set; }
+        public bool hasClientProfile { get; set; }
         [Display(Name = "Videoteca")]
-        public bool? ServVideoteca { get; set; }
+        public bool ServVideoteca { get; set; }
         [Display(Name = "Juegos Serios")]
-        public bool? ServJuegos { get; set; }
+        public bool ServJuegos { get; set; }
         [Display(Name = "Revista Virtual")]
-        public bool? ServRevista { get; set; }
+        public bool ServRevista { get; set; }
         [Display(Name = "Biblioteca")]
-        public bool? ServBiblioteca { get; set; }
+        public bool ServBiblioteca { get; set; }
         [Display(Name = "Aprendizaje Basado en Experiencias")]
-        public bool? ServABE { get; set; }
+        public bool ServABE { get; set; }
         [Display(Name = "Salon de Debate Interactivo")]
-        public bool? ServVSDR { get; set; }
+        public bool ServVSDR { get; set; }
         [Display(Name = "EDUTUBER")]
-        public bool? ServEdutuber { get; set; }
+        public bool ServEdutuber { get; set; }
         [Display(Name = "Cafeteria Virtual")]
-        public bool? ServCafeteria { get; set; }
+        public bool ServCafeteria { get; set; }
     }
 
     public class
