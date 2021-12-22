@@ -15,7 +15,7 @@
 <head>
     <style>
         .layer-markets {
-            background: linear-gradient(#dcdcdc,#dcdcdc);
+            background: linear-gradient(#ef9024,#ef9024);
             background-color: transparent;
             background-repeat: no-repeat;
             background-size: 100% 50%;
@@ -49,7 +49,7 @@
 
         .color-icono {
             /* Codigo a modificar de acuerdo al proyecto */
-            fill: #be1622; /*Dejo mas hexadecimales para prueba: #0077cc, #9eb000, #d64e00*/
+            fill: #ef9024; /*Dejo mas hexadecimales para prueba: #0077cc, #9eb000, #d64e00*/
         }
 
         .nombre-servicio {
@@ -80,7 +80,7 @@
                                 @Html.Raw(imageOfBanner.Bann_Image)
                                 <div class="container" style="position:relative">
                                     <div class="row justify-content-end">
-                                        <a id="btn-landing" href="@imageOfBanner.Bann_Link" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                                        <a id="btn-landing" href="@imageOfBanner.Bann_Link" target="_blank" class="button-action" style="margin-top:-12vw; border-color:#ef9024; color: #000000">CLIC AQUÍ</a>
                                     </div>
                                 </div>
                             </div>
@@ -982,8 +982,8 @@
                         }
 
                         <!-- ICONO PERFILAMIENTO DE CLIENTES  -->
-                        @if (Model.hasClientProfile == true)
-                        {
+                        @*@if (Model.hasClientProfile == true)
+                        {*@
                             <div class="servicio">
                                 <div class="grafico-servicio">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.71 171.91" style="overflow:visible;enable-background:new 0 0 235.71 171.91;" xml:space="preserve">
@@ -1099,11 +1099,11 @@
                                 <div class="nombre-servicio"><a href="@Url.Action("Index","ClientProfile")">PERFILAMIENTO DE CLIENTES</a></div>
 
                             </div>
-                        }
+                         @*}*@
 
                         <!-- ICONO EDUTUBER-->
-						@if (Model.ServEdutuber == true)
-                        {
+						@*@if (Model.ServEdutuber == true)
+                        {*@
 							 <div class="servicio">
 							     <div class="grafico-servicio">
 							         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212.86 202" style="overflow:visible;enable-background:new 0 0 212.86 202;" xml:space="preserve">
@@ -1207,7 +1207,7 @@
 							     <div class="nombre-servicio">EDUTUBER</div>
 
 							 </div>
-                        }
+                        @*}*@
                     </div>
                 </div>
 
