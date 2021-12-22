@@ -1,19 +1,4 @@
-﻿<style>
-    :root {
-        @*--color-layout: @Model.navBarColor;*@
-        --color-boton: #e76625;
-        --ruta-logo: @Model.Logo;
-    }
-    .btn-cerrar-sesion{
-        background-color: var(--color-boton);
-    }
-    .layout{
-        background-color: var(--color-layout);
-        padding: initial;
-    }
-</style>
-
-@if (Request.IsAuthenticated)
+﻿@if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
@@ -35,8 +20,9 @@
             <header class="site-header" style="visibility: visible;">
                 <div class="site-heading" style="margin-top: 50px;">
                     <div class="site-logo ">
-                        <div id="block-sitebranding" class="block block-system block-system-branding-block">
-                            <a href='@Url.Action("Index", "Home")'>
+                        <div id="block-sitebranding" class="site-logo--inner block block-system block-system-branding-block">
+                           <h1>C</h1>
+                            @*<a href='@Url.Action("Index", "Home")'>
                                 @if (Request.IsAuthenticated)
                                 {
                                     if (Model.Logo != null)
@@ -50,7 +36,7 @@
 
                                     @Html.Raw(Model.UrlLogo)
                                 }
-                            </a>
+                            </a>*@
                         </div>
                     </div>
                     <nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="main-menu block block-menu navigation menu--main">
