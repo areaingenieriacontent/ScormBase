@@ -49,6 +49,19 @@ namespace SCORM1.Models.PageCustomization
         public string colorsTittle { get; set; }
         [Display(Name = "Color de fondo del titulo ")]
         public string colorsBacgraundTitles { get; set; }
+        [Display(Name = "Color Iconos")]
+        public string colorIconos { get; set; }
+        [Display(Name = "Color Textos")]
+        public string colorTexto { get; set; }
+        [Display(Name = "Color Boton")]
+        public string colorBoton { get; set; }
+        [Display(Name = "Color Texto Boton")]
+        public string colorTextoBtn { get; set; }
+        [Display(Name = "Color Menu")]
+        public string colorMenu { get; set; }
+        [Display(Name = "Color Texto Menu")]
+        public string colorTextMenu { get; set; }
+
 
     }
 

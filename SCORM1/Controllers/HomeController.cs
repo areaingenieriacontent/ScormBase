@@ -14,6 +14,7 @@ using SCORM1.Models.PageCustomization;
 using Microsoft.Owin.Security;
 using Microsoft.AspNet.Identity.Owin;
 using System.Net.Mail;
+using SCORM1.Models.ViewModel;
 
 namespace SCORM1.Controllers
 {
@@ -132,18 +133,18 @@ namespace SCORM1.Controllers
             return user;
         }
 
-        public ActionResult ProfileAdminInformation()
-        {
-            Edition EditionToShow = ApplicationDbContext.Editions.Where(x => x.Edit_StateEdition == EDITIONSTATE.Activo).First();
-            List<Article> ListArticlesToSend = ApplicationDbContext.Articles.Where(x => x.Section.Edition.Edit_Id == EditionToShow.Edit_Id).ToList();
-            ROLES Role = GetActualUserId().Role;
-            AdminInformationHomeViewModel model = new AdminInformationHomeViewModel { EditionCurrentToActive = EditionToShow, ActualRole = Role, ListArticles = ListArticlesToSend };
-            int CompanyId = (int)GetActualUserId().CompanyId;
-            string CompanyLogo = ApplicationDbContext.StylesLogos.Where(x => x.companyId == CompanyId).FirstOrDefault().UrlLogo;
-            model.Logo = CompanyLogo;
-            model.Sesion = GetActualUserId().SesionUser;
-            return View(model);
-        }
+        //public ActionResult ProfileAdminInformation()
+        //{
+        //    Edition EditionToShow = ApplicationDbContext.Editions.Where(x => x.Edit_StateEdition == EDITIONSTATE.Activo).First();
+        //    List<Article> ListArticlesToSend = ApplicationDbContext.Articles.Where(x => x.Section.Edition.Edit_Id == EditionToShow.Edit_Id).ToList();
+        //    ROLES Role = GetActualUserId().Role;
+        //    AdminInformationHomeViewModel model = new AdminInformationHomeViewModel { EditionCurrentToActive = EditionToShow, ActualRole = Role, ListArticles = ListArticlesToSend };
+        //    int CompanyId = (int)GetActualUserId().CompanyId;
+        //    string CompanyLogo = ApplicationDbContext.StylesLogos.Where(x => x.companyId == CompanyId).FirstOrDefault().UrlLogo;
+        //    model.Logo = CompanyLogo;
+        //    model.Sesion = GetActualUserId().SesionUser;
+        //    return View(model);
+        //}
 
         public ActionResult Company(string company)
         {
@@ -229,13 +230,210 @@ namespace SCORM1.Controllers
             }
 
         }
-        public ActionResult ComunidadSocial()
+        public ActionResult ComunidadSocial(UserProfileViewModel model)
         {
-            return View();
+            var ComunidadActiva = ApplicationDbContext.Users.Find(GetActualUserId().Id).ComunidadActiva;
+            model.ComunidadActiva = ComunidadActiva;
+            var hasCliente = ApplicationDbContext.Users.Find(GetActualUserId().Id).hasClientProfile;
+            var GetModuleCompany = GetActualUserId().CompanyId;
+            try
+            {
+                //En EditionToShow se realiza la consulta para verificar que la empresa a la que corresponde el usuario logeado,
+                //tenga un registro en la tabla edition, section y article, que correspondan al CompanyID
+                Edition EditionToShow = ApplicationDbContext.Editions.Where(x => x.Edit_StateEdition == EDITIONSTATE.Activo && x.CompanyId == GetModuleCompany).First();
+                List<Article> ListArticlesToSend = ApplicationDbContext.Articles.Where(x => x.Section.Edition.Edit_Id == EditionToShow.Edit_Id).ToList();
+                var GetUserProfile = GetActualUserId().Id;
+                model = new UserProfileViewModel
+                {
+                    ActualRole = GetActualUserId().Role,
+                    EditionCurrentToActive = EditionToShow,
+                    ListArticles = ListArticlesToSend,
+                    Logo = GetUrlLogo(),
+                    ColorBarraSup = GetColorBarraSup(),
+                    ColorIconos = GetColorIconos(),
+                    ColorTextos = GetColorTextos(),
+                    ColorBoton = GetColorBoton(),
+                    ColorTextBtn = GetColorTextoBtn(),
+                    ColorMenu = GetColorMenu(),
+                    ColorTextMenu = GetColorTextMenu(),
+                    Form = new FormViewModel(),
+                    ComunidadActiva = ComunidadActiva,
+                    hasClientProfile = GetActualUserId().Company.hasClientProfile,
+                    ServVideoteca = GetActualUserId().Company.ServVideoteca,
+                    ServJuegos = GetActualUserId().Company.ServJuegos,
+                    ServRevista = GetActualUserId().Company.ServRevista,
+                    ServBiblioteca = GetActualUserId().Company.ServBiblioteca,
+                    ServABE = GetActualUserId().Company.ServABE,
+                    ServVSDR = GetActualUserId().Company.ServVSDR,
+                    ServCafeteria = GetActualUserId().Company.ServCafeteria,
+                    ServEdutuber = GetActualUserId().Company.ServEdutuber
+                };
+                model.Form.ListModule = GetModule();
+            }
+            catch (Exception)
+            {
+
+            }
+            return View(model);
         }
         public ActionResult TableroControl()
         {
             return View();
+        }
+        private string GetUrlLogo()
+        {
+            var companyId = (int)GetActualUserId().CompanyId;
+            string Logo = "";
+            StylesLogos CompanyLogo = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+            if (CompanyLogo != null)
+            {
+                Logo = CompanyLogo.UrlLogo;
+            }
+            else
+            {
+                Logo = ApplicationDbContext.StylesLogos.Find(1).UrlLogo;
+            }
+            return Logo;
+        }
+        private string GetColorBarraSup()
+        {
+
+            string ColBarraSup = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColBarraSup = CompanyValidate.navBarColor;
+
+            }
+            else
+            {
+                ColBarraSup = ApplicationDbContext.StylesLogos.Find(1).navBarColor;
+            }
+
+            return ColBarraSup;
+        }
+        private string GetColorIconos()
+        {
+
+            string ColIconos = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColIconos = CompanyValidate.colorIconos;
+
+            }
+            else
+            {
+                ColIconos = ApplicationDbContext.StylesLogos.Find(1).colorIconos;
+            }
+
+            return ColIconos;
+        }
+        private string GetColorTextos()
+        {
+
+            string ColTextos = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTextos = CompanyValidate.colorTexto;
+
+            }
+            else
+            {
+                ColTextos = ApplicationDbContext.StylesLogos.Find(1).colorTexto;
+            }
+
+            return ColTextos;
+        }
+        private string GetColorBoton()
+        {
+
+            string ColBoton = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColBoton = CompanyValidate.colorBoton;
+
+            }
+            else
+            {
+                ColBoton = ApplicationDbContext.StylesLogos.Find(1).colorBoton;
+            }
+
+            return ColBoton;
+        }
+        private string GetColorTextoBtn()
+        {
+
+            string ColTextoBtn = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTextoBtn = CompanyValidate.colorTextoBtn;
+
+            }
+            else
+            {
+                ColTextoBtn = ApplicationDbContext.StylesLogos.Find(1).colorTextoBtn;
+            }
+
+            return ColTextoBtn;
+        }
+        private string GetColorMenu()
+        {
+
+            string ColMenu = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColMenu = CompanyValidate.colorMenu;
+
+            }
+            else
+            {
+                ColMenu = ApplicationDbContext.StylesLogos.Find(1).colorMenu;
+            }
+
+            return ColMenu;
+        }
+        private string GetColorTextMenu()
+        {
+
+            string ColTextMenu = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTextMenu = CompanyValidate.colorTextMenu;
+
+            }
+            else
+            {
+                ColTextMenu = ApplicationDbContext.StylesLogos.Find(1).colorTextMenu;
+            }
+
+            return ColTextMenu;
         }
     }
 }

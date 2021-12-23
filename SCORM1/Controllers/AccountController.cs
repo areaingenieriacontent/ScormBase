@@ -84,7 +84,26 @@ namespace SCORM1.Controllers
             }
             return Logo;
         }
+        private string GetColorBarraSup()
+        {
 
+            string ColPrincipal = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColPrincipal = CompanyValidate.navBarColor;
+
+            }
+            else
+            {
+                ColPrincipal = ApplicationDbContext.StylesLogos.Find(1).navBarColor;
+            }
+
+            return ColPrincipal;
+        }
         // Metodo donde se muestra la Vista del formulario para el login
         // GET: /Account/Login
         [AllowAnonymous]

@@ -14,8 +14,20 @@
 
 <head>
     <style>
+		:root{
+        --color-BarraSup: @Model.ColorBarraSup;
+        --color-Iconos: @Model.ColorIconos;
+        --color-Textos: @Model.ColorTextos;
+        --color-Boton: @Model.ColorBoton;
+        --color-Textbtn: @Model.ColorTextBtn;
+        --color-Menu: @Model.ColorTextBtn;
+        --color-TextMenu: @Model.ColorTextBtn;
+		}
+        .colorBarraSup {
+            background-color: var(--color-BarraSup);
+        }
         .layer-markets {
-            background: linear-gradient(#ef9024,#ef9024);
+            background: linear-gradient(@Model.ColorBarraSup,@Model.ColorBarraSup);
             background-color: transparent;
             background-repeat: no-repeat;
             background-size: 100% 50%;
@@ -49,7 +61,7 @@
 
         .color-icono {
             /* Codigo a modificar de acuerdo al proyecto */
-            fill: #ef9024; /*Dejo mas hexadecimales para prueba: #0077cc, #9eb000, #d64e00*/
+            fill: var(--color-Iconos) /*Dejo mas hexadecimales para prueba: #0077cc, #9eb000, #d64e00*/
         }
 
         .nombre-servicio {
@@ -107,7 +119,7 @@
                                 @Html.Raw(imageOfBanner.Bann_Image)
                                 <div class="container" style="position:relative">
                                     <div class="row justify-content-end">
-                                        <a id="btn-landing" href="@imageOfBanner.Bann_Link" target="_blank" class="button-action" style="margin-top:-12vw; border-color:#ef9024; color: #000000">CLIC AQUÍ</a>
+                                        <a id="btn-landing" href="@imageOfBanner.Bann_Link" target="_blank" class="button-action" style="margin-top:-12vw; border-color: @Model.ColorBoton; color: @Model.ColorTextBtn">CLIC AQUÍ</a>
                                     </div>
                                 </div>
                             </div>
@@ -1251,7 +1263,7 @@
                             <div class="layer-markets alternate">
                                 <div class="container">
                                     <div class="layer-markets--container">
-                                        <h2 class="layer-markets--title field__item" style="color: #000000">
+                                        <h2 class="layer-markets--title field__item colorBarraSup" style="color: #000000">
                                             TABLERO <strong>DE CONTROL</strong>
                                         </h2>
                                         <div class="slider-markets">

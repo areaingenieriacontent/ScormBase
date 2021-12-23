@@ -27,6 +27,13 @@ namespace SCORM1.Models
 
         public string FileTerms { get; set; }
         public String Logo { get; set; }
+        public string ColorBarraSup { get; set; }
+        public string ColorIconos { get; set; }
+        public string ColorTextos { get; set; }
+        public string ColorBoton { get; set; }
+        public string ColorTextBtn { get; set; }
+        public string ColorMenu { get; set; }
+        public string ColorTextMenu { get; set; }
         public string userId { get; set; }
         public List<Enrollment> listenrrolment { get; set; }
          public virtual ApplicationUser ApplicationUser { get; set; }
