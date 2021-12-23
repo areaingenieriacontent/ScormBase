@@ -57,6 +57,18 @@
             margin-top: 10px;
             text-align: center;
         }
+        .site-logo--inner {
+            text-indent: -9999px;
+            overflow: hidden;
+            transform: translateX(-45%);
+            left: 25%;
+            top: 10px;
+            position: absolute;
+            z-index: 10;
+            width: 45%;
+            height: 45%;
+            background-position: top;
+        }
     </style>
 </head>
 <body class="path-frontpage eu-cookie-compliance-status-null eu-cookie-compliance-popup-open" style="position: relative; overflow-y: auto;">
@@ -66,6 +78,21 @@
             <div id="block-homepage-cover-local" class="block block-block-content block-block-content01f17a1b-15d1-4a30-b5f0-df2818d6a3fd">
                 <div style="position:relative">
                     <div class="slideshow-container">
+                        <div class="site-logo ">
+                            <div id="block-sitebranding" class="site-logo--inner block block-system block-system-branding-block">
+                                <h1>C</h1>
+                                <a href='@Url.Action("Index", "Home")'>
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        if (Model.Logo != null)
+                                        {
+
+                                            @Html.Raw(Model.Logo)
+                                        }
+                                    }
+                                </a>
+                            </div>
+                        </div>
                         <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
@@ -87,31 +114,31 @@
                         }
                         <!-- Full-width images with number and caption text -->
                         @*<div class="mySlides fade">
-                            <img src="~/Content/Images/slider-zona-de-informacion/slide1.jpg" style="width:100%">
-                            <div class="container" style="position:relative">
-                                <div class="row justify-content-end">
-                                    <a id="btn-landing" href="#" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
-                                </div>
-                            </div>
-                        </div>
+            <img src="~/Content/Images/slider-zona-de-informacion/slide1.jpg" style="width:100%">
+            <div class="container" style="position:relative">
+                <div class="row justify-content-end">
+                    <a id="btn-landing" href="#" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                </div>
+            </div>
+        </div>
 
-                        <div class="mySlides fade">
-                            <img src="~/Content/Images/slider-zona-de-informacion/slide2.jpg" style="width:100%">
-                            <div class="container" style="position:relative">
-                                <div class="row justify-content-end">
-                                    <a id="btn-landing" href="#" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
-                                </div>
-                            </div>
-                        </div>
+        <div class="mySlides fade">
+            <img src="~/Content/Images/slider-zona-de-informacion/slide2.jpg" style="width:100%">
+            <div class="container" style="position:relative">
+                <div class="row justify-content-end">
+                    <a id="btn-landing" href="#" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                </div>
+            </div>
+        </div>
 
-                        <div class="mySlides fade">
-                            <img src="~/Content/Images/slider-zona-de-informacion/slide3.jpg" style="width:100%">
-                            <div class="container" style="position:relative">
-                                <div class="row justify-content-end">
-                                    <a id="btn-landing" href="#" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
-                                </div>
-                            </div>
-                        </div>*@
+        <div class="mySlides fade">
+            <img src="~/Content/Images/slider-zona-de-informacion/slide3.jpg" style="width:100%">
+            <div class="container" style="position:relative">
+                <div class="row justify-content-end">
+                    <a id="btn-landing" href="#" target="_blank" class="button-action" style="margin-top:-12vw;">CLIC AQUÍ</a>
+                </div>
+            </div>
+        </div>*@
 
                         <!-- Next and previous buttons -->
                         <a class="prev" onclick="plusSlides(-1)" style="z-index:10"><img src="~/Content/Images/slider-zona-de-informacion/before-slide-icon.png" /></a>
@@ -982,8 +1009,8 @@
                         }
 
                         <!-- ICONO PERFILAMIENTO DE CLIENTES  -->
-                        @*@if (Model.hasClientProfile == true)
-                        {*@
+                        @if (Model.hasClientProfile == true)
+                        {
                             <div class="servicio">
                                 <div class="grafico-servicio">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 235.71 171.91" style="overflow:visible;enable-background:new 0 0 235.71 171.91;" xml:space="preserve">
@@ -1099,11 +1126,11 @@
                                 <div class="nombre-servicio"><a href="@Url.Action("Index","ClientProfile")">PERFILAMIENTO DE CLIENTES</a></div>
 
                             </div>
-                         @*}*@
+                         }
 
                         <!-- ICONO EDUTUBER-->
-						@*@if (Model.ServEdutuber == true)
-                        {*@
+						@if (Model.ServEdutuber == true)
+                        {
 							 <div class="servicio">
 							     <div class="grafico-servicio">
 							         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212.86 202" style="overflow:visible;enable-background:new 0 0 212.86 202;" xml:space="preserve">
@@ -1204,10 +1231,10 @@
 
 							     </div>
 
-							     <div class="nombre-servicio">EDUTUBER</div>
+                                 <div class="nombre-servicio"><a href="@Url.Action("EdutuberUserList", "Edutuber")">EDUTUBER</a></div>
 
 							 </div>
-                        @*}*@
+                        }
                     </div>
                 </div>
 
@@ -1331,7 +1358,15 @@
         alert("click1");
          @Html.ActionLink("ClickObl", "LogsComunidad")
 
-    }
+	}
+
+   function openNav() {
+       document.getElementById("myNav").style.display = "block";
+   }
+   function closeNav() {
+       document.getElementById("myNav").style.display = "none";
+   }
+
 </script>
 
 <br />

@@ -769,7 +769,7 @@ namespace SCORM1.Controllers
                 ApplicationDbContext.SaveChanges();
                 string a = GetActualUserId().Company.CompanyName;
                 AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new { company = a });
             }
             else
             {

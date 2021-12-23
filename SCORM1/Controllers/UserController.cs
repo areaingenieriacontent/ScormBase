@@ -53,7 +53,11 @@ namespace SCORM1.Controllers
             }
             return Logo;
         }
+        //private string GetColorPrimary()
+        //{
 
+        //    return ();
+        //}
         public UserController()
         {
 
@@ -619,6 +623,8 @@ namespace SCORM1.Controllers
             var GetModuleCompany = GetActualUserId().CompanyId;
             try
             {
+                //En EditionToShow se realiza la consulta para verificar que la empresa a la que corresponde el usuario logeado,
+                //tenga un registro en la tabla edition, section y article, que correspondan al CompanyID
                 Edition EditionToShow = ApplicationDbContext.Editions.Where(x => x.Edit_StateEdition == EDITIONSTATE.Activo && x.CompanyId == GetModuleCompany).First();
                 List<Article> ListArticlesToSend = ApplicationDbContext.Articles.Where(x => x.Section.Edition.Edit_Id == EditionToShow.Edit_Id).ToList();
                 var GetUserProfile = GetActualUserId().Id;
