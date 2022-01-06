@@ -73,7 +73,7 @@ namespace SCORM1.Controllers
                     {
                         string a = GetActualUserId().Company.CompanyName;
                         AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Company", new { company = a });
                     }
                     else
                     {
@@ -104,7 +104,13 @@ namespace SCORM1.Controllers
             else
             {
                 indexMain model = new indexMain();
-                model.Login = new LoginViewModel();      
+                model.Login = new LoginViewModel();
+                var CompanySearch = ApplicationDbContext.StylesLogos.Find(1);
+                model.UrlImage1 = CompanySearch.UrlImage1;
+                model.UrlImage2 = CompanySearch.UrlImage2;
+                model.UrlImage3 = CompanySearch.UrlImage3;
+                model.UrlImage4 = CompanySearch.UrlImage4;
+                model.UrlLogo = CompanySearch.UrlLogo;
                 model.Login = new LoginViewModel();
                 model.Form = new FormViewModel();
                 model.Sesion = SESION.Si;
@@ -234,51 +240,55 @@ namespace SCORM1.Controllers
         {
             var ComunidadActiva = ApplicationDbContext.Users.Find(GetActualUserId().Id).ComunidadActiva;
             model.ComunidadActiva = ComunidadActiva;
-            var hasCliente = ApplicationDbContext.Users.Find(GetActualUserId().Id).hasClientProfile;
-            var GetModuleCompany = GetActualUserId().CompanyId;
-            try
+            model = new UserProfileViewModel
             {
-                //En EditionToShow se realiza la consulta para verificar que la empresa a la que corresponde el usuario logeado,
-                //tenga un registro en la tabla edition, section y article, que correspondan al CompanyID
-                Edition EditionToShow = ApplicationDbContext.Editions.Where(x => x.Edit_StateEdition == EDITIONSTATE.Activo && x.CompanyId == GetModuleCompany).First();
-                List<Article> ListArticlesToSend = ApplicationDbContext.Articles.Where(x => x.Section.Edition.Edit_Id == EditionToShow.Edit_Id).ToList();
-                var GetUserProfile = GetActualUserId().Id;
-                model = new UserProfileViewModel
-                {
-                    ActualRole = GetActualUserId().Role,
-                    EditionCurrentToActive = EditionToShow,
-                    ListArticles = ListArticlesToSend,
-                    Logo = GetUrlLogo(),
-                    ColorBarraSup = GetColorBarraSup(),
-                    ColorIconos = GetColorIconos(),
-                    ColorTextos = GetColorTextos(),
-                    ColorBoton = GetColorBoton(),
-                    ColorTextBtn = GetColorTextoBtn(),
-                    ColorMenu = GetColorMenu(),
-                    ColorTextMenu = GetColorTextMenu(),
-                    Form = new FormViewModel(),
-                    ComunidadActiva = ComunidadActiva,
-                    hasClientProfile = GetActualUserId().Company.hasClientProfile,
-                    ServVideoteca = GetActualUserId().Company.ServVideoteca,
-                    ServJuegos = GetActualUserId().Company.ServJuegos,
-                    ServRevista = GetActualUserId().Company.ServRevista,
-                    ServBiblioteca = GetActualUserId().Company.ServBiblioteca,
-                    ServABE = GetActualUserId().Company.ServABE,
-                    ServVSDR = GetActualUserId().Company.ServVSDR,
-                    ServCafeteria = GetActualUserId().Company.ServCafeteria,
-                    ServEdutuber = GetActualUserId().Company.ServEdutuber
-                };
-                model.Form.ListModule = GetModule();
-            }
-            catch (Exception)
-            {
-
-            }
+                ActualRole = GetActualUserId().Role,
+                Logo = GetUrlLogo(),
+                ColorBarraSup = GetColorBarraSup(),
+                ColorIconos = GetColorIconos(),
+                ColorTextos = GetColorTextos(),
+                ColorBoton = GetColorBoton(),
+                ColorTextBtn = GetColorTextoBtn(),
+                ColorMenu = GetColorMenu(),
+                ColorTextMenu = GetColorTextMenu(),
+                Form = new FormViewModel(),
+                ComunidadActiva = ComunidadActiva,
+                hasClientProfile = GetActualUserId().Company.hasClientProfile,
+                ServVideoteca = GetActualUserId().Company.ServVideoteca,
+                ServJuegos = GetActualUserId().Company.ServJuegos,
+                ServRevista = GetActualUserId().Company.ServRevista,
+                ServBiblioteca = GetActualUserId().Company.ServBiblioteca,
+                ServABE = GetActualUserId().Company.ServABE,
+                ServVSDR = GetActualUserId().Company.ServVSDR,
+                ServCafeteria = GetActualUserId().Company.ServCafeteria,
+                ServEdutuber = GetActualUserId().Company.ServEdutuber
+            };
+            model.Form.ListModule = GetModule();
+            model.Logo = GetUrlLogo();
+            model.ColorBarraSup = GetColorBarraSup();
+            model.ColorIconos = GetColorIconos();
+            model.ColorTextos = GetColorTextos();
+            model.ColorBoton = GetColorBoton();
+            model.ColorTextBtn = GetColorTextoBtn();
+            model.ColorMenu = GetColorMenu();
+            model.ColorTextMenu = GetColorTextMenu();
+            model.Sesion = GetActualUserId().SesionUser;
             return View(model);
         }
-        public ActionResult TableroControl()
+        public ActionResult TableroControl(UserProfileViewModel model)
         {
-            return View();
+            var ComunidadActiva = ApplicationDbContext.Users.Find(GetActualUserId().Id).ComunidadActiva;
+            model.ComunidadActiva = ComunidadActiva;
+            model.Logo = GetUrlLogo();
+            model.ColorBarraSup = GetColorBarraSup();
+            model.ColorIconos = GetColorIconos();
+            model.ColorTextos = GetColorTextos();
+            model.ColorBoton = GetColorBoton();
+            model.ColorTextBtn = GetColorTextoBtn();
+            model.ColorMenu = GetColorMenu();
+            model.ColorTextMenu = GetColorTextMenu();
+            model.Sesion = GetActualUserId().SesionUser;
+            return View(model);
         }
         private string GetUrlLogo()
         {

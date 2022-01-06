@@ -124,12 +124,12 @@ namespace SCORM1.Controllers
 
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
-            {
-                model.Sesion = SESION.Si;
-                model.Logo = GetUrlLogo();
-                return RedirectToAction("Index", "Home");
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    model.Sesion = SESION.Si;
+            //    model.Logo = GetUrlLogo();
+            //    return RedirectToAction("Index", "Home");
+            //}
 
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
@@ -235,7 +235,7 @@ namespace SCORM1.Controllers
                     ModelState.AddModelError("", "Datos Incorrectos");
                     model.UrlLogo = GetUrlLogo();
                     model.Sesion = SESION.Si;
-                    return RedirectToAction("Index", "Home");
+                    return View(model);
             }
         }
 

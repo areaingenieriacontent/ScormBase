@@ -14,6 +14,8 @@
     <title>Content Group</title> @*se establece el nombre de la pestaña*@
     <link rel="shortcut icon" href="~/Content/Images/favicon/favicon_contentgrp.ico" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="MobileOptimized" content="width">
@@ -28,7 +30,29 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/Content/StyleHome.css")
     @Styles.Render("~/Content/style1.css")
-    
+<style>
+        :root{
+        --color-BarraSup: @Model.ColorBarraSup;
+        --color-Iconos: @Model.ColorIconos;
+        --color-Textos: @Model.ColorTextos;
+        --color-Boton: @Model.ColorBoton;
+        --color-Textbtn: @Model.ColorTextBtn;
+        --color-Menu: @Model.ColorMenu;
+        --color-TextMenu: @Model.ColorTextMenu;
+		}
+        .color-iconos{
+            color: var(--color-Iconos);
+        }
+    #btn-landing {
+        position: absolute;
+        border-color: var(--color-Boton);
+        color: var(--color-Textbtn);
+        font-family: 'Source Sans Pro';
+        font-size: 4vw;
+        text-align: center;
+        z-index: 999;
+    }
+</style>
 
 
 </head>
@@ -92,20 +116,20 @@
                 <nav role="navigation" aria-labelledby="block-sociallinks-menu" id="block-sociallinks" class="list-community block block-menu navigation menu--social-links">
                     <h2 class="list-community--title" id="block-sociallinks-menu" style="color: #000000">VISÍTANOS</h2>
                     <ul class="menu">
-                        <li class="menu-item" style="color: #000000">
-                            <a href="#" class="facebook" target="_blank">Facebook</a>
+                        <li class="menu-item">
+                            <i class="fab fa-facebook-square fa-3x color-iconos"></i>
                         </li>
-                        <li class="menu-item" style="color: #000000">
-                            <a href="#" class="twitter" target="_blank">Twitter</a>
+                        <li class="menu-item">
+                            <i class="fab fa-twitter-square fa-3x color-iconos"></i>
                         </li>
-                        <li class="menu-item" style="color: #000000">
-                            <a href="#" class="instagram" target="_blank">Instagram</a>
+                        <li class="menu-item">
+                            <i class="fab fa-instagram fa-3x color-iconos"></i>
                         </li>
-                        <li class="menu-item" style="color: #000000">
-                            <a href="#" class="youtube" target="_blank">YouTube</a>
+                        <li class="menu-item">
+                            <i class="fab fa-youtube fa-3x color-iconos"></i>
                         </li>
-                        <li class="menu-item" style="color: #000000">
-                            <a href="#" class="linkedin" target="_blank">Linkedin</a>
+                        <li class="menu-item">
+                            <i class="fab fa-linkedin fa-3x color-iconos"></i>
                         </li>
                     </ul>
                 </nav>
