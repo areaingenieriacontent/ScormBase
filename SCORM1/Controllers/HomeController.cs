@@ -60,6 +60,9 @@ namespace SCORM1.Controllers
            });
             return new SelectList(Cursos, "Value", "Text");
         }
+        /*
+        * Metodo utulizado para cargar el inicio de la plataforma, es decir es la vista principal
+        */
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)

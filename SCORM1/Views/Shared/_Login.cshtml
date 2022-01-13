@@ -2,17 +2,16 @@
 <style>
     :root{}
 </style>
-<div class="jumbotron1" id="jumbotron1" style="width:35%;height:110% 
-">
+<div class="jumbotron1" id="jumbotron1" style="width:35%;height:110% ">
     <div id="margendellogin">        
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div style="border: solid 1px #FFFFFF; border-radius: 5px; margin-bottom:50px;margin-left:50px ;margin-right:20px;margin-top:30%; padding: 10px;">
+        <div style="border: solid 1px #FFFFFF; border-radius: 5px; margin-bottom:50px;margin-left:50px ;margin-right:20px;margin-top:50%; padding: 10px;">
                     <div class="form-group">
                         <div class="row" style="margin-top:5%">
                             @*@Model.Logo*@
-                            <p><img class="img-responsive" src="/Content/Images/logo_inicial2.png" border="0" width="60%" height="80%" /></p>
+                            @*<p><img class="img-responsive" src="/Content/Images/logo_inicial2.png" border="0" width="60%" height="80%" /></p>*@
                             @*@Html.Raw(Model.UrlLogo)*@        
                             @*<div class="logo_inicial">
                                 <br />

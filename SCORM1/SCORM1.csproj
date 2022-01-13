@@ -2441,6 +2441,7 @@
     <Content Include="Views\Edutuber\EdutuberContent.cshtml" />
     <Content Include="Views\Edutuber\EdutuberContentTeacher.cshtml" />
     <Content Include="Views\Edutuber\EdutuberUserList.cshtml" />
+    <Content Include="Views\Home\IndexZenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

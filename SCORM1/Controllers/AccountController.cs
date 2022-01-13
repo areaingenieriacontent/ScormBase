@@ -16,6 +16,7 @@ using System.Net.Mail;
 using System.IO;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SCORM1.Models.PageCustomization;
+using System.Collections.Generic;
 
 namespace SCORM1.Controllers
 {
@@ -788,10 +789,14 @@ namespace SCORM1.Controllers
                 ApplicationDbContext.SaveChanges();
                 string a = GetActualUserId().Company.CompanyName;
                 AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                return RedirectToAction("Index", "Home", new { company = a });
+                return RedirectToAction("Company", "Home", new { company = a });
             }
             else
             {
+                indexMain model = new indexMain();
+                model.Form = new FormViewModel();
+                model.Sesion = SESION.Si;
+                model.Form.ListModule = GetModule();
                 AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 return RedirectToAction("Index", "Home");
             }
@@ -856,7 +861,18 @@ namespace SCORM1.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+        public IEnumerable<SelectListItem> GetModule()
+        {
 
+            var Modules = ApplicationDbContext.Modules.ToList();
+            IEnumerable<SelectListItem> Cursos = Modules.Select(x =>
+           new SelectListItem
+           {
+               Value = x.Modu_Id.ToString(),
+               Text = x.Modu_Name
+           });
+            return new SelectList(Cursos, "Value", "Text");
+        }
         internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)
@@ -885,6 +901,7 @@ namespace SCORM1.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
+
 
         #endregion
     }
