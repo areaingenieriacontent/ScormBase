@@ -313,79 +313,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111181459053_uno.cs" />
-    <Compile Include="Migrations\202111181459053_uno.Designer.cs">
-      <DependentUpon>202111181459053_uno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111190944144_uno1.cs" />
-    <Compile Include="Migrations\202111190944144_uno1.Designer.cs">
-      <DependentUpon>202111190944144_uno1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191138032_uno2.cs" />
-    <Compile Include="Migrations\202111191138032_uno2.Designer.cs">
-      <DependentUpon>202111191138032_uno2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191140004_uno3.cs" />
-    <Compile Include="Migrations\202111191140004_uno3.Designer.cs">
-      <DependentUpon>202111191140004_uno3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191147353_uno4.cs" />
-    <Compile Include="Migrations\202111191147353_uno4.Designer.cs">
-      <DependentUpon>202111191147353_uno4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111191258137_uno5.cs" />
-    <Compile Include="Migrations\202111191258137_uno5.Designer.cs">
-      <DependentUpon>202111191258137_uno5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111260159311_uno6.cs" />
-    <Compile Include="Migrations\202111260159311_uno6.Designer.cs">
-      <DependentUpon>202111260159311_uno6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111262215208_uno7.cs" />
-    <Compile Include="Migrations\202111262215208_uno7.Designer.cs">
-      <DependentUpon>202111262215208_uno7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112092232184_uno8.cs" />
-    <Compile Include="Migrations\202112092232184_uno8.Designer.cs">
-      <DependentUpon>202112092232184_uno8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112150528326_uno9.cs" />
-    <Compile Include="Migrations\202112150528326_uno9.Designer.cs">
-      <DependentUpon>202112150528326_uno9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112170626173_uno10.cs" />
-    <Compile Include="Migrations\202112170626173_uno10.Designer.cs">
-      <DependentUpon>202112170626173_uno10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112202306295_uno11.cs" />
-    <Compile Include="Migrations\202112202306295_uno11.Designer.cs">
-      <DependentUpon>202112202306295_uno11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112220230260_uno12.cs" />
-    <Compile Include="Migrations\202112220230260_uno12.Designer.cs">
-      <DependentUpon>202112220230260_uno12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112231032082_uno13.cs" />
-    <Compile Include="Migrations\202112231032082_uno13.Designer.cs">
-      <DependentUpon>202112231032082_uno13.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112231251471_uno14.cs" />
-    <Compile Include="Migrations\202112231251471_uno14.Designer.cs">
-      <DependentUpon>202112231251471_uno14.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112231504077_uno15.cs" />
-    <Compile Include="Migrations\202112231504077_uno15.Designer.cs">
-      <DependentUpon>202112231504077_uno15.cs</DependentUpon>
+    <Compile Include="Migrations\202201260252267_uno.cs" />
+    <Compile Include="Migrations\202201260252267_uno.Designer.cs">
+      <DependentUpon>202201260252267_uno.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\ClientProfile\Clasificacion.cs" />
     <Compile Include="Models\ClientProfile\Cliente.cs" />
     <Compile Include="Models\ClientProfile\Dia.cs" />
-    <Compile Include="Models\Edutuber\EdutuberEnrollment.cs" />
-    <Compile Include="Models\Edutuber\EdutuberSession.cs" />
-    <Compile Include="Models\Edutuber\EdutuberTeacherComment.cs" />
-    <Compile Include="Models\Edutuber\EdutuberUserFile.cs" />
+    <Compile Include="Models\Edutuber\EdutuberLike.cs" />
+    <Compile Include="Models\Edutuber\EdutuberVideo.cs" />
     <Compile Include="Models\Lms\Advance.cs" />
     <Compile Include="Models\Lms\AdvanceLoseUser.cs" />
     <Compile Include="Models\Lms\AnserPairingStudent.cs" />
@@ -514,7 +452,7 @@
     <Compile Include="Models\ViewModel\ContactoModel.cs" />
     <Compile Include="Models\ViewModel\CorreoModel.cs" />
     <Compile Include="Models\ViewModel\CursoRigidoViewModel.cs" />
-    <Compile Include="Models\ViewModel\EdutuberUserVM.cs" />
+    <Compile Include="Models\ViewModel\EdutuberViewModel.cs" />
     <Compile Include="Models\ViewModel\HomeViewModels.cs" />
     <Compile Include="Models\ViewModel\ICONPRIZE.cs" />
     <Compile Include="Models\ViewModel\IdentityModels.cs" />
@@ -823,6 +761,10 @@
     <Content Include="Content\Images\sistema-medicion.png" />
     <Content Include="Content\Images\sistemapuntos.jpg" />
     <Content Include="Content\Images\slide.jpg" />
+    <Content Include="Content\Images\slider-login\banner-edutuber.jpg" />
+    <Content Include="Content\Images\slider-login\banner-perfilamiento.jpg" />
+    <Content Include="Content\Images\slider-login\banner-talentos.jpg" />
+    <Content Include="Content\Images\slider-login\banner-zona-conocimiento.jpg" />
     <Content Include="Content\Images\slider-login\fondo-login.png" />
     <Content Include="Content\Images\slider-login\logo-bv-fondo-claro.png" />
     <Content Include="Content\Images\slider-login\logo-bv-fondo-oscuro.png" />
@@ -882,10 +824,83 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\Site1.css" />
     <Content Include="Content\style1.css" />
+    <Content Include="Content\styleEdutuber\animate.css" />
+    <Content Include="Content\styleEdutuber\bootstrap.min.css" />
+    <Content Include="Content\styleEdutuber\camera.css" />
+    <Content Include="Content\styleEdutuber\css\animate.css" />
+    <Content Include="Content\styleEdutuber\css\bootstrap.min.css" />
+    <Content Include="Content\styleEdutuber\css\camera.css" />
+    <Content Include="Content\styleEdutuber\css\custom.css" />
+    <Content Include="Content\styleEdutuber\css\flaticon.css" />
+    <Content Include="Content\styleEdutuber\css\font-awesome.css" />
+    <Content Include="Content\styleEdutuber\css\font-awesome.min.css" />
+    <Content Include="Content\styleEdutuber\css\owl.carousel.css" />
+    <Content Include="Content\styleEdutuber\css\prettyPhoto.css" />
+    <Content Include="Content\styleEdutuber\css\responsive.css" />
+    <Content Include="Content\styleEdutuber\css\style.css" />
+    <Content Include="Content\styleEdutuber\css\versions.css" />
+    <Content Include="Content\styleEdutuber\custom.css" />
+    <Content Include="Content\styleEdutuber\flaticon.css" />
+    <Content Include="Content\styleEdutuber\font-awesome.css" />
+    <Content Include="Content\styleEdutuber\font-awesome.min.css" />
+    <Content Include="Content\styleEdutuber\owl.carousel.css" />
+    <Content Include="Content\styleEdutuber\prettyPhoto.css" />
+    <Content Include="Content\styleEdutuber\responsive.css" />
+    <Content Include="Content\styleEdutuber\versions.css" />
     <Content Include="Content\StyleHome.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\camera.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\flaticon.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\prettyPhoto.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\versions.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Images\prettyPhoto\default\loader.gif" />
+    <Content Include="Images\prettyPhoto\default\sprite.png" />
+    <Content Include="Images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Images\prettyPhoto\light_square\sprite.png" />
     <Content Include="ImgTemplate\20170809173219-fondo_preguntas_verde.png" />
     <Content Include="ImgTemplate\20170809175237-fondo_preguntas_rojo.png" />
     <Content Include="ImgTemplate\20170809180226-cambio_de_pregunta.png" />
@@ -924,6 +939,12 @@
     <Content Include="ImgTemplate\Ranquing.png" />
     <Content Include="ImgTemplate\RESPUESTA%281%29.png" />
     <Content Include="ImgTemplate\RESPUESTA.png" />
+    <Content Include="js\all.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\headline.js" />
+    <Content Include="js\parallaxie.js" />
+    <Content Include="js\scripts.js" />
     <Content Include="Mg_Game_Image\20170906093544-giphy.gif" />
     <Content Include="Mg_Game_Image\20170906094026-giphy.gif" />
     <Content Include="Mg_Game_Image\20170906095141-fry.gif" />
@@ -1125,6 +1146,7 @@
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\filemanager\ajax_calls.php" />
     <Content Include="Scripts\filemanager\config\config.php" />
@@ -1411,6 +1433,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsEdutuber\js\all.js" />
+    <Content Include="Scripts\jsEdutuber\js\custom.js" />
+    <Content Include="Scripts\jsEdutuber\js\headline.js" />
+    <Content Include="Scripts\jsEdutuber\js\parallaxie.js" />
+    <Content Include="Scripts\jsEdutuber\js\scripts.js" />
     <Content Include="Scripts\kcfinder\browse.php" />
     <Content Include="Scripts\kcfinder\cache\base.css" />
     <Content Include="Scripts\kcfinder\cache\base.js" />
@@ -2434,18 +2461,12 @@
     <Content Include="Views\ClientProfile\IndexAdmin.cshtml" />
     <Content Include="Views\ClientProfile\MassiveRegister1.cshtml" />
     <Content Include="Views\VSDR\_Comentario.cshtml" />
-    <Content Include="Views\Edutuber\CreateEdutuber.cshtml" />
-    <Content Include="Views\Edutuber\EnrollmentMasiveEdutuber.cshtml" />
-    <Content Include="Views\Edutuber\MatriculaEdutuber.cshtml" />
-    <Content Include="Views\Edutuber\UpdateSession.cshtml" />
-    <Content Include="Views\Edutuber\EdutuberContent.cshtml" />
-    <Content Include="Views\Edutuber\EdutuberContentTeacher.cshtml" />
-    <Content Include="Views\Edutuber\EdutuberUserList.cshtml" />
     <Content Include="Views\Home\IndexZenu.cshtml" />
+    <Content Include="Views\Edutuber\Edutuber.cshtml" />
+    <Content Include="Views\Edutuber\EdutuberIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="ResourceBetterPractice\" />
     <Folder Include="ResourceImprovement\" />
     <Folder Include="ResourceNewspaper\" />
@@ -2470,53 +2491,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111181459053_uno.resx">
-      <DependentUpon>202111181459053_uno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111190944144_uno1.resx">
-      <DependentUpon>202111190944144_uno1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191138032_uno2.resx">
-      <DependentUpon>202111191138032_uno2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191140004_uno3.resx">
-      <DependentUpon>202111191140004_uno3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191147353_uno4.resx">
-      <DependentUpon>202111191147353_uno4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111191258137_uno5.resx">
-      <DependentUpon>202111191258137_uno5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111260159311_uno6.resx">
-      <DependentUpon>202111260159311_uno6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111262215208_uno7.resx">
-      <DependentUpon>202111262215208_uno7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112092232184_uno8.resx">
-      <DependentUpon>202112092232184_uno8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112150528326_uno9.resx">
-      <DependentUpon>202112150528326_uno9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112170626173_uno10.resx">
-      <DependentUpon>202112170626173_uno10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112202306295_uno11.resx">
-      <DependentUpon>202112202306295_uno11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112220230260_uno12.resx">
-      <DependentUpon>202112220230260_uno12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112231032082_uno13.resx">
-      <DependentUpon>202112231032082_uno13.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112231251471_uno14.resx">
-      <DependentUpon>202112231251471_uno14.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112231504077_uno15.resx">
-      <DependentUpon>202112231504077_uno15.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201260252267_uno.resx">
+      <DependentUpon>202201260252267_uno.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

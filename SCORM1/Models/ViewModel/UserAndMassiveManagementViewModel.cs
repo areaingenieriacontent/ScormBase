@@ -98,6 +98,8 @@ namespace SCORM1.Models.ViewModel
         public bool? ServEdutuber { get; set; }
         [Display(Name = "Cafeteria Virtual")]
         public bool? ServCafeteria { get; set; }
+        [Display(Name = "Talentos Estrategicos")]
+        public bool? ServDCO { get; set; }
     }
 
     public class

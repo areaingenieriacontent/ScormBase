@@ -50,6 +50,8 @@ namespace SCORM1.Models.SCORM1
         public bool? ServCafeteria { get; set; }
         [Display(Name = "Perfilamiento Clientes")]
         public bool? hasClientProfile { get; set; }
+        [Display(Name = "Talentos Estrategicos")]
+        public bool? ServDCO { get; set; } 
 
         
 

@@ -88,6 +88,8 @@ namespace SCORM1.Models
         public bool? ServEdutuber { get; set; }
         [Display(Name = "Cafeteria Virtual")]
         public bool? ServCafeteria { get; set; }
+        [Display(Name = "Talentos Estrategicos")]
+        public bool? ServDCO { get; set; }
 
 
 
@@ -284,11 +286,9 @@ namespace SCORM1.Models
         public virtual DbSet<VsdrTeacherComment> VsdrTeacherComments { get; set; }
         public virtual DbSet<VsdrUserFile> VsdrUserFiles { get; set; }
 
-        //Virtual Syncronic Debate Room
-        public virtual DbSet<EdutuberSession> EdutuberSessions { get; set; }
-        public virtual DbSet<EdutuberEnrollment> EdutuberEnrollments { get; set; }
-        public virtual DbSet<EdutuberTeacherComment> EdutuberTeacherComments { get; set; }
-        public virtual DbSet<EdutuberUserFile> EdutuberUserFiles { get; set; }
+        //Virtual Edutuber
+        public virtual DbSet<EdutuberVideo> EdutuberVideos { get; set; }
+        public virtual DbSet<EdutuberLike> EdutuberLikes { get; set; }
 
         //Survey
         public virtual DbSet<SurveyModule> Surveys { get; set; }

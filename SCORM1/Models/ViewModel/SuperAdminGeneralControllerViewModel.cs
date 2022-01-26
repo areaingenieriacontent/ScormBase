@@ -54,6 +54,8 @@ namespace SCORM1.Models.ViewModel
         public bool? ServiCafeteria { get; set; }
         [Display(Name = "Perfilamiento de Clientes")]
         public bool? isClientProfile { get; set; }
+        [Display(Name = "Talentos Estrategicos")]
+        public bool? ServiDCO { get; set; }
     }
 
     public class SuperAdminGeneralManagementUsersAdminOfTheCompanies : BaseViewModel

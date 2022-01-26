@@ -13,6 +13,7 @@ using PagedList;
 using PagedList.Mvc;
 using SCORM1.Models;
 using SCORM1.Models.ClientProfile;
+using SCORM1.Models.PageCustomization;
 using SCORM1.Models.ViewModel;
 
 namespace SCORM1.Controllers
@@ -38,7 +39,14 @@ namespace SCORM1.Controllers
                 cliente = new Cliente(),
                 listOfClients = db.Clientes.Where(x => x.userId == userId).ToList(),
                 listOfCalification = db.Clasificaciones.ToList(),
-                listOfDays = db.Dias.ToList()
+                listOfDays = db.Dias.ToList(),
+                ColorBarraSup = GetColorBarraSup(),
+                ColorIconos = GetColorIconos(),
+                ColorTextos = GetColorTextos(),
+                ColorBoton = GetColorBoton(),
+                ColorTextBtn = GetColorTextoBtn(),
+                ColorMenu = GetColorMenu(),
+                ColorTextMenu = GetColorTextMenu()
             };
             cl.Sesion = db.Users.Find(userId).SesionUser;
             return View(cl);
@@ -367,6 +375,146 @@ namespace SCORM1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private string GetColorBarraSup()
+        {
+
+            string ColBarraSup = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColBarraSup = CompanyValidate.navBarColor;
+
+            }
+            else
+            {
+                ColBarraSup = db.StylesLogos.Find(1).navBarColor;
+            }
+
+            return ColBarraSup;
+        }
+        private string GetColorIconos()
+        {
+
+            string ColIconos = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColIconos = CompanyValidate.colorIconos;
+
+            }
+            else
+            {
+                ColIconos = db.StylesLogos.Find(1).colorIconos;
+            }
+
+            return ColIconos;
+        }
+        private string GetColorTextos()
+        {
+
+            string ColTextos = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTextos = CompanyValidate.colorTexto;
+
+            }
+            else
+            {
+                ColTextos = db.StylesLogos.Find(1).colorTexto;
+            }
+
+            return ColTextos;
+        }
+        private string GetColorBoton()
+        {
+
+            string ColBoton = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColBoton = CompanyValidate.colorBoton;
+
+            }
+            else
+            {
+                ColBoton = db.StylesLogos.Find(1).colorBoton;
+            }
+
+            return ColBoton;
+        }
+        private string GetColorTextoBtn()
+        {
+
+            string ColTextoBtn = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTextoBtn = CompanyValidate.colorTextoBtn;
+
+            }
+            else
+            {
+                ColTextoBtn = db.StylesLogos.Find(1).colorTextoBtn;
+            }
+
+            return ColTextoBtn;
+        }
+        private string GetColorMenu()
+        {
+
+            string ColMenu = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColMenu = CompanyValidate.colorMenu;
+
+            }
+            else
+            {
+                ColMenu = db.StylesLogos.Find(1).colorMenu;
+            }
+
+            return ColMenu;
+        }
+        private string GetColorTextMenu()
+        {
+
+            string ColTextMenu = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTextMenu = CompanyValidate.colorTextMenu;
+
+            }
+            else
+            {
+                ColTextMenu = db.StylesLogos.Find(1).colorTextMenu;
+            }
+
+            return ColTextMenu;
         }
     }
 }
