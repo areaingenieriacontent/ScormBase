@@ -7,13 +7,13 @@ namespace SCORM1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class uno : IMigrationMetadata
+    public sealed partial class edutuber : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(uno));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(edutuber));
         
         string IMigrationMetadata.Id
         {
-            get { return "202201260252267_uno"; }
+            get { return "202201261711054_edutuber"; }
         }
         
         string IMigrationMetadata.Source

@@ -313,9 +313,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201260252267_uno.cs" />
-    <Compile Include="Migrations\202201260252267_uno.Designer.cs">
-      <DependentUpon>202201260252267_uno.cs</DependentUpon>
+    <Compile Include="Migrations\202201261711054_edutuber.cs" />
+    <Compile Include="Migrations\202201261711054_edutuber.Designer.cs">
+      <DependentUpon>202201261711054_edutuber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201261722007_CampoJefe-Clientes.cs" />
+    <Compile Include="Migrations\202201261722007_CampoJefe-Clientes.Designer.cs">
+      <DependentUpon>202201261722007_CampoJefe-Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
@@ -2491,8 +2495,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201260252267_uno.resx">
-      <DependentUpon>202201260252267_uno.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201261711054_edutuber.resx">
+      <DependentUpon>202201261711054_edutuber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201261722007_CampoJefe-Clientes.resx">
+      <DependentUpon>202201261722007_CampoJefe-Clientes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

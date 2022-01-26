@@ -19,6 +19,9 @@ namespace SCORM1.Models.ClientProfile
         public string identification { get; set; }
         [Display(Name = "Razón Social")]
         public string enterpriseName { get; set; }
+        [Display(Name = "Jefe de Ventas")]
+        public string SalesManager { get; set; }
+
         [ForeignKey("Clasificacion")]
         [Display(Name = "Tipo Perfil")]
         public int? idClasificacion { get; set; }
