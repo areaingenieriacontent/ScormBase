@@ -88,8 +88,7 @@ namespace SCORM1.Controllers
                     ServVSDR = model.ServiVSDR,
                     ServEdutuber = model.ServiEdutuber,
                     ServCafeteria = model.ServiCafeteria,
-                    hasClientProfile = model.isClientProfile,
-                    ServDCO = model.ServiDCO
+                    hasClientProfile = model.isClientProfile                    
                 };
                 ApplicationDbContext.Companies.Add(NewComapany);
                 ApplicationDbContext.SaveChanges();
@@ -122,8 +121,7 @@ namespace SCORM1.Controllers
                 ServiVSDR = CompanyToUpdate.ServVSDR,
                 ServiCafeteria = CompanyToUpdate.ServCafeteria,
                 ServiEdutuber = CompanyToUpdate.ServEdutuber,
-                isClientProfile = CompanyToUpdate.hasClientProfile,
-                ServiDCO = CompanyToUpdate.ServDCO
+                isClientProfile = CompanyToUpdate.hasClientProfile
             };
             TempData["UpdateCompany"] = "Se va a actualizar";
             model.Sesion = GetActualUserId().SesionUser;
@@ -150,7 +148,6 @@ namespace SCORM1.Controllers
                 companyToUpdate.ServCafeteria = model.CompanyToUpdate.ServCafeteria;
                 companyToUpdate.ServEdutuber = model.CompanyToUpdate.ServEdutuber;
                 companyToUpdate.hasClientProfile = model.CompanyToUpdate.hasClientProfile;
-                companyToUpdate.ServDCO = model.CompanyToUpdate.ServDCO;
                 ApplicationDbContext.SaveChanges();
 
                 TempData["Menssage"] = "Se Actualizo la compañia con éxito";

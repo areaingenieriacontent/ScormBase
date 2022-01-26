@@ -678,8 +678,7 @@ namespace SCORM1.Controllers
                     ServABE = GetActualUserId().Company.ServABE,
                     ServVSDR = GetActualUserId().Company.ServVSDR,
                     ServCafeteria = GetActualUserId().Company.ServCafeteria,
-                    ServEdutuber = GetActualUserId().Company.ServEdutuber,
-                    ServDCO = GetActualUserId().Company.ServDCO
+                    ServEdutuber = GetActualUserId().Company.ServEdutuber
                 };
                 model.Form.ListModule = GetModule();
             }

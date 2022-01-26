@@ -1114,10 +1114,10 @@
                         <!-- ICONO EDUTUBER-->
                         @if (Model.ServEdutuber == true)
                         {
-                    <div class="servicio">
-                        <div class="grafico-servicio">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212.86 202" style="overflow:visible;enable-background:new 0 0 212.86 202;" xml:space="preserve">
-                            <path class="color-icono" d="M28.55,93.59L28.55,93.59C28.56,93.59,28.56,93.59,28.55,93.59C28.55,93.59,28.55,93.59,28.55,93.59
+                            <div class="servicio">
+                                <div class="grafico-servicio">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212.86 202" style="overflow:visible;enable-background:new 0 0 212.86 202;" xml:space="preserve">
+                                    <path class="color-icono" d="M28.55,93.59L28.55,93.59C28.56,93.59,28.56,93.59,28.55,93.59C28.55,93.59,28.55,93.59,28.55,93.59
 	L28.55,93.59z M29.13,105.05c-0.34,1.26-0.66,2.62-0.96,4.02c-0.4,1.87-0.76,3.8-1.07,5.67c-0.42,2.49-0.76,4.85-1.01,6.76
 	c-0.07,0.53-0.13,1.01-0.19,1.46l33.16,3.56l0,0c0.21,0.02,0.42,0.03,0.64,0.03c0.21,0,0.42-0.01,0.63-0.03l0.01,0l33.16-3.56
 	c-0.08-0.62-0.17-1.31-0.27-2.06c-0.41-3.04-1.02-7.05-1.8-10.87c-0.52-2.55-1.12-5.02-1.77-7.02c-0.37-1.14-0.75-2.13-1.11-2.86
@@ -1212,16 +1212,15 @@
 	L139.62,24.88z" />
 		</svg>
 
-                        </div>
+                                </div>
 
-                        @*<div class="nombre-servicio"><a href="https://aprendeyavanza2.com.co/contentGroup/edutuber_prueba/videoteca/paginavideoteca/eduteca.html">EDUTUBER</a></div>*@
-							<div class="nombre-servicio"><a href="@Url.Action("EdutuberIndex", "Edutuber")">EDUTUBER</a></div>
-					
-                    </div>
+                                <div class="nombre-servicio"><a href="https://aprendeyavanza2.com.co/contentGroup/edutuber_prueba/videoteca/paginavideoteca/eduteca.html">EDUTUBER</a></div>
+
+                            </div>
                         }
 
                         <!-- ICONO DCO  -->
-                        @if (Model.ServDCO == true)
+                        @if (Model.hasClientProfile == true)
                         {
                             <div class="servicio">
                                 <div class="grafico-servicio">

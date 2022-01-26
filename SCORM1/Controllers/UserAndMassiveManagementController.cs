@@ -321,8 +321,7 @@ namespace SCORM1.Controllers
                     ServABE = true,
                     ServVSDR = true,
                     ServEdutuber = true,
-                    ServCafeteria = true,
-                    ServDCO = true                    
+                    ServCafeteria = true
                 };
                 string next = VerifyUserFields(UserToCreate);
 
@@ -720,8 +719,7 @@ namespace SCORM1.Controllers
                 ServABE = user.ServABE,
                 ServVSDR = user.ServVSDR,
                 ServEdutuber = user.ServEdutuber,                
-                ServCafeteria = user.ServCafeteria,
-                ServDCO = user.ServDCO
+                ServCafeteria = user.ServCafeteria
             };
             TempData["UpdateUserCurrent"] = "Actualizar";
             UserToModified.Sesion = GetActualUserId().SesionUser;
@@ -788,7 +786,6 @@ namespace SCORM1.Controllers
             user.ServVSDR = UserToModified.ServVSDR;
             user.ServEdutuber = UserToModified.ServEdutuber;
             user.ServCafeteria = UserToModified.ServCafeteria;
-            user.ServDCO = UserToModified.ServDCO;
             UserManager.RemovePassword(user.Id);
             UserManager.AddPassword(user.Id, UserToModified.UserName);
             UserManager.Update(user);
@@ -980,8 +977,7 @@ namespace SCORM1.Controllers
                                 ServABE = getcompany.ServABE,
                                 ServVSDR = getcompany.ServVSDR,
                                 ServCafeteria = getcompany.ServCafeteria,
-                                ServEdutuber = getcompany.ServEdutuber,
-                                ServDCO = getcompany.ServDCO
+                                ServEdutuber = getcompany.ServEdutuber
                             };
                             IdentityResult results = await UserManager.CreateAsync(user, user.UserName);
                             AddErrors(results);

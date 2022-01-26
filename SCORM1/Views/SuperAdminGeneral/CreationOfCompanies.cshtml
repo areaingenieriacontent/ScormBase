@@ -292,15 +292,6 @@
                                      </div>
                                  </div>
                              </div>
-                             <div class="row">
-                                 <div class="form-group col-md-6">
-                                     @Html.LabelFor(model => model.CompanyToUpdate.ServDCO, htmlAttributes: new { @class = "control-label col-md-2" })
-                                     <div class="col-md-10">
-                                         @Html.EditorFor(model => model.CompanyToUpdate.ServDCO, new { htmlAttributes = new { @class = "form-control" } })
-                                         @Html.ValidationMessageFor(model => model.CompanyToUpdate.ServDCO, "", new { @class = "text-danger" })
-                                     </div>
-                                 </div>
-                             </div>
                                  @Html.HiddenFor(x => x.CompanyToUpdate.CompanyId)
 
                                  <div class="form-group">
