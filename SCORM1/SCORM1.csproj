@@ -313,13 +313,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201261711054_edutuber.cs" />
-    <Compile Include="Migrations\202201261711054_edutuber.Designer.cs">
-      <DependentUpon>202201261711054_edutuber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202201261722007_CampoJefe-Clientes.cs" />
-    <Compile Include="Migrations\202201261722007_CampoJefe-Clientes.Designer.cs">
-      <DependentUpon>202201261722007_CampoJefe-Clientes.cs</DependentUpon>
+    <Compile Include="Migrations\202201261829251_Edutuber-campocliente.cs" />
+    <Compile Include="Migrations\202201261829251_Edutuber-campocliente.Designer.cs">
+      <DependentUpon>202201261829251_Edutuber-campocliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202201261924208_edutuberconteolike.cs" />
     <Compile Include="Migrations\202201261924208_edutuberconteolike.Designer.cs">
@@ -2503,11 +2499,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201261711054_edutuber.resx">
-      <DependentUpon>202201261711054_edutuber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202201261722007_CampoJefe-Clientes.resx">
-      <DependentUpon>202201261722007_CampoJefe-Clientes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201261829251_Edutuber-campocliente.resx">
+      <DependentUpon>202201261829251_Edutuber-campocliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201261924208_edutuberconteolike.resx">
       <DependentUpon>202201261924208_edutuberconteolike.cs</DependentUpon>

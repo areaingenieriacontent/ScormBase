@@ -3,7 +3,7 @@ namespace SCORM1.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CampoJefeClientes : DbMigration
+    public partial class Edutubercampocliente : DbMigration
     {
         public override void Up()
         {
