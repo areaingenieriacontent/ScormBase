@@ -3,10 +3,13 @@
 @using PagedList.Mvc;
 @model SCORM1.Models.ViewModel.ContactoModel
 @Html.Partial("_LoginPartial")
-@{
-    ViewBag.Title = "Index";
-    Layout = null;
-}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/StyleHome.css")
+@Styles.Render("~/Content/style1.css")
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,12 +55,16 @@
 <body>
 
     <div class="row ">
-        <div class="col-6">
+        <div class="col-6" style="padding: 1px;">
             <!--Imagen de mesa de servico se puede considerar como variable en la compañia-->
             <img src="@Model.UrlImgMesaServicio" class="img-fluid w-100">
         </div>
         <div class="col-6 gris1 text-center justify-content-center">
             <center>
+                <br />
+                <br />
+                <br />
+                <br />
                 <h4 class="text-light">MESA DE SERVICIO</h4>
                 <h5 class="text-light">NUEVA SOLICITUD</h5>
                 <form method="post">
@@ -84,11 +91,11 @@
                             <textarea placeholder="CUÉNTANOS TU SOLICITUD" class="form-control" name="descripcion" rows="3"></textarea>
                         </div>
                         @*<div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" name="privacidad" />
-                                <label style="font-size:11px " class="text-light ">
-                                    he leido y acepto la política de privacidad
-                                </label>
-                            </div>*@
+                    <input class="form-check-input" type="checkbox" value="" name="privacidad" />
+                    <label style="font-size:11px " class="text-light ">
+                        he leido y acepto la política de privacidad
+                    </label>
+                </div>*@
                     </div>
 
                     <button type="submit" class="btn rojo1 text-light">Generar ticket</button>

@@ -313,10 +313,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202201261829251_Edutuber-campocliente.cs" />
-    <Compile Include="Migrations\202201261829251_Edutuber-campocliente.Designer.cs">
-      <DependentUpon>202201261829251_Edutuber-campocliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202201261924208_edutuberconteolike.cs" />
     <Compile Include="Migrations\202201261924208_edutuberconteolike.Designer.cs">
       <DependentUpon>202201261924208_edutuberconteolike.cs</DependentUpon>
@@ -2499,9 +2495,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202201261829251_Edutuber-campocliente.resx">
-      <DependentUpon>202201261829251_Edutuber-campocliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201261924208_edutuberconteolike.resx">
       <DependentUpon>202201261924208_edutuberconteolike.cs</DependentUpon>
     </EmbeddedResource>

@@ -19,6 +19,12 @@ namespace SCORM1.Controllers
         protected ApplicationDbContext ApplicationDb { get; set; }
         protected UserManager<ApplicationUser> UserManager { get; set; }
 
+        public ContactoController()
+        {
+            ApplicationDb = new ApplicationDbContext();
+            this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.ApplicationDb));
+        }
+
         // GET: Contacto/Create
         public ActionResult Create()
         {
