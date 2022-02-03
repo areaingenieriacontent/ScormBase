@@ -1,4 +1,8 @@
-﻿@model SCORM1.Models.ViewModel.ContactoModel
+﻿@using SCORM1.Models.ViewModel;
+@using SCORM1.Enum;
+@using PagedList.Mvc;
+@model SCORM1.Models.ViewModel.ContactoModel
+@Html.Partial("_LoginPartial")
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -15,6 +19,15 @@
     <link rel="shortcut icon" href="~/Content/Images/favicon/favicon_contentgrp.ico" />
 
     <style type="text/css">
+        :root{
+        --color-BarraSup: @Model.ColorBarraSup;
+        --color-Iconos: @Model.ColorIconos;
+        --color-Textos: @Model.ColorTextos;
+        --color-Boton: @Model.ColorBoton;
+        --color-Textbtn: @Model.ColorTextBtn;
+        --color-Menu: @Model.ColorMenu;
+        --color-TextMenu: @Model.ColorTextMenu;
+		}
         .gris1 {
             background-color: #42413C;
         }
@@ -41,7 +54,7 @@
     <div class="row ">
         <div class="col-6">
             <!--Imagen de mesa de servico se puede considerar como variable en la compañia-->
-            <img src="~/Content/Images/mesa-de-servicio.png" class="img-fluid w-100">
+            <img src="@Model.UrlImgMesaServicio" class="img-fluid w-100">
         </div>
         <div class="col-6 gris1 text-center justify-content-center">
             <center>
@@ -71,11 +84,11 @@
                             <textarea placeholder="CUÉNTANOS TU SOLICITUD" class="form-control" name="descripcion" rows="3"></textarea>
                         </div>
                         @*<div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" name="privacidad" />
-                        <label style="font-size:11px " class="text-light ">
-                            he leido y acepto la política de privacidad
-                        </label>
-                    </div>*@
+                                <input class="form-check-input" type="checkbox" value="" name="privacidad" />
+                                <label style="font-size:11px " class="text-light ">
+                                    he leido y acepto la política de privacidad
+                                </label>
+                            </div>*@
                     </div>
 
                     <button type="submit" class="btn rojo1 text-light">Generar ticket</button>

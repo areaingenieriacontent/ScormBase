@@ -90,7 +90,12 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(), 
                 ColorTextBtn = GetColorTextoBtn(), 
                 ColorMenu = GetColorMenu(), 
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
             };
             userCurrent.Sesion = GetActualUserId().SesionUser;
             var table = ApplicationDbContext.TableChanges.Find(72);
@@ -276,6 +281,11 @@ namespace SCORM1.Controllers
                     model.ColorTextBtn = GetColorTextoBtn();
                     model.ColorMenu = GetColorMenu();
                     model.ColorTextMenu = GetColorTextMenu();
+                    model.TituloFooter = GetTituloFooter();
+                    model.ColortituloIndex = GetColorTituloIndex();
+                    model.UrlLogoHeader = GetUrlLogoHeader();
+                    model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+                    model.LinkSitioWeb = GetLinkSitioWeb();
                     var table = ApplicationDbContext.TableChanges.Find(72);
                     var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
                     var code = ApplicationDbContext.CodeLogs.Find(156);
@@ -325,6 +335,11 @@ namespace SCORM1.Controllers
                 model.ColorTextBtn = GetColorTextoBtn();
                 model.ColorMenu = GetColorMenu();
                 model.ColorTextMenu = GetColorTextMenu();
+                model.TituloFooter = GetTituloFooter();
+                model.ColortituloIndex = GetColorTituloIndex();
+                model.UrlLogoHeader = GetUrlLogoHeader();
+                model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+                model.LinkSitioWeb = GetLinkSitioWeb();
                 var table = ApplicationDbContext.TableChanges.Find(72);
                 var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
                 var code = ApplicationDbContext.CodeLogs.Find(156);
@@ -366,7 +381,22 @@ namespace SCORM1.Controllers
         [Authorize]
         public ActionResult TermsandConditions()
         {
-            UserProfileViewModel model = new UserProfileViewModel { ActualRole = GetActualUserId().Role, Logo = GetUrlLogo(), ColorBarraSup = GetColorBarraSup(), ColorIconos = GetColorIconos(), ColorTextos = GetColorTextos(), ColorBoton = GetColorBoton(), ColorTextBtn = GetColorTextoBtn(), ColorMenu = GetColorMenu(), ColorTextMenu = GetColorTextMenu() };
+            UserProfileViewModel model = new UserProfileViewModel { 
+                ActualRole = GetActualUserId().Role, 
+                Logo = GetUrlLogo(), 
+                ColorBarraSup = GetColorBarraSup(), 
+                ColorIconos = GetColorIconos(), 
+                ColorTextos = GetColorTextos(), 
+                ColorBoton = GetColorBoton(), 
+                ColorTextBtn = GetColorTextoBtn(), 
+                ColorMenu = GetColorMenu(), 
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+            };
             int CompanyUser = (int)GetActualUserId().CompanyId;
             var terms = ApplicationDbContext.StylesLogos.Where(x => x.companyId == CompanyUser).FirstOrDefault();
             if (terms != null)
@@ -434,7 +464,22 @@ namespace SCORM1.Controllers
         [Authorize]
         public ActionResult Videos()
         {
-            UserProfileViewModel model = new UserProfileViewModel { ActualRole = GetActualUserId().Role, Logo = GetUrlLogo(), ColorBarraSup = GetColorBarraSup(), ColorIconos = GetColorIconos(), ColorTextos = GetColorTextos(), ColorBoton = GetColorBoton(), ColorTextBtn = GetColorTextoBtn(), ColorMenu = GetColorMenu(), ColorTextMenu = GetColorTextMenu() };
+            UserProfileViewModel model = new UserProfileViewModel { 
+                ActualRole = GetActualUserId().Role, 
+                Logo = GetUrlLogo(), 
+                ColorBarraSup = GetColorBarraSup(), 
+                ColorIconos = GetColorIconos(), 
+                ColorTextos = GetColorTextos(), 
+                ColorBoton = GetColorBoton(), 
+                ColorTextBtn = GetColorTextoBtn(), 
+                ColorMenu = GetColorMenu(), 
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+            };
 
             //test anclar el pdf a la vista de Módulo intróductorio
             int CompanyUser = (int)GetActualUserId().CompanyId;
@@ -509,10 +554,18 @@ namespace SCORM1.Controllers
                 ActualRole = GetActualUserId().Role, 
                 Logo = GetUrlLogo(), 
                 ColorBarraSup = GetColorBarraSup(), 
-                ColorIconos = GetColorIconos(), ColorTextos = GetColorTextos(), 
-                ColorBoton = GetColorBoton(), ColorTextBtn = GetColorTextoBtn(),
+                ColorIconos = GetColorIconos(), 
+                ColorTextos = GetColorTextos(), 
+                ColorBoton = GetColorBoton(), 
+                ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu() };
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+            };
             model.Sesion = GetActualUserId().SesionUser;
             return PartialView("_Panel", model);
         }
@@ -668,6 +721,11 @@ namespace SCORM1.Controllers
                     ColorTextBtn = GetColorTextoBtn(),
                     ColorMenu = GetColorMenu(),
                     ColorTextMenu = GetColorTextMenu(),
+                    TituloFooter = GetTituloFooter(),
+                    ColortituloIndex = GetTituloFooter(),
+                    UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                    UrlLogoHeader = GetUrlLogoHeader(),
+                    LinkSitioWeb = GetLinkSitioWeb(),
                     Form = new FormViewModel(),
                     ComunidadActiva = ComunidadActiva,
                     hasClientProfile = GetActualUserId().Company.hasClientProfile,
@@ -820,6 +878,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             model.Sesion = GetActualUserId().SesionUser;
             var EnrollmentVirtual = Enrollment.Enrollment.Where(x => x.ApplicationUser.Id == Enrollment.Id && x.Module.Modu_TypeOfModule == CURSO.Virtual).ToList();
             var EnrollmentEvaluative = Enrollment.Enrollment.Where(x => x.ApplicationUser.Id == Enrollment.Id && x.Module.Modu_TypeOfModule == CURSO.Evaluativo).ToList();
@@ -1076,6 +1139,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             var table = ApplicationDbContext.TableChanges.Find(6);
             var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
             var code = ApplicationDbContext.CodeLogs.Find(304);
@@ -1183,6 +1251,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             return View("ViewArticle", model);
         }
 
@@ -1210,6 +1283,11 @@ namespace SCORM1.Controllers
                 model.ColorTextBtn = GetColorTextoBtn();
                 model.ColorMenu = GetColorMenu();
                 model.ColorTextMenu = GetColorTextMenu();
+                model.TituloFooter = GetTituloFooter();
+                model.ColortituloIndex = GetColorTituloIndex();
+                model.UrlLogoHeader = GetUrlLogoHeader();
+                model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+                model.LinkSitioWeb = GetLinkSitioWeb();
                 return View("ViewArticle", model);
             }
             return View();
@@ -1231,7 +1309,13 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(),
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+
             };
             model.Sesion = GetActualUserId().SesionUser;
             var table = ApplicationDbContext.TableChanges.Find(34);
@@ -1285,7 +1369,13 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(),
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+
             };
             model.Sesion = GetActualUserId().SesionUser;
             var table = ApplicationDbContext.TableChanges.Find(34);
@@ -1381,7 +1471,13 @@ namespace SCORM1.Controllers
                     ColorBoton = GetColorBoton(), 
                     ColorTextBtn = GetColorTextoBtn(),
                     ColorMenu = GetColorMenu(),
-                    ColorTextMenu = GetColorTextMenu()
+                    ColorTextMenu = GetColorTextMenu(),
+                    TituloFooter = GetTituloFooter(),
+                    ColortituloIndex = GetTituloFooter(),
+                    UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                    UrlLogoHeader = GetUrlLogoHeader(),
+                    LinkSitioWeb = GetLinkSitioWeb()
+
                 };
                 model.Sesion = GetActualUserId().SesionUser;
                 var table = ApplicationDbContext.TableChanges.Find(34);
@@ -1573,7 +1669,13 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(),
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+
             };
             model.Sesion = GetActualUserId().SesionUser;
             var table = ApplicationDbContext.TableChanges.Find(34);
@@ -1669,7 +1771,13 @@ namespace SCORM1.Controllers
                     ColorBoton = GetColorBoton(), 
                     ColorTextBtn = GetColorTextoBtn(),
                     ColorMenu = GetColorMenu(),
-                    ColorTextMenu = GetColorTextMenu()
+                    ColorTextMenu = GetColorTextMenu(),
+                    TituloFooter = GetTituloFooter(),
+                    ColortituloIndex = GetTituloFooter(),
+                    UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                    UrlLogoHeader = GetUrlLogoHeader(),
+                    LinkSitioWeb = GetLinkSitioWeb()
+
                 };
                 model.Sesion = GetActualUserId().SesionUser;
                 var table = ApplicationDbContext.TableChanges.Find(34);
@@ -1760,7 +1868,13 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(),
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
+
             };
             model.Sesion = GetActualUserId().SesionUser;
             return View(model);
@@ -1823,7 +1937,12 @@ namespace SCORM1.Controllers
                     ColorBoton = GetColorBoton(),
                     ColorTextBtn = GetColorTextoBtn(),
                     ColorMenu = GetColorMenu(),
-                    ColorTextMenu = GetColorTextMenu()
+                    ColorTextMenu = GetColorTextMenu(),
+                    TituloFooter = GetTituloFooter(),
+                    ColortituloIndex = GetTituloFooter(),
+                    UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                    UrlLogoHeader = GetUrlLogoHeader(),
+                    LinkSitioWeb = GetLinkSitioWeb()
                 };
                 model.Sesion = GetActualUserId().SesionUser;
                 var table = ApplicationDbContext.TableChanges.Find(6);
@@ -1898,6 +2017,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             var table = ApplicationDbContext.TableChanges.Find(22);
             var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
             var code = new CodeLogs();
@@ -2217,6 +2341,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             var table = ApplicationDbContext.TableChanges.Find(46);
             var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
             var code = ApplicationDbContext.CodeLogs.Find(317);
@@ -2417,6 +2546,11 @@ namespace SCORM1.Controllers
                 model.ColorTextBtn = GetColorTextoBtn();
                 model.ColorMenu = GetColorMenu();
                 model.ColorTextMenu = GetColorTextMenu();
+                model.TituloFooter = GetTituloFooter();
+                model.ColortituloIndex = GetColorTituloIndex();
+                model.UrlLogoHeader = GetUrlLogoHeader();
+                model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+                model.LinkSitioWeb = GetLinkSitioWeb();
                 model.Sesion = GetActualUserId().SesionUser;
 
                 return View(model);
@@ -2549,6 +2683,11 @@ namespace SCORM1.Controllers
                 model.ColorTextBtn = GetColorTextoBtn();
                 model.ColorMenu = GetColorMenu();
                 model.ColorTextMenu = GetColorTextMenu();
+                model.TituloFooter = GetTituloFooter();
+                model.ColortituloIndex = GetColorTituloIndex();
+                model.UrlLogoHeader = GetUrlLogoHeader();
+                model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+                model.LinkSitioWeb = GetLinkSitioWeb();
                 model.Sesion = GetActualUserId().SesionUser;
                 var table = ApplicationDbContext.TableChanges.Find(8);
                 var UserCurrent = ApplicationDbContext.Users.Find(GetActualUserId().Id);
@@ -2651,7 +2790,12 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(),
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
             };
             model.Sesion = GetActualUserId().SesionUser;
             var table = ApplicationDbContext.TableChanges.Find(8);
@@ -3352,6 +3496,11 @@ namespace SCORM1.Controllers
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
                 ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb(),
                 listcert = certi
             };
             userCurrent.Sesion = GetActualUserId().SesionUser;
@@ -3671,6 +3820,11 @@ namespace SCORM1.Controllers
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
                 ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb(),
                 Sesion = GetActualUserId().SesionUser
             };
             return View(model);
@@ -3776,7 +3930,12 @@ namespace SCORM1.Controllers
                 ColorBoton = GetColorBoton(),
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
-                ColorTextMenu = GetColorTextMenu()
+                ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb()
 
             };
 
@@ -4017,6 +4176,106 @@ namespace SCORM1.Controllers
             }
 
             return ColTextMenu;
+        }
+        private string GetColorTituloIndex()
+        {
+
+            string ColTitIndex = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTitIndex = CompanyValidate.colorTituloIndex;
+
+            }
+            else
+            {
+                ColTitIndex = ApplicationDbContext.StylesLogos.Find(1).colorTituloIndex;
+            }
+
+            return ColTitIndex;
+        }
+        private string GetTituloFooter()
+        {
+
+            string TituloFooter = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                TituloFooter = CompanyValidate.titulofooter;
+
+            }
+            else
+            {
+                TituloFooter = ApplicationDbContext.StylesLogos.Find(1).titulofooter;
+            }
+
+            return TituloFooter;
+        }
+        private string GetUrlImgMesaServicio()
+        {
+
+            string imgmesaservicio = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                imgmesaservicio = CompanyValidate.UrlImgMesaServicio;
+
+            }
+            else
+            {
+                imgmesaservicio = ApplicationDbContext.StylesLogos.Find(1).UrlImgMesaServicio;
+            }
+
+            return imgmesaservicio;
+        }
+        private string GetUrlLogoHeader()
+        {
+
+            string logohead = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                logohead = CompanyValidate.UrlLogoHeader;
+
+            }
+            else
+            {
+                logohead = ApplicationDbContext.StylesLogos.Find(1).UrlLogoHeader;
+            }
+
+            return logohead;
+        }
+        private string GetLinkSitioWeb()
+        {
+
+            string linksitioweb = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                linksitioweb = CompanyValidate.LinkSitioWeb;
+
+            }
+            else
+            {
+                linksitioweb = ApplicationDbContext.StylesLogos.Find(1).LinkSitioWeb;
+            }
+
+            return linksitioweb;
         }
     }
 }

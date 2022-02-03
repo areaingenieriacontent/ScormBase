@@ -29,9 +29,7 @@ namespace SCORM1.Controllers
         {
             var userId = User.Identity.GetUserId();
             EdutuberViewModel listvid = new EdutuberViewModel();
-
             List<EdutuberVideo> listvideo = db.EdutuberVideos.ToList();
-
             listvid.ColorBarraSup = GetColorBarraSup();
             listvid.ColorIconos = GetColorIconos();
             listvid.ColorTextos = GetColorTextos();
@@ -39,16 +37,50 @@ namespace SCORM1.Controllers
             listvid.ColorTextBtn = GetColorTextoBtn();
             listvid.ColorMenu = GetColorMenu();
             listvid.ColorTextMenu = GetColorTextMenu();
+            listvid.TituloFooter = GetTituloFooter();
+            listvid.ColortituloIndex = GetColorTituloIndex();
+            listvid.UrlLogoHeader = GetUrlLogoHeader();
+            listvid.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            listvid.LinkSitioWeb = GetLinkSitioWeb();
             listvid.ListEdutuberVideo = listvideo;
+            
 
             listvid.Sesion = db.Users.Find(userId).SesionUser;
 
             return View(listvid);
 
-            //return View(db.EdutuberVideos.Where(z => z.EduVid_Titulo.StartsWith(search) || search == null).ToList().ToPagedList(i ?? 1, 5));
-            //return View(ApplicationDbContext.EdutuberVideos.ToList());
         }
+        public int? NumLikes(int? id)
+        {
+            EdutuberLike edutuberlike = db.EdutuberLikes.Where(x => x.EduVideo_id == id && x.user_id == GetActualUserId().Id).FirstOrDefault();
 
+            if( edutuberlike == null) {
+
+                EdutuberLike insertlike = new EdutuberLike
+                {
+                    //Tengo que insertar el registro del usuario llenando los campos que tiene la tabla edutuberlike para guardar el registro de quien le dio like
+                    //Validar el estado del like, para saber si esta activo o no
+                    // y asi cambiar el boton de me gusta
+                };
+
+            }
+            else
+            {
+
+            }
+
+            int countlikes = db.EdutuberLikes.Where(x => x.EduVideo_id == id).ToList().Count;
+
+            if (countlikes < 0 || countlikes == null)
+            {
+                countlikes = 0;
+                
+
+
+            }
+            
+            return countlikes;
+        }
         // GET: Edutuber/Details/5
         public ActionResult Details(int id)
         {
@@ -266,6 +298,106 @@ namespace SCORM1.Controllers
             }
 
             return ColTextMenu;
+        }
+        private string GetColorTituloIndex()
+        {
+
+            string ColTitIndex = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTitIndex = CompanyValidate.colorTituloIndex;
+
+            }
+            else
+            {
+                ColTitIndex = db.StylesLogos.Find(1).colorTituloIndex;
+            }
+
+            return ColTitIndex;
+        }
+        private string GetTituloFooter()
+        {
+
+            string TituloFooter = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                TituloFooter = CompanyValidate.titulofooter;
+
+            }
+            else
+            {
+                TituloFooter = db.StylesLogos.Find(1).titulofooter;
+            }
+
+            return TituloFooter;
+        }
+        private string GetUrlImgMesaServicio()
+        {
+
+            string imgmesaservicio = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                imgmesaservicio = CompanyValidate.UrlImgMesaServicio;
+
+            }
+            else
+            {
+                imgmesaservicio = db.StylesLogos.Find(1).UrlImgMesaServicio;
+            }
+
+            return imgmesaservicio;
+        }
+        private string GetUrlLogoHeader()
+        {
+
+            string logohead = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                logohead = CompanyValidate.UrlLogoHeader;
+
+            }
+            else
+            {
+                logohead = db.StylesLogos.Find(1).UrlLogoHeader;
+            }
+
+            return logohead;
+        }
+        private string GetLinkSitioWeb()
+        {
+
+            string linksitioweb = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = db.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                linksitioweb = CompanyValidate.LinkSitioWeb;
+
+            }
+            else
+            {
+                linksitioweb = db.StylesLogos.Find(1).LinkSitioWeb;
+            }
+
+            return linksitioweb;
         }
 
     }

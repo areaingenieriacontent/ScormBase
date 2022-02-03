@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SCORM1.Models.ViewModel
 {
-    public class ContactoModel
+    public class ContactoModel:BaseViewModel
     {
         public string Documento { get; set; }
         public string Empresa { get; set; }

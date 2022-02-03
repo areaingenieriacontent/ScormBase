@@ -254,6 +254,11 @@ namespace SCORM1.Controllers
                 ColorTextBtn = GetColorTextoBtn(),
                 ColorMenu = GetColorMenu(),
                 ColorTextMenu = GetColorTextMenu(),
+                TituloFooter = GetTituloFooter(),
+                ColortituloIndex = GetTituloFooter(),
+                UrlImgMesaServicio = GetUrlImgMesaServicio(),
+                UrlLogoHeader = GetUrlLogoHeader(),
+                LinkSitioWeb = GetLinkSitioWeb(),
                 Form = new FormViewModel(),
                 ComunidadActiva = ComunidadActiva,
                 hasClientProfile = GetActualUserId().Company.hasClientProfile,
@@ -276,6 +281,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             model.Sesion = GetActualUserId().SesionUser;
             return View(model);
         }
@@ -291,6 +301,11 @@ namespace SCORM1.Controllers
             model.ColorTextBtn = GetColorTextoBtn();
             model.ColorMenu = GetColorMenu();
             model.ColorTextMenu = GetColorTextMenu();
+            model.TituloFooter = GetTituloFooter();
+            model.ColortituloIndex = GetColorTituloIndex();
+            model.UrlLogoHeader = GetUrlLogoHeader();
+            model.UrlImgMesaServicio = GetUrlImgMesaServicio();
+            model.LinkSitioWeb = GetLinkSitioWeb();
             model.Sesion = GetActualUserId().SesionUser;
             return View(model);
         }
@@ -448,6 +463,106 @@ namespace SCORM1.Controllers
             }
 
             return ColTextMenu;
+        }
+        private string GetColorTituloIndex()
+        {
+
+            string ColTitIndex = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                ColTitIndex = CompanyValidate.colorTituloIndex;
+
+            }
+            else
+            {
+                ColTitIndex = ApplicationDbContext.StylesLogos.Find(1).colorTituloIndex;
+            }
+
+            return ColTitIndex;
+        }
+        private string GetTituloFooter()
+        {
+
+            string TituloFooter = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                TituloFooter = CompanyValidate.titulofooter;
+
+            }
+            else
+            {
+                TituloFooter = ApplicationDbContext.StylesLogos.Find(1).titulofooter;
+            }
+
+            return TituloFooter;
+        }
+        private string GetUrlImgMesaServicio()
+        {
+
+            string imgmesaservicio = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                imgmesaservicio = CompanyValidate.UrlImgMesaServicio;
+
+            }
+            else
+            {
+                imgmesaservicio = ApplicationDbContext.StylesLogos.Find(1).UrlImgMesaServicio;
+            }
+
+            return imgmesaservicio;
+        }
+        private string GetUrlLogoHeader()
+        {
+
+            string logohead = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                logohead = CompanyValidate.UrlLogoHeader;
+
+            }
+            else
+            {
+                logohead = ApplicationDbContext.StylesLogos.Find(1).UrlLogoHeader;
+            }
+
+            return logohead;
+        }
+        private string GetLinkSitioWeb()
+        {
+
+            string linksitioweb = "";
+
+            var companyId = (int)GetActualUserId().CompanyId;
+            StylesLogos CompanyValidate = ApplicationDbContext.StylesLogos.Where(x => x.companyId == companyId).FirstOrDefault();
+
+            if (CompanyValidate != null)
+            {
+                linksitioweb = CompanyValidate.LinkSitioWeb;
+
+            }
+            else
+            {
+                linksitioweb = ApplicationDbContext.StylesLogos.Find(1).LinkSitioWeb;
+            }
+
+            return linksitioweb;
         }
     }
 }

@@ -321,6 +321,14 @@
     <Compile Include="Migrations\202201261722007_CampoJefe-Clientes.Designer.cs">
       <DependentUpon>202201261722007_CampoJefe-Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201261924208_edutuberconteolike.cs" />
+    <Compile Include="Migrations\202201261924208_edutuberconteolike.Designer.cs">
+      <DependentUpon>202201261924208_edutuberconteolike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202031609335_personalizacionfooter.cs" />
+    <Compile Include="Migrations\202202031609335_personalizacionfooter.Designer.cs">
+      <DependentUpon>202202031609335_personalizacionfooter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\ClientProfile\Clasificacion.cs" />
@@ -2500,6 +2508,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201261722007_CampoJefe-Clientes.resx">
       <DependentUpon>202201261722007_CampoJefe-Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201261924208_edutuberconteolike.resx">
+      <DependentUpon>202201261924208_edutuberconteolike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202031609335_personalizacionfooter.resx">
+      <DependentUpon>202202031609335_personalizacionfooter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

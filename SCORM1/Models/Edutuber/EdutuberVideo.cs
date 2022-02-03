@@ -25,7 +25,7 @@ namespace SCORM1.Models.Edutuber
         [Display(Name = "Url Foro Experiencias")]
         public string EduVid_UrlExpe { get; set; }
         [Display(Name = "Likes")]
-        public string EduVid_CountLike { get; set; }
+        public int? EduVid_CountLike { get; set; }
 
         [ForeignKey("company")]
         [Display(Name = "Compañia/Empresa")]

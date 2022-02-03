@@ -61,6 +61,16 @@ namespace SCORM1.Models.PageCustomization
         public string colorMenu { get; set; }
         [Display(Name = "Color Texto Menu")]
         public string colorTextMenu { get; set; }
+        [Display(Name = "Titulo Footer")]
+        public string titulofooter { get; set; }
+        [Display(Name = "Color Titulo Index")]
+        public string colorTituloIndex { get; set; }
+        [Display(Name = "Imagen Mesa De Servicio")]
+        public string UrlImgMesaServicio { get; set; }
+        [Display(Name = "Logo Header Index")]
+        public string UrlLogoHeader { get; set; }
+        [Display(Name = "Link Sitio Web de la Empresa")]
+        public string LinkSitioWeb { get; set; }
 
 
     }
