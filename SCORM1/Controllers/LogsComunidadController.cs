@@ -242,7 +242,7 @@ namespace SCORM1.Controllers
 
                 ApplicationDbContext.SaveChanges();
             }
-            return Redirect("https://aprendeyavanza2.com.co/DCOBureau/home/Loginexterno/" + result);
+            return Redirect("https://aprendeyavanza2.com.co/DCOZenu/home/Loginexterno/" + result);
 
 
         }
