@@ -61,7 +61,7 @@
         background-color: transparent;
         position:absolute;
         font-weight:700;
-        color: var(--color-Iconos);
+        color: var(--color-Iconos) !important;
 
     }
 </style>
@@ -100,10 +100,10 @@
                         <div class="container" style="position:relative">
                             <div class="row justify-content-end">
                                 <p class="titulos-footer" style=" font-size:50px; margin-top:10%; margin-right:55%">CONOCE AQUÍ</p>
-                                <a class="titulos-footer" href="https://www.finxs.co/" target="_blank" style="font-size:30px; margin-top: 15%; margin-right:40%">@Model.TituloFooter</a>
+                                <a class="titulos-footer" style="font-size:30px; margin-top: 15%; margin-right:40%">@Model.TituloFooter</a>
                             </div>
                             <div class="row justify-content-end">
-                                <a id="btn-landing" class="button-action color-btn-footer" href="https://www.finxs.co/" target="_blank" style="font-size:50px; margin-right:50px; margin-top: 30%;">CLIC AQUÍ</a>
+                                <a id="btn-landing" class="button-action color-btn-footer" href="@Model.LinkSitioWeb" target="_blank" style="font-size:50px; margin-right:50px; margin-top: 30%;">CLIC AQUÍ</a>
                             </div>
                         </div>
                         <img src="~/Content/Images/footer/slide-footer.jpg" alt=" " typeof="foaf:Image" style="width:100%;margin-bottom: -6px">
@@ -125,7 +125,7 @@
                             <a href="https://aprendeyavanza2.com.co/contentGroup/Politica_de_seguridad_de_informacion_content.pdf" target="_self" style="font-weight: 100; color:#000000">TÉRMINOS Y CONDICIONES</a>
                         </li>
                         <li class="menu-item">
-                            <a href="https://www.finxs.co/" style="font-weight: 100; color:#000000" data-drupal-link-system-path="node/526">SITIO WEB @Model.Title2</a>
+                            <a href="@Model.LinkSitioWeb" style="font-weight: 100; color:#000000" data-drupal-link-system-path="node/526">SITIO WEB @Model.Title2</a>
                         </li>
                     </ul>
                 </nav>

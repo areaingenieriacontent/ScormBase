@@ -96,9 +96,9 @@
                                 <a href='@Url.Action("Index", "Home")'>
                                     @if (Request.IsAuthenticated)
                                     {
-                                        if (Model.Logo != null)
+                                        if (Model.UrlLogoHeader != null)
                                         {
-											<p><img class="site-logo--inner" style="width: 70%; height: 40%; margin-left: 10%;" src="@Model.Logo"/></p>
+											<p><img class="site-logo--inner" style="width: 70%; height: 40%; margin-left: 10%;" src="@Model.UrlLogoHeader"/></p>
                                         }
                                     }
                                 </a>
@@ -1291,7 +1291,7 @@
 		</svg>
                                 </div>
 
-                                <div class="nombre-servicio"><a href="../logscomunidad/ClickSoftkills" target="_blank">TALENTOS ESTRATÉGICOS</a></div>
+                                <div class="nombre-servicio"><a href="../logscomunidad/ClickSoftkills" target="_blank">TALENTOS</a></div>
 
                             </div>
                         }
@@ -1311,7 +1311,7 @@
                             <div class="layer-markets alternate">
                                 <div class="container">
                                     <div class="layer-markets--container">
-                                        <h2 class="layer-markets--title field__item colorBarraSup" style="color: #000000">
+                                        <h2 class="layer-markets--title field__item colorBarraSup" style="color: @Model.ColortituloIndex">
                                             TABLERO <strong>DE CONTROL</strong>
                                         </h2>
                                         <div class="slider-markets">
