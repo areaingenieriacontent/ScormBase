@@ -1,50 +1,97 @@
 ﻿@model SCORM1.Models.LoginViewModel
 @Styles.Render("~/Content/demo.css")
 @Styles.Render("~/Content/style1.css")
-<div class="cb-slideshow1">
-    <ul>
-        <li><span>Image 01</span></li>
-        <li><span>Image 02</span></li>
-        <li><span>Image 03</span></li>
-        <li><span>Image 04</span></li>
-        <li><span>Image 05</span></li>
-        <li><span>Image 06</span></li>
-    </ul>
-</div>
-<br /><br /><br />
-<div class="center-block col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="logo_inicial"> @Html.Raw(Model.UrlLogo)</div>
-    <div class="descripcion_incial">Login</div>
-    <div class="center-block">
-        <div class="jumbotron1">
+@Styles.Render("~/Content/StyleHome.css")
+<head>
+    <style>
+        :root{
+        --color-BarraSup: @Model.ColorBarraSup;
+        --color-Iconos: @Model.ColorIconos;
+        --color-Textos: @Model.ColorTextos;
+        --color-Boton: @Model.ColorBoton;
+        --color-Textbtn: @Model.ColorTextBtn;
+        --color-Menu: @Model.ColorMenu;
+        --color-TextMenu: @Model.ColorTextMenu;
+		}
+        body {
+        background: url(@Model.UrlImage1);
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron1" id="jumbotron1" style="width:35%;height:110% ">
+        <div id="margendellogin">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-              
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
-                    <div class="col-md-8">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                <div style="border: solid 1px #FFFFFF; border-radius: 5px; margin-bottom:50px;margin-left:50px ;margin-right:20px;margin-top:50%; padding: 10px;">
+                    <div class="form-group">
+                        <div class="row" style="margin-top:5%">
+                            @*@Model.Logo*@
+                            @*<p><img class="img-responsive" src="/Content/Images/logo_inicial2.png" border="0" width="60%" height="80%" /></p>*@
+                            <img class="site-logo--inner" style="width: 80%; height: 20%; margin-top:20%;" src="@Html.Raw(Model.UrlLogo)"/>
+                            @*<div class="logo_inicial">
+                                    <br />
+                                    @Html.Raw("<div class='center-block' style='width:500px;height:200px;'>" + "<br />" + Model.UrlLogo + "</div>")
+                                </div>*@
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
-                    <div class="col-md-8">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group" style="background-color:#FFFFFF">
+                                <span class="input-group-btn">
+                                    <img src="~/Content/Images/slider-login/user-icon.png" style="background-color:#FFFFFF;margin-right:-10px;margin-left:10px;margin-top: 8px;" />
+                                </span>
+                                @Html.TextBoxFor(m => m.Email, new { @placeholder = Html.DisplayNameFor(x => x.Email), @class = "form-control", @style = "color:#000 !important;background-color: white; border:none; margin-left:5%;margin-right:5%; " })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <input type="submit" value="Ingresar" class="btn btn-info" />
-                    @*@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes:  new { @class = "btn btn-info" })*@
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group" style="background-color:#FFFFFF">
+                                <span class="input-group-btn">
+                                    <img src="~/Content/Images/slider-login/password-icon.png" style="background-color:#FFFFFF;margin-right:-13px;margin-left:10px;margin-top: 8px;" />
+                                </span>
+                                @Html.PasswordFor(m => m.Password, new { @placeholder = "Contraseña", @class = "form-control", @style = "color:#000 !important;background-color: whiter; border:none; margin-left:5%;margin-right:5%;" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="INGRESAR" style="background-color: #fc3650;color:#FFFFFF;text-align:center;margin-right:5%; margin-bottom:10%; width:100%;line-height:2;max-width:none;border-style: none;" />
 
+                            <p style="position:center;margin-top: 5%; margin-right:0%;" id="RecordarPass">
+                                @Html.ActionLink("¿Olvidaste tu contraseña?", "ForgotPassword", "Account", routeValues: null, htmlAttributes: new { @class = "", @style = "color:#fff;  background-color:transparent;" })
+
+                                <br />
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <p>
-                    @Html.ActionLink("¿Olvidó su contraseña?", "ForgotPassword", "Account", routeValues: null, htmlAttributes: new { @class = "text-danger" })
-                </p>
+
             }
-        </div>
-    </div>
-</div>
 
+        </div>
+        <div class="row justify-content-center" style="margin-top:2%">
+            <div>
+                <p style="font-family: 'Source Sans Pro'; color: white; margin-left: auto">
+                    Desarrollado por<strong>
+                        Content Group <br />
+                        Tratamiento de datos
+                    </strong>
+                </p>
+            </div>
+        </div>
+
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+                $('.dropdown-toggle').dropdown()
+            })
+
+        </script>
+
+    </div>
+</body>

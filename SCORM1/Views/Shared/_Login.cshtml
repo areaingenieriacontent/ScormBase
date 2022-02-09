@@ -12,7 +12,7 @@
                         <div class="row" style="margin-top:5%">
                             @*@Model.Logo*@
                             @*<p><img class="img-responsive" src="/Content/Images/logo_inicial2.png" border="0" width="60%" height="80%" /></p>*@
-                            @*@Html.Raw(Model.UrlLogo)*@        
+                            @Html.Raw(Model.UrlLogo)        
                             @*<div class="logo_inicial">
                                 <br />
                                 @Html.Raw("<div class='center-block' style='width:500px;height:200px;'>" + "<br />" + Model.UrlLogo + "</div>")
@@ -44,13 +44,13 @@
                     <div class="form-group">
                         <div class="col-md-12">
                             <input type="submit" value="INGRESAR" style="background-color: #fc3650;color:#FFFFFF;text-align:center;margin-right:5%; margin-bottom:10%; width:100%;line-height:2;max-width:none;border-style: none;" />
-                            <br />
-                            @*<p style="position:center;margin-top: 5%; margin-right:0%;" id="RecordarPass">
+                            
+                            <p style="position:center;margin-top: 5%; margin-right:0%;" id="RecordarPass">
                             @Html.ActionLink("¿Olvidaste tu contraseña?", "ForgotPassword", "Account", routeValues: null, htmlAttributes: new { @class = "", @style = "color:#fff;  background-color:transparent;" })
 
                             <br />
-                            <a href="https://bvtrainingcommunity.com/" style = "color:#fff;  background-color:transparent;">¿No estás registrado?</a>
-                        </p>*@
+                            @*<a href="https://bvtrainingcommunity.com/" style = "color:#fff;  background-color:transparent;">¿No estás registrado?</a>*@
+                        </p>
                         </div>
                     </div>
             </div>

@@ -74,6 +74,7 @@ namespace SCORM1.Models
     public class LoginViewModel:BaseViewModel
     {
         public string UrlLogo { get; set; }
+        public string UrlImage1 { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar un Nombre de Usuario")]
         [Display(Name = "Usuario")]
@@ -194,6 +195,7 @@ namespace SCORM1.Models
         [Display(Name = "Mail")]
         public string UserMail { get; set; }
         public string UrlLogo { get; set; }
+        public string UrlImage2 { get; set; }
     }
 
     public class ForgotPasswordConfirmationViewModel

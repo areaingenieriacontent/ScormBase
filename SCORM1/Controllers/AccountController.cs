@@ -85,6 +85,26 @@ namespace SCORM1.Controllers
             }
             return Logo;
         }
+        private string GetUrlImg1()
+        {
+
+            string Img1 = "";
+            //Se busca una lista de los stylos que tienen la compañia
+            StylesLogos CompanyImg = ApplicationDbContext.StylesLogos.Where(x => x.companyId == null).FirstOrDefault();
+            //Si la Lista no es nula toma el nombre del logo de la compañia y la guarda en la variable Logo
+            // Si la lista es nulla se consulta una lista de todas las compañias y se escoge la primera que por defecto es la de pruebas y se guarda el nombre del logo en la variable
+            //logo.
+            if (CompanyImg != null)
+            {
+                Img1 = CompanyImg.UrlImage1;
+            }
+            else
+            {
+
+                Img1 = ApplicationDbContext.StylesLogos.Find(1).UrlImage1;
+            }
+            return Img1;
+        }
         private string GetColorBarraSup()
         {
 
@@ -113,7 +133,8 @@ namespace SCORM1.Controllers
             ViewBag.ReturnUrl = returnUrl;
             LoginViewModel model = new LoginViewModel
             {
-                UrlLogo = GetUrlLogo()
+                UrlLogo = GetUrlLogo(),
+                UrlImage1 = GetUrlImg1() 
             };
             return View(model);
         }
@@ -235,6 +256,7 @@ namespace SCORM1.Controllers
                 default:
                     ModelState.AddModelError("", "Datos Incorrectos");
                     model.UrlLogo = GetUrlLogo();
+                    model.UrlImage1 = GetUrlImg1();
                     model.Sesion = SESION.Si;
                     return View(model);
             }
@@ -395,10 +417,13 @@ namespace SCORM1.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
-            var CompanySearch = ApplicationDbContext.StylesLogos.Find(2);
+            var CompanySearch = ApplicationDbContext.StylesLogos.Find(1);
+            
             ForgotPasswordViewModel model = new ForgotPasswordViewModel
             {
+                
                 UrlLogo = CompanySearch.UrlLogo,
+                UrlImage2 = CompanySearch.UrlImage2,
                 Sesion = SESION.Si
             };
             return View(model);
