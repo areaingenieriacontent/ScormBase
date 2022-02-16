@@ -103,7 +103,7 @@ namespace SCORM1.Models.ViewModel
     }
 
     public class
-         comoustdlollame
+         comoustdlollame:BaseViewModel
     {
         public DataTable data { get; set; }
         public string Logo { get; set; }
