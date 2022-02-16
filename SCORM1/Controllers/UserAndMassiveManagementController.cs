@@ -1710,7 +1710,7 @@ namespace SCORM1.Controllers
                 solicitud.IsBodyHtml = true;
                 var smtp2 = new SmtpClient();
 
-                smtp2.Send(solicitud);
+                //smtp2.Send(solicitud);
             }
             catch (Exception)
             {

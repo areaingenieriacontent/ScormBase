@@ -55,8 +55,8 @@ namespace SCORM1.Controllers
         {
             ApplicationDb = new ApplicationDbContext();
             MailMessage correo = new MailMessage();
-            correo.From = new MailAddress("info@bvtrainingcommunity.com");
-            correo.To.Add("bureauveritassoporte@gmail.com");
+            correo.From = new MailAddress("mesadeservicio@contentgrp.com");
+            correo.To.Add("mesadeservicio@contentgrp.com");
             correo.Subject = categoria + identificacion;
             string caso = "El usuario " + nombres + " identicado con el numero " + identificacion + " genero un nuevo caso de soporte: ";
             correo.Body = caso + descripcion;
