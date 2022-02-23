@@ -7,12 +7,12 @@
 <div id="encabezadocursos">
     <img src="~/Content/Images/debate/banner-salon-de-debate.jpg" style="height:200px;width:100%" />
 </div>
-<div id="hiperlink">
+@*<div id="hiperlink">
     <img src="~/Content/Images/icon-home.png" alt="" style="margin-left:5%;width:25px" />
     <a href="@Url.Action("Index", "Home")" style="font-weight: bolder">INICIO/</a>
     <a href="@Url.Action("ComunidadSocial", "Home")" style="font-weight: bolder">SERVICIOS /</a>
     <a href="@Url.Action("VsdrUserList", "VSDR")" style="font-weight: bolder; color:#FC3650">SALÓN DE DEBATE</a>
-</div>
+</div>*@
 <br />
 <br />
 <div class="container">
@@ -21,13 +21,13 @@
     <br />
     <div class="container">
         <div class="row justify-content-around align-items-center">
-            <div>@Html.ActionLink("MANUAL DE USO - ESTUDIANTE", "", "", new { @class = "button-action btn-responsive" })</div>
+            <div>@Html.ActionLink("MANUAL DE USO - ESTUDIANTE", "", "", new { @class = "button-action btn-responsive", @Style = "color: var(--color-Boton); border-color: var(--color-Boton);" })</div>
             @*<div>@Html.ActionLink("MANUAL DE USO - DOCENTE", "", "", new { @class = "button-action btn-responsive" })</div>*@
         </div>
     </div>
     <br />
     <br />
-    <p style="text-align:center; font-weight: bolder; color:#FC3650">DEBATES DISPONIBLES </p>
+    <p style="text-align:center; font-weight: bolder; color: @Model.ColorIconos">DEBATES DISPONIBLES </p>
     <br />
     <br />
     <br />

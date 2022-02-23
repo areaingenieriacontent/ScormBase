@@ -28,8 +28,9 @@ namespace SCORM1.Controllers
         public ActionResult EdutuberIndex(/*string search, int? i*/)
         {
             var userId = User.Identity.GetUserId();
+            var companyId = (int)GetActualUserId().CompanyId;
             EdutuberViewModel listvid = new EdutuberViewModel();
-            List<EdutuberVideo> listvideo = db.EdutuberVideos.ToList();
+            List<EdutuberVideo> listvideo = db.EdutuberVideos.OrderBy(x => x.EduVideo_id).Where(x => x.company.CompanyId == companyId).ToList();
             listvid.ColorBarraSup = GetColorBarraSup();
             listvid.ColorIconos = GetColorIconos();
             listvid.ColorTextos = GetColorTextos();
@@ -43,12 +44,8 @@ namespace SCORM1.Controllers
             listvid.UrlImgMesaServicio = GetUrlImgMesaServicio();
             listvid.LinkSitioWeb = GetLinkSitioWeb();
             listvid.ListEdutuberVideo = listvideo;
-            
-
             listvid.Sesion = db.Users.Find(userId).SesionUser;
-
             return View(listvid);
-
         }
         public int? NumLikes(int? id)
         {
