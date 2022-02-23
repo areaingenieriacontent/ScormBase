@@ -55,7 +55,7 @@ namespace SCORM1.Controllers
         {
             ApplicationDb = new ApplicationDbContext();
             MailMessage correo = new MailMessage();
-            correo.From = new MailAddress("mesadeservicio@contentgrp.com");
+            correo.From = new MailAddress("mesadeserviciocontentgrp@gmail.com");
             correo.To.Add("mesadeservicio@contentgrp.com");
             correo.Subject = categoria + identificacion;
             string caso = "El usuario " + nombres + " identicado con el numero " + identificacion + " genero un nuevo caso de soporte: ";
@@ -109,7 +109,7 @@ namespace SCORM1.Controllers
         {
             ApplicationDb = new ApplicationDbContext();
             MailMessage correo = new MailMessage();
-            correo.From = new MailAddress("info@bvtrainingcommunity.com");
+            correo.From = new MailAddress("mesadeserviciocontentgrp@gmail.com");
             correo.To.Add(correos);
             correo.Subject = "Inquietud a la mesa de servicio Bureau Veritas";
             string caso = "Acabamos de recibir tu mensaje. Nuestro equipo de trabajo analizará tu solicitud para determinar el nivel de complejidad."+'\n'+
