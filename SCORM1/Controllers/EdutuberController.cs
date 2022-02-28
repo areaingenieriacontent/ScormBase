@@ -316,6 +316,7 @@ namespace SCORM1.Controllers
 
             return ColTitIndex;
         }
+        //Metodo para obtener el link de la pagina de la empresa.
         private string GetTituloFooter()
         {
 
